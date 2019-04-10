@@ -61,6 +61,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -75,6 +76,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"container\">\n");
       out.write("            <div class=\"row\">\n");
       out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\n");
+      out.write("                    <div class=\"row\">&nbsp;</div>\n");
+      out.write("                    <div class=\"row\">&nbsp;</div>\n");
       out.write("                    <h2>");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
@@ -89,10 +92,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write("</label>\n");
-      out.write("                            <input type=\"text\" class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
+      out.write("                            <input type=\"text\"  class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\" required=\"\">\n");
+      out.write("\" \n");
+      out.write("                                   required=\"\" onkeyup=\"this.value=Numeros(this.value)>\n");
+      out.write("                            ");
+      out.write("\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"form-group\">\n");
       out.write("                            <label for=\"contra\">");
@@ -111,6 +117,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</button>\n");
       out.write("                        </div>\n");
       out.write("                    </form>\n");
+      out.write("                    <script>\n");
+      out.write("                        function Numeros(string){//Solo numeros\n");
+      out.write("var out = '';\n");
+      out.write("var filtro = 'abcdefghijklmnñopqrstuvwxy@z._';//Caracteres validos\n");
+      out.write("\t\n");
+      out.write("//Recorrer el texto y verificar si el caracter se encuentra en la lista de validos \n");
+      out.write("for (var i=0; i<string.length; i++)\n");
+      out.write("   if (filtro.indexOf(string.charAt(i)) != -1) \n");
+      out.write("         //Se añaden a la salida los caracteres validos\n");
+      out.write("         out += string.charAt(i);\n");
+      out.write("\t\n");
+      out.write("//Retornar valor filtrado\n");
+      out.write("return out;\n");
+      out.write("} \n");
+      out.write("                    </script>\n");
+      out.write("                            \n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
@@ -137,7 +159,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("label.iniciarsesiontitle");
+    _jspx_th_fmt_message_0.setKey("label.logintitle");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
@@ -161,7 +183,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       do {
         out.write("\n");
         out.write("                        <div class=\"alert alert-danger\">\n");
-        out.write("                            <strong>Error!</strong>");
+        out.write("                            <strong>Error! </strong>");
         if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
           return true;
         out.write("\n");
@@ -206,7 +228,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("label.usuario");
+    _jspx_th_fmt_message_1.setKey("label.correo");
     int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
     if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
@@ -224,7 +246,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("label.usuario");
+    _jspx_th_fmt_message_2.setKey("label.correo");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
@@ -278,7 +300,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_5.setParent(null);
-    _jspx_th_fmt_message_5.setKey("label.iniciarsesion");
+    _jspx_th_fmt_message_5.setKey("label.login");
     int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
     if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
