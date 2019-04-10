@@ -57,87 +57,70 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta charset=\"utf-8\">\n");
-      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\n");
-      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\n");
-      out.write("        <title>Login</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta charset=\"utf-8\">\r\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\r\n");
+      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\r\n");
+      out.write("        <title>Login</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\r\n");
+      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
+      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
       out.write("                    <h2>");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("</h2>\n");
+      out.write("</h2>\r\n");
       out.write("                    ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("                    <form role=\"form\" action=\"Plogin.jsp\" method=\"post\">\n");
-      out.write("                        <div class=\"form-group\">\n");
+      out.write("\r\n");
+      out.write("                    <form role=\"form\" action=\"Plogin.jsp\" method=\"post\">\r\n");
+      out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <label for=\"correo\">");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
-      out.write("</label>\n");
+      out.write("</label>\r\n");
       out.write("                            <input type=\"text\"  class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\" \n");
-      out.write("                                   required=\"\" onkeyup=\"this.value=Numeros(this.value)>\n");
+      out.write("\" required=\"\">\r\n");
       out.write("                            ");
-      out.write("\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
+      out.write("\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <label for=\"contra\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("</label>\n");
+      out.write("</label>\r\n");
       out.write("                            <input type=\"password\" class=\"form-control\" id=\"contra\" name=\"contra\" placeholder=\"");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
-      out.write("\" required=\"\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
+      out.write("\" required=\"\">\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
-      out.write("</button>\n");
-      out.write("                        </div>\n");
-      out.write("                    </form>\n");
-      out.write("                    <script>\n");
-      out.write("                        function Numeros(string){//Solo numeros\n");
-      out.write("var out = '';\n");
-      out.write("var filtro = 'abcdefghijklmnñopqrstuvwxy@z._';//Caracteres validos\n");
-      out.write("\t\n");
-      out.write("//Recorrer el texto y verificar si el caracter se encuentra en la lista de validos \n");
-      out.write("for (var i=0; i<string.length; i++)\n");
-      out.write("   if (filtro.indexOf(string.charAt(i)) != -1) \n");
-      out.write("         //Se añaden a la salida los caracteres validos\n");
-      out.write("         out += string.charAt(i);\n");
-      out.write("\t\n");
-      out.write("//Retornar valor filtrado\n");
-      out.write("return out;\n");
-      out.write("} \n");
-      out.write("                    </script>\n");
-      out.write("                            \n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("</button>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </form>                    \r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -181,13 +164,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\n");
-        out.write("                        <div class=\"alert alert-danger\">\n");
+        out.write("\r\n");
+        out.write("                        <div class=\"alert alert-danger\">\r\n");
         out.write("                            <strong>Error! </strong>");
         if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
           return true;
-        out.write("\n");
-        out.write("                        </div>\n");
+        out.write("\r\n");
+        out.write("                        </div>\r\n");
         out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
