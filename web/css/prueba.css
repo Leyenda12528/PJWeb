@@ -1,0 +1,8 @@
+img{
+    width: 100%;
+    clip-path: circle(100px at 50% 150px);
+    transition: clip-path .3s;    
+}
+img:hover{
+    clip-path: circle(800px at center);
+}
