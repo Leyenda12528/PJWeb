@@ -40,6 +40,10 @@
                     <h2>Texto Enviado</h2>
                     <input type="text" value="${prueba}">
                     
+                    <form action="Menu.jsp" method="post">
+                        <input type="hidden" name="id" value="${texto}"/>
+                        <input type="submit" class="form-control" value="Enviar"/>
+                    </form>
                     <%--<form action="prueba.jsp" method="post">
                         <label class="form-control" id="pru" name="pru">Probando</label>
                         <input type="submit" value="Enviar"/>
