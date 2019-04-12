@@ -30,7 +30,7 @@
         </sql:query>
        
         <c:if test="${q1.rowCount < 1}">
-            <c:redirect url="index.jsp">                                                
+            <c:redirect url="login.jsp">                                                
                  <c:param name="error" value="Usuario/Contraseña Incorrecto"/>
             </c:redirect>
         </c:if>                    
