@@ -18,15 +18,14 @@
 
     </head>
     <body>
-      <div class="container">
-            <h3><fmt:message key="label.mantenimiento"/></h3>
+
+    <div class="container"  style="margin-left: 15px">
+        <div class="row">
+             <h3><fmt:message key="label.mantenimiento"/></h3>
             <p>
             <h5><fmt:message key="label.infoe"/></h5>
-
-
-        </div> 
-    <div class="container">
-        
+        </div>
+       
            
             <div class="row col-md-5">
                 <form role="form" action="mantenimiento.jsp"  method="POST" id="needs-validation" > <%--cambiar pagina JSP  --%>
