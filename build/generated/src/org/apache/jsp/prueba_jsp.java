@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class prueba_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -74,12 +74,11 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta charset=\"utf-8\">\n");
-      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/prueba.css\">\n");
       out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\n");
-      out.write("        <title>Menu</title>\n");
+      out.write("        <title>Login</title>\n");
+      out.write("        <title>Probar Session</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
@@ -90,55 +89,23 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_set_1(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("        ");
-      if (_jspx_meth_c_set_2(_jspx_page_context))
-        return;
-      out.write("\n");
+      out.write("        \n");
       out.write("        ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("        \n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">&nbsp;</div>\n");
-      out.write("            <div class=\"panel panel-primary\">\n");
-      out.write("                <div class=\"panel-heading\">");
+      out.write("        <h1>Hello World!</h1>\n");
+      out.write("        <p>");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
-        return;
-      out.write("</div>\n");
-      out.write("                <div class=\"panel-body\">\n");
-      out.write("                    <p>");
-      if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write(" <strong>");
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
-      out.write("</strong></p>\n");
-      out.write("                    <a href=\"prueba.jsp\">Probando Session</a>\n");
-      out.write("                    <br/>\n");
-      out.write("                    <h2>Texto a Enviar</h2>\n");
-      out.write("                    <a href=\"Menu.jsp?id=");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${texto}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" class=\"form-control\">");
-      if (_jspx_meth_c_out_1(_jspx_page_context))
-        return;
-      out.write("</a>\n");
-      out.write("                    <h2>Texto Enviado</h2>\n");
-      out.write("                    <input type=\"text\" value=\"");
+      out.write("</strong></p>        \n");
+      out.write("        <input type=\"text\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${prueba}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">\n");
-      out.write("                    \n");
-      out.write("                    <form action=\"Menu.jsp\" method=\"post\">\n");
-      out.write("                        <input type=\"hidden\" name=\"id\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${texto}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"/>\n");
-      out.write("                        <input type=\"submit\" class=\"form-control\" value=\"Enviar\"/>\n");
-      out.write("                    </form>\n");
-      out.write("                    ");
-      out.write("\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
+      out.write("        <img src=\"Imas/prueba.jpg\">\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
@@ -181,33 +148,14 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_1 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
     _jspx_th_c_set_1.setPageContext(_jspx_page_context);
     _jspx_th_c_set_1.setParent(null);
-    _jspx_th_c_set_1.setVar("texto");
-    _jspx_th_c_set_1.setValue(new String("Musica probando XD"));
+    _jspx_th_c_set_1.setVar("prueba");
+    _jspx_th_c_set_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_set_1 = _jspx_th_c_set_1.doStartTag();
     if (_jspx_th_c_set_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_1);
       return true;
     }
     _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_set_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_2 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_2.setParent(null);
-    _jspx_th_c_set_2.setVar("prueba");
-    _jspx_th_c_set_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_set_2 = _jspx_th_c_set_2.doStartTag();
-    if (_jspx_th_c_set_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_2);
-      return true;
-    }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_2);
     return false;
   }
 
@@ -289,7 +237,7 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_param_0.setPageContext(_jspx_page_context);
     _jspx_th_c_param_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_redirect_0);
     _jspx_th_c_param_0.setName("error");
-    _jspx_th_c_param_0.setValue("Inicie Sesion PrimeroM");
+    _jspx_th_c_param_0.setValue("Session :C");
     int _jspx_eval_c_param_0 = _jspx_th_c_param_0.doStartTag();
     if (_jspx_th_c_param_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_param_value_name_nobody.reuse(_jspx_th_c_param_0);
@@ -307,31 +255,13 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("label.bienvenido");
+    _jspx_th_fmt_message_0.setKey("label.usuario");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("label.usuario");
-    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
-    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
-      return true;
-    }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
     return false;
   }
 
@@ -350,24 +280,6 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_1.setParent(null);
-    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${texto}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
-    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
     return false;
   }
 }

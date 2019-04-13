@@ -19,7 +19,7 @@
         <title>PLogin</title>
     </head>
     <body>
-        <%String correo=request.getParameter("correo");%>
+        <%String correo = request.getParameter("correo");%>
         <c:set var="correo" value="${param.correo}"/>
         <c:set var="contra" value="${param.contra}"/>        
         

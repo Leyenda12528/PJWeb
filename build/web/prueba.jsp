@@ -19,12 +19,21 @@
     <body>
         <c:set var="usuario" value="${sessionScope['loginUser']}"/>
         <c:set var="prueba" value="${param.id}"/>
+        <%
+            request.setAttribute("prueba", "dato de prueba");
+        %>
         
         <c:if test="${empty usuario}">
             <c:redirect url="Login.jsp">
                 <c:param name="error" value="Session :C"/>
             </c:redirect>
         </c:if>
+        <h1>Hello World!</h1>
+        <h1>Hello World!</h1>
+        <hr>
+        <a class="nav-link" href="#" onclick="index.html">
+                    <i class="fas fa-sitemap"></i>
+                    <span>Distribución</span></a>
         <h1>Hello World!</h1>
         <p><fmt:message key="label.usuario"/> <strong><c:out value="${usuario}"/></strong></p>        
         <input type="text" value="${prueba}"/>

@@ -15,30 +15,26 @@
         <title>Solicitud</title>
     </head>
     <body>
-                   
+
         <div class="container">
             <h3>Solicitar caso</h3>
-            <p>
-          
-       
-        
-    </div> 
+        </div> 
     <div class="container">
         <div class="row">
             <h3></h3>
         </div>
         <div class="row col-md-5">
+            
             <form role="form" action=""  method="POST" id="needs-validation" > <%--cambiar pagina JSP  --%>
                 <div class="col-md-10">
                     <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Campos requeridos</strong></div>
+                    
                     <div  class="form-group">
                         <label for="nombre" ><span class="glyphicon glyphicon-asterisk"></span>Código caso:</label>
                         <div class="input-group">
                             <input size="500" type="text" class="form-control" name="id_caso" id="id_caso" placeholder="" required>
-                            <span  class="help-block" ></span>  
-
-                        </div> 
-
+                            <span  class="help-block" ></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="descripcion"><span class="glyphicon glyphicon-asterisk"></span>Descrpción:</label>
