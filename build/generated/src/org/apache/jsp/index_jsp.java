@@ -11,9 +11,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_message_key_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -22,15 +20,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_fmt_message_key_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_fmt_message_key_nobody.release();
-    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -57,70 +51,138 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta charset=\"utf-8\">\r\n");
-      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\r\n");
-      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\r\n");
-      out.write("        <title>Login</title>\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
-      out.write("        <div class=\"container\">\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\r\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
-      out.write("                    <h2>");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>JSP Page</title>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("        <div id=\"wrapper\">\n");
+      out.write("\n");
+      out.write("            ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Menu_1.jsp", out, false);
+      out.write("\n");
+      out.write("            <div class=\"container-fluid\">\n");
+      out.write("\n");
+      out.write("                <div  id=\"menu2\">\n");
+      out.write("                    <div class=\"card shadow mb-4\">\n");
+      out.write("                        <div class=\"card-header py-3\">\n");
+      out.write("                            <h6 class=\"m-0 font-weight-bold text-primary\">");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("</h2>\r\n");
-      out.write("                    ");
-      if (_jspx_meth_c_if_0(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("                    <form role=\"form\" action=\"Plogin.jsp\" method=\"post\">\r\n");
-      out.write("                        <div class=\"form-group\">\r\n");
-      out.write("                            <label for=\"correo\">");
+      out.write("</h6>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"card-body\">\n");
+      out.write("                            <p>");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
-      out.write("</label>\r\n");
-      out.write("                            <input type=\"text\"  class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
+      out.write("</p>\n");
+      out.write("\n");
+      out.write("                            <p class=\"mb-0\">Codigo: 1  Departamento: Logistico </p>\n");
+      out.write("                            <p class=\"mb-0\">Cargo: Jefe Funcional </p>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <!-- Content Row -->\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("\n");
+      out.write("                        <!-- Earnings (Monthly) Card Example -->\n");
+      out.write("                        <div class=\"col-xl-3 col-md-6 mb-4\">\n");
+      out.write("                            <div class=\"card border-left-primary shadow h-100 py-2\">\n");
+      out.write("                                <div class=\"card-body\">\n");
+      out.write("                                    <div class=\"row no-gutters align-items-center\">\n");
+      out.write("                                        <div class=\"col mr-2\">\n");
+      out.write("                                            <div class=\"text-xs font-weight-bold text-primary text-uppercase mb-1\">");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\" required=\"\">\r\n");
-      out.write("                            ");
-      out.write("\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"form-group\">\r\n");
-      out.write("                            <label for=\"contra\">");
+      out.write("</div>\n");
+      out.write("                                            <div class=\"h5 mb-0 font-weight-bold text-gray-800\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("</label>\r\n");
-      out.write("                            <input type=\"password\" class=\"form-control\" id=\"contra\" name=\"contra\" placeholder=\"");
+      out.write("</div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-auto\">\n");
+      out.write("                                            <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <!-- Earnings (Monthly) Card Example -->\n");
+      out.write("                        <div class=\"col-xl-3 col-md-6 mb-4\">\n");
+      out.write("                            <div class=\"card border-left-danger shadow h-100 py-2\">\n");
+      out.write("                                <div class=\"card-body\">\n");
+      out.write("                                    <div class=\"row no-gutters align-items-center\">\n");
+      out.write("                                        <div class=\"col mr-2\">\n");
+      out.write("                                            <div class=\"text-xs font-weight-bold text-success text-uppercase mb-1\">Casos</div>\n");
+      out.write("                                            <div class=\"h5 mb-0 font-weight-bold text-gray-800\">Rechazados</div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-auto\">\n");
+      out.write("                                            <i class=\"fas fa-ban fa-2x text-gray-300\"></i>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <!-- Earnings (Monthly) Card Example -->\n");
+      out.write("                        <div class=\"col-xl-3 col-md-6 mb-4\">\n");
+      out.write("                            <div class=\"card border-left-success shadow h-100 py-2\">\n");
+      out.write("                                <div class=\"card-body\">\n");
+      out.write("                                    <div class=\"row no-gutters align-items-center\">\n");
+      out.write("                                        <div class=\"col mr-2\">\n");
+      out.write("                                            <div class=\"text-xs font-weight-bold text-success text-uppercase mb-1\">");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
-      out.write("\" required=\"\">\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"form-group\">\r\n");
-      out.write("                            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">");
+      out.write("</div>\n");
+      out.write("                                            <div class=\"h5 mb-0 font-weight-bold text-gray-800\">");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
-      out.write("</button>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </form>                    \r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("</div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-auto\">\n");
+      out.write("                                            <i class=\"fas fa-calendar-check fa-2x text-gray-300\"></i>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <!-- Pending Requests Card Example -->\n");
+      out.write("\n");
+      out.write("                        <div class=\"col-xl-3 col-md-6 mb-4\">\n");
+      out.write("                            <div class=\"card border-left-warning shadow h-100 py-2\">\n");
+      out.write("                                <div class=\"card-body\">\n");
+      out.write("                                    <div class=\"row no-gutters align-items-center\">\n");
+      out.write("                                        <div class=\"col mr-2\">\n");
+      out.write("                                            <div class=\"text-xs font-weight-bold text-warning text-uppercase mb-1\"><a href=\"index.html\">");
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
+      out.write("</a></div>\n");
+      out.write("                                            <div class=\"h5 mb-0 font-weight-bold text-gray-800\">18</div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-auto\">\n");
+      out.write("                                            <i class=\"fas fa-exclamation-triangle fa-2x text-gray-300\"></i>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -142,64 +204,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("label.logintitle");
+    _jspx_th_fmt_message_0.setKey("label.bienvenido");
     int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
     if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_0.setParent(null);
-    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${not empty param.error}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
-    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("                        <div class=\"alert alert-danger\">\r\n");
-        out.write("                            <strong>Error! </strong>");
-        if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("                        </div>\r\n");
-        out.write("                    ");
-        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
-      return true;
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_0);
-    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.error}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
-    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
     return false;
   }
 
@@ -211,7 +222,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("label.correo");
+    _jspx_th_fmt_message_1.setKey("label.info");
     int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
     if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
@@ -229,7 +240,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("label.correo");
+    _jspx_th_fmt_message_2.setKey("label.titulocasos");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
@@ -247,7 +258,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("label.password");
+    _jspx_th_fmt_message_3.setKey("label.espera");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -265,7 +276,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("label.password");
+    _jspx_th_fmt_message_4.setKey("label.titulocasos");
     int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
     if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
@@ -283,13 +294,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_5.setParent(null);
-    _jspx_th_fmt_message_5.setKey("label.login");
+    _jspx_th_fmt_message_5.setKey("label.finalizados");
     int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
     if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_6(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_6.setParent(null);
+    _jspx_th_fmt_message_6.setKey("label.solp");
+    int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
+    if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
     return false;
   }
 }

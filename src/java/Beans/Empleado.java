@@ -4,13 +4,32 @@
  * and open the template in the editor.
  */
 package Beans;
-
+import Base.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author jorge
  */
 public class Empleado {
 
+    /**
+     * @return the existec
+     */
+    public int getExistec() {
+        return existec;
+    }
+
+    /**
+     * @param existec the existec to set
+     */
+    public void setExistec(int existec) {
+        this.existec = existec;
+    }
+Conexion con=new Conexion();
+
+    public Empleado()throws Exception{
+    }
     /**
      * @return the id_empleado
      */
@@ -175,5 +194,20 @@ public class Empleado {
     private String correo;
     private String password_emp;
     private int id_estado_emp;
+    private int existec;
     
+    
+   public  int existeCargo() throws SQLException
+   {
+       int band = 0;
+        String sql = "SELECT count(id_cargo) from empleados where id_cargo=1" ;
+         ResultSet rs ;
+            con.setRs(sql);
+            rs= con.getRs();
+        rs.next();
+        /// JOptionPane.showMessageDialog(null, datos.getInt(1));
+        if (rs.getInt(1) >= 1) 
+            band =1;
+        return band;
+   }
 }

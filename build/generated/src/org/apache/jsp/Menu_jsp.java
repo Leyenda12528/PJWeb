@@ -66,81 +66,81 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta charset=\"utf-8\">\n");
-      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\n");
-      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\n");
-      out.write("        <title>Menu</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta charset=\"utf-8\">\r\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">\r\n");
+      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\r\n");
+      out.write("        <title>Menu</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
       out.write("        ");
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("        ");
       if (_jspx_meth_c_set_1(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("        ");
       if (_jspx_meth_c_set_2(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("        ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("        \n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">&nbsp;</div>\n");
-      out.write("            <div class=\"panel panel-primary\">\n");
+      out.write("\r\n");
+      out.write("        \r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("            <div class=\"row\">&nbsp;</div>\r\n");
+      out.write("            <div class=\"panel panel-primary\">\r\n");
       out.write("                <div class=\"panel-heading\">");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("</div>\n");
-      out.write("                <div class=\"panel-body\">\n");
+      out.write("</div>\r\n");
+      out.write("                <div class=\"panel-body\">\r\n");
       out.write("                    <p>");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
       out.write(" <strong>");
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
-      out.write("</strong></p>\n");
-      out.write("                    <a href=\"prueba.jsp\">Probando Session</a>\n");
-      out.write("                    <br/>\n");
-      out.write("                    <h2>Texto a Enviar</h2>\n");
+      out.write("</strong></p>\r\n");
+      out.write("                    <a href=\"prueba.jsp\">Probando Session</a>\r\n");
+      out.write("                    <br/>\r\n");
+      out.write("                    <h2>Texto a Enviar</h2>\r\n");
       out.write("                    <a href=\"Menu.jsp?id=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${texto}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" class=\"form-control\">");
       if (_jspx_meth_c_out_1(_jspx_page_context))
         return;
-      out.write("</a>\n");
-      out.write("                    <h2>Texto Enviado</h2>\n");
+      out.write("</a>\r\n");
+      out.write("                    <h2>Texto Enviado</h2>\r\n");
       out.write("                    <input type=\"text\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${prueba}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">\n");
-      out.write("                    \n");
-      out.write("                    <form action=\"Menu.jsp\" method=\"post\">\n");
+      out.write("\">\r\n");
+      out.write("                    \r\n");
+      out.write("                    <form action=\"Menu.jsp\" method=\"post\">\r\n");
       out.write("                        <input type=\"hidden\" name=\"id\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${texto}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\"/>\n");
-      out.write("                        <input type=\"submit\" class=\"form-control\" value=\"Enviar\"/>\n");
-      out.write("                    </form>\n");
+      out.write("\"/>\r\n");
+      out.write("                        <input type=\"submit\" class=\"form-control\" value=\"Enviar\"/>\r\n");
+      out.write("                    </form>\r\n");
       out.write("                    ");
-      out.write("\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -223,11 +223,11 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\n");
+        out.write("\r\n");
         out.write("            ");
         if (_jspx_meth_c_redirect_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
           return true;
-        out.write("\n");
+        out.write("\r\n");
         out.write("        ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -259,11 +259,11 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_c_redirect_0.doInitBody();
       }
       do {
-        out.write("\n");
+        out.write("\r\n");
         out.write("                ");
         if (_jspx_meth_c_param_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_redirect_0, _jspx_page_context))
           return true;
-        out.write("\n");
+        out.write("\r\n");
         out.write("            ");
         int evalDoAfterBody = _jspx_th_c_redirect_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
