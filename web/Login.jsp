@@ -32,7 +32,8 @@
                     <form role="form" action="Plogin.jsp" method="post">
                         <div class="form-group">
                             <label for="correo"><fmt:message key="label.correo"/></label>
-                            <input type="text"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required="">
+                            <input type="text"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required=""
+                                   pattern="[0-9]">
                             <%--pattern="[A-Za-z0-9_-]{1,15}"--%>
                         </div>
                         <div class="form-group">

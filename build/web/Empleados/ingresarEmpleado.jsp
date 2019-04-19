@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../Imas/java.ico" />
         <title>Ingresar Empleado</title>
     </head>
     <body id="page-top">  
