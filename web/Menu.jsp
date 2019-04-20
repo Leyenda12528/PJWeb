@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,6 +49,11 @@
                         <label class="form-control" id="pru" name="pru">Probando</label>
                         <input type="submit" value="Enviar"/>
                     </form>--%>
+                    <hr><hr>
+                    
+                    <label></label>
+                    
+                    
                 </div>
             </div>
         </div>

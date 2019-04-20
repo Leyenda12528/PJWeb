@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Probando_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -57,120 +57,120 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta charset=\"utf-8\">\r\n");
-      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"utf-8\">\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("\n");
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/assets/vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
-      out.write("        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Custom styles for this template -->\r\n");
+      out.write("/assets/vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+      out.write("        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">\n");
+      out.write("\n");
+      out.write("        <!-- Custom styles for this template -->\n");
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/assets/css/sb-admin-2.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Custom styles for this page -->\r\n");
+      out.write("/assets/css/sb-admin-2.min.css\" rel=\"stylesheet\">\n");
+      out.write("\n");
+      out.write("        <!-- Custom styles for this page -->\n");
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/assets/vendor/datatables/dataTables.bootstrap4.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("\r\n");
+      out.write("/assets/vendor/datatables/dataTables.bootstrap4.min.css\" rel=\"stylesheet\">\n");
+      out.write("\n");
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/assets/css/alertify.core.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
+      out.write("/assets/css/alertify.core.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/assets/css/alertify.default.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
-      out.write("        \r\n");
-      out.write("        \r\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.0.8/css/solid.css\">\r\n");
-      out.write("        <script src=\"https://use.fontawesome.com/releases/v5.0.7/js/all.js\"></script>\r\n");
-      out.write("        <style>\r\n");
-      out.write("            .dato input{\r\n");
-      out.write("                padding-left: 54px;\r\n");
-      out.write("            }\r\n");
-      out.write("            .dato::before{\r\n");
-      out.write("                font-family: \"Font Awesome\\ 5 Free\";\r\n");
-      out.write("                position: absolute;\r\n");
-      out.write("                left: 28px;\r\n");
-      out.write("                font-size: 22px;\r\n");
-      out.write("                padding-top:4px;\r\n");
-      out.write("            }\r\n");
-      out.write("            #co::before{\r\n");
-      out.write("                content: \"\\f007\";\r\n");
-      out.write("            }\r\n");
-      out.write("            #con::before{\r\n");
-      out.write("                content: \"\\f023\";\r\n");
-      out.write("            }\r\n");
-      out.write("        </style>\r\n");
-      out.write("        \r\n");
-      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\r\n");
-      out.write("        <title>Login</title>\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body id=\"page-top\" >        \r\n");
-      out.write("        <div class=\"container\" >\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <div class=\"col-sm-4 col-sm-offset-4\" style=\"width: 600px; margin: auto auto;\">\r\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
-      out.write("                    <div class=\"row\">&nbsp;</div>\r\n");
-      out.write("                    <h2>");
+      out.write("/assets/css/alertify.default.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        \n");
+      out.write("        <style>\n");
+      out.write("            .dato input{\n");
+      out.write("                padding-left: 40px;\n");
+      out.write("            }\n");
+      out.write("            .dato i{\n");
+      out.write("                position: absolute;\n");
+      out.write("                padding: 10px;\n");
+      out.write("            }\n");
+      out.write("        </style>\n");
+      out.write("        \n");
+      out.write("        <link rel=\"shortcut icon\" href=\"Imas/java.ico\" />\n");
+      out.write("        <title>Login</title>\n");
+      out.write("    </head>\n");
+      out.write("    <body id=\"page-top\" >        \n");
+      out.write("        <div class=\"container\" >\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <div class=\"col-sm-4 col-sm-offset-4\" style=\"width: 600px; margin: auto auto;\">\n");
+      out.write("                    <br/><br/><br/><br/>\n");
+      out.write("                    <h2 style=\"text-align: center;\">");
       if (_jspx_meth_fmt_message_0(_jspx_page_context))
         return;
-      out.write("</h2>\r\n");
+      out.write("</h2>\n");
       out.write("                    ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("                    <form role=\"form\" action=\"Plogin.jsp\" method=\"post\" >\r\n");
-      out.write("                        <div class=\"form-group\" >\r\n");
-      out.write("                            <label for=\"correo\">");
+      out.write("\n");
+      out.write("                    <form role=\"form\" action=\"Plogin.jsp\" method=\"post\" >\n");
+      out.write("                        <div class=\"form-group\" >\n");
+      out.write("                            ");
+      out.write("\n");
+      out.write("                            <div class=\"dato\">\n");
+      out.write("                                <i class=\"fas fa-at\"></i>\n");
+      out.write("                                <input type=\"email\"  class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
-      out.write("</label>\r\n");
-      out.write("                            <div  class=\"dato\" id=\"co\">\r\n");
-      out.write("                                <input type=\"text\"  class=\"form-control\" id=\"correo\" name=\"correo\" placeholder=\"");
+      out.write("\" required=\"\"\n");
+      out.write("                                       pattern=\"[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$\">\n");
+      out.write("                            </div>\n");
+      out.write("                            \n");
+      out.write("                            ");
+      out.write("\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            ");
+      out.write("\n");
+      out.write("                            <div class=\"dato\">\n");
+      out.write("                                <i class=\"fas fa-key\"></i>\n");
+      out.write("                                <input type=\"password\" class=\"form-control\" id=\"contra\" name=\"contra\" placeholder=\"");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write("\" required=\"\"\r\n");
-      out.write("                                   pattern=\"^[_a-zA-Z0-9-]+(\\\\.[_a-zA-Z0-9-]+)*@[a-z0-9-]+(\\\\.[a-z0-9-]+)*(\\\\.[a-z]{2,4})$\">\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            \r\n");
-      out.write("                            ");
-      out.write("\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"form-group\">\r\n");
-      out.write("                            <label for=\"contra\">");
+      out.write("\" required=\"\"\n");
+      out.write("                                       pattern=\"[A-Za-z0-9]+\" title=\"Solo letras y numeros\">\n");
+      out.write("                                ");
+      out.write("\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write("</label>\r\n");
-      out.write("                            <div  class=\"dato\" id=\"con\">\r\n");
-      out.write("                                <input type=\"password\" class=\"form-control\" id=\"contra\" name=\"contra\" placeholder=\"");
-      if (_jspx_meth_fmt_message_4(_jspx_page_context))
-        return;
-      out.write("\" required=\"\">\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"form-group\">\r\n");
-      out.write("                            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">");
-      if (_jspx_meth_fmt_message_5(_jspx_page_context))
-        return;
-      out.write("</button>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </form>                    \r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("</button>\n");
+      out.write("                        </div>\n");
+      out.write("                    </form>                    \n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("                        <script>\n");
+      out.write("                function eliminar(id) {\n");
+      out.write("                    alertify.confirm(\"¿Realmente deseas inhabilitar a este empleado?\", function (e) {\n");
+      out.write("                        if (e) {\n");
+      out.write("                            location.href = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("../Controlador/empleadosDAO.jsp?codigoe=\"+ id;\n");
+      out.write("                        }\n");
+      out.write("                    });\n");
+      out.write("                }\n");
+      out.write("            </script>\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -214,13 +214,13 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("                        <div class=\"alert alert-danger\">\r\n");
+        out.write("\n");
+        out.write("                        <div class=\"alert alert-danger\">\n");
         out.write("                            <strong>Error! </strong>");
         if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("                        </div>\r\n");
+        out.write("\n");
+        out.write("                        </div>\n");
         out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -279,7 +279,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("label.correo");
+    _jspx_th_fmt_message_2.setKey("label.password");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
@@ -297,49 +297,13 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("label.password");
+    _jspx_th_fmt_message_3.setKey("label.login");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_fmt_message_4(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("label.password");
-    int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
-    if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
-      return true;
-    }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
-    return false;
-  }
-
-  private boolean _jspx_meth_fmt_message_5(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_5.setParent(null);
-    _jspx_th_fmt_message_5.setKey("label.login");
-    int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
-    if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
-      return true;
-    }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
     return false;
   }
 }

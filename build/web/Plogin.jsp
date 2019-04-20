@@ -7,6 +7,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 
+<jsp:useBean id="pru" scope="session" class="Beans.pru"/>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,16 +32,18 @@
         </sql:query>
        
         <c:if test="${q1.rowCount < 1}">
-            <c:redirect url="login.jsp">                                                
+            <c:redirect url="Login.jsp">                                                
                  <c:param name="error" value="Usuario/Contraseña Incorrecto"/>
             </c:redirect>
-        </c:if>                    
+        </c:if>
         <c:forEach var="name" items="${q1.rows}">
             <c:set var="usuari" value="${name.id_empleado}"/>
         </c:forEach>
         <c:set scope="session"
                    var="loginUser"
                    value="${usuari}"/>
+        <c:set target="${pru}" property="nombre" value="${correo}"/>
+            <c:set target="${pru}" property="apellido" value="${contra}"/>
         <c:redirect url="Menu.jsp"/>             
     </body>
 </html>

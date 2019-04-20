@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<jsp:useBean id="pru" scope="session" class="Beans.pru"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,6 +31,10 @@
         </c:if>
         <h1>Hello World!</h1>
         <h1>Hello World!</h1>
+        <a href="PP.jsp">Probando Session</a>
+        <hr>
+        <label><c:out value="${pru.nombre}"/></label>
+                    <label><c:out value="${pru.apellido}"/></label>
         <hr>
         <a class="nav-link" href="#" onclick="index.html">
                     <i class="fas fa-sitemap"></i>

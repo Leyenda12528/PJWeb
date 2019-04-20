@@ -13,14 +13,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <link href="${pageContext.request.contextPath}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this page -->
+        <link href="${pageContext.request.contextPath}/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <link href="${pageContext.request.contextPath}/assets/css/alertify.core.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/assets/css/alertify.default.css" rel="stylesheet" type="text/css"/>
+        
         <link rel="shortcut icon" href="Imas/java.ico" />
         <title>Login</title>
     </head>
-    <body>
-        <div class="container">
+    <body id="page-top" >        
+        <div class="container" >
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-4">
+                <div class="col-sm-4 col-sm-offset-4" style="width: 600px; margin: auto auto;">
                     <div class="row">&nbsp;</div>
                     <div class="row">&nbsp;</div>
                     <h2><fmt:message key="label.logintitle"/></h2>
@@ -29,12 +41,14 @@
                             <strong>Error! </strong><c:out value="${param.error}"/>
                         </div>
                     </c:if>
-                    <form role="form" action="Plogin.jsp" method="post">
-                        <div class="form-group">
+                    <form role="form" action="Plogin.jsp" method="post" >
+                        <div class="form-group" >
                             <label for="correo"><fmt:message key="label.correo"/></label>
                             <input type="text"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required=""
-                                   pattern="[0-9]">
-                            <%--pattern="[A-Za-z0-9_-]{1,15}"--%>
+                                   >
+                            <%--
+                                pattern="^[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$"
+                            --%>
                         </div>
                         <div class="form-group">
                             <label for="contra"><fmt:message key="label.password"/></label>
