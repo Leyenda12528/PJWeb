@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,17 +18,18 @@
     <body>
         <div id="wrapper">
 
-            <jsp:include page="Menu_1.jsp" />
+            <jsp:include page="Menu_1_1.jsp" />
             <div class="container-fluid">
 
                 <div  id="menu2">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.bienvenido"/></h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.bienvenido"/>
+                                <c:out value="${loginB.departamento}"/>--
+                            </h6>
                         </div>
                         <div class="card-body">
                             <p><fmt:message key="label.info"/></p>
-
                             <p class="mb-0">Codigo: 1  Departamento: Logistico </p>
                             <p class="mb-0">Cargo: Jefe Funcional </p>
                         </div>

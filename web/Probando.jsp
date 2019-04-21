@@ -35,13 +35,19 @@
                 position: absolute;
                 padding: 10px;
             }
+            #datop{
+                background-image: url("Imas/prueba.jpg");
+                background-repeat: no-repeat;
+                background-size: auto;
+                background-position: center; 
+            }
         </style>
         
         <link rel="shortcut icon" href="Imas/java.ico" />
-        <title>Login</title>
+        <title>Probando Login</title>
     </head>
     <body id="page-top" >        
-        <div class="container" >
+        <div class="container" id="datop">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4" style="width: 600px; margin: auto auto;">
                     <br/><br/><br/><br/>
@@ -70,6 +76,10 @@
                                 <i class="fas fa-key"></i>
                                 <input type="password" class="form-control" id="contra" name="contra" placeholder="<fmt:message key="label.password"/>" required=""
                                        pattern="[A-Za-z0-9]+" title="Solo letras y numeros">
+                                <input id="date" type="date" name="fecha" title="malo" required="">
+                                <input id="datde" type="number" name="fec">
+                                <input id="mo" type="text" name="fec">
+                                <textarea name="hola" id="hola"></textarea>  
                                 <%--pattern="[A-Za-z0-9]{1,}"> lo mismo --%>
                             </div>
                         </div>
@@ -80,14 +90,11 @@
                 </div>
             </div>
         </div>
-                        <script>
-                function eliminar(id) {
-                    alertify.confirm("¿Realmente deseas inhabilitar a este empleado?", function (e) {
-                        if (e) {
-                            location.href = "${pageContext.request.contextPath}../Controlador/empleadosDAO.jsp?codigoe="+ id;
-                        }
-                    });
-                }
-            </script>
     </body>
+        <script>
+        var n = new Date();
+        document.getElementById("date").min=n.getFullYear()+"-0"+(n.getMonth()+1)+"-"+n.getDate();
+        
+        document.getElementById("mo").value = n.getFullYear()+"-0"+(n.getMonth()+1)+"-"+n.getDate();
+    </script>
 </html>

@@ -33,7 +33,7 @@
         <h1>Hello World!</h1>
         <a href="PP.jsp">Probando Session</a>
         <hr>
-        <label><c:out value="${pru.nombre}"/></label>
+        <label><c:out value="${pru.nombre} dd"/></label><br/>
                     <label><c:out value="${pru.apellido}"/></label>
         <hr>
         <a class="nav-link" href="#" onclick="index.html">

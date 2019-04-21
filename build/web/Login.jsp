@@ -26,6 +26,16 @@
         <link href="${pageContext.request.contextPath}/assets/css/alertify.core.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/alertify.default.css" rel="stylesheet" type="text/css"/>
         
+        <style>
+            .dato input{
+                padding-left: 40px;
+            }
+            .dato i{
+                position: absolute;
+                padding: 10px;
+            }
+        </style>
+        
         <link rel="shortcut icon" href="Imas/java.ico" />
         <title>Login</title>
     </head>
@@ -33,33 +43,47 @@
         <div class="container" >
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4" style="width: 600px; margin: auto auto;">
-                    <div class="row">&nbsp;</div>
-                    <div class="row">&nbsp;</div>
-                    <h2><fmt:message key="label.logintitle"/></h2>
+                    <br/><br/><br/><br/>
+                    <h2 style="text-align: center;"><fmt:message key="label.logintitle"/></h2>
+                    <%                        
+                        String d = "label.e" + request.getParameter("error");
+                    %>
                     <c:if test="${not empty param.error}">
                         <div class="alert alert-danger">
-                            <strong>Error! </strong><c:out value="${param.error}"/>
+                            <strong>Error! </strong>
+                            <%--<c:out value="${param.error}"/>--%>
+                            <fmt:message key="<%=d%>" />
                         </div>
                     </c:if>
-                    <form role="form" action="Plogin.jsp" method="post" >
+                    <%--<form role="form" action="Plogin.jsp" method="post" >--%>                    
+                    <form role="form" action="Controlador/empleadosDAO.jsp" method="post" >
                         <div class="form-group" >
-                            <label for="correo"><fmt:message key="label.correo"/></label>
-                            <input type="text"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required=""
-                                   >
+                            <%--<label for="correo"><fmt:message key="label.correo"/></label>--%>
+                            <div class="dato">
+                                <i class="fas fa-at"></i>
+                                <input type="email"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required=""
+                                       pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
+                            </div>
                             <%--
                                 pattern="^[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$"
                             --%>
                         </div>
                         <div class="form-group">
-                            <label for="contra"><fmt:message key="label.password"/></label>
-                            <input type="password" class="form-control" id="contra" name="contra" placeholder="<fmt:message key="label.password"/>" required="">
+                            <%--<label for="correo"><fmt:message key="label.password"/></label>--%>
+                            <div class="dato">
+                                <i class="fas fa-key"></i>
+                                <input type="password" class="form-control" id="contra" name="contra" placeholder="<fmt:message key="label.password"/>" required=""
+                                       pattern="[A-Za-z0-9]+" title="Solo letras y numeros">                                                              
+                                <%--pattern="[A-Za-z0-9]{1,}"> lo mismo --%>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-lg btn-primary btn-block" type="submit"><fmt:message key="label.login"/></button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnlogin" name="btnlogin"><fmt:message key="label.login"/></button>
                         </div>
                     </form>                    
                 </div>
             </div>
         </div>
     </body>
+
 </html>

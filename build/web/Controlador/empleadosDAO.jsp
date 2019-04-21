@@ -21,16 +21,11 @@
 <c:set var="correo" value="${param.correo}"/>
 <c:set var="codigo" value="${param.codigo}"/>
 <c:set var="codigo2" value="${param.codigoe}"/>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+
+
+
+
+
 <sql:query var="cargo1" dataSource="jdbc/mysql" scope="request">
     select * from empleados where id_cargo=1 and id_depto=?
     <sql:param value="${depto}"/>
@@ -41,12 +36,12 @@
 </sql:query>
 <c:choose>
     <c:when test="${cargo1.rowCount >=1 && cargo==1}">
-         <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+         <c:redirect url="../Empleados/ingresarEmpleado.jsp">
                  <c:param name="error" value="no puede existir más de un jefe de desarrollo"/>
             </c:redirect>
     </c:when>
     <c:when test="${cargo2.rowCount >=1 && cargo==2}">
-         <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+         <c:redirect url="../Empleados/ingresarEmpleado.jsp">
                  <c:param name="error" value="No puede existir más de un jefe funcional"/>
             </c:redirect>
     </c:when>
@@ -101,14 +96,59 @@
 </c:redirect>
 <% }%>
 
-    <%-- ELIMINAR--%>
-        <%  if (request.getParameter("codigoe") != null) {%>
-        <sql:update var="deshabilitar" dataSource="jdbc/mysql">
-           update  empleados set id_estado_emp=1 where id_empleado=?
-            <sql:param value="${codigo2}"/>
-        </sql:update>
-        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
-       <c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
+<%-- ELIMINAR--%>
+<%  if (request.getParameter("codigoe") != null) {%>
+<sql:update var="deshabilitar" dataSource="jdbc/mysql">
+    update  empleados set id_estado_emp=1 where id_empleado=?
+    <sql:param value="${codigo2}"/>
+</sql:update>
+<%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
+<c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
     <c:param name="exito" value="Empleado deshabilitado con exito"/>
 </c:redirect>
-        <% }%>
+    <% }%>
+
+   <%--LOGIN--%>
+    <%if (request.getParameter("btnlogin") != null) {%>
+        <sql:query var="login" dataSource="jdbc/mysql">
+            SELECT * from empleados where correo = ? and password_emp = sha2(?,256)
+            <sql:param value="${param.correo}"/>
+            <sql:param value="${param.contra}"/>
+        </sql:query>
+        <c:if test="${login.rowCount < 1}">            
+            <c:redirect url="Login.jsp">                
+                <c:param name="error" value="1"/>
+            </c:redirect>
+        </c:if>
+        
+        <c:forEach var="namea" items="${login.rows}">
+            <c:set var="usuari" value="${namea.id_empleado}"/>
+        </c:forEach>
+        <sql:query var="logindato" dataSource="jdbc/mysql">
+            SELECT  CONCAT(empleados.nombre_emp,' ',empleados.apellidos) as nombre
+                     , empleados.id_cargo , cargo.nombre_cargo, empleados.id_depto, departamentos.nombre_depto
+                     , empleados.correo, empleados.contraPublic
+                     FROM            empleados INNER JOIN
+                                    departamentos ON empleados.id_depto = departamentos.id_depto INNER JOIN
+                                    cargo ON empleados.id_cargo = cargo.id_cargo
+                     WHERE        empleados.id_empleado =  ?
+                    <sql:param value="${usuari}"/>
+        </sql:query>
+        <jsp:useBean id="loginB" scope="session" class="Beans.User"/>
+        <c:forEach var="name" items="${logindato.rows}">
+            <c:set target="${loginB}" property="id" value="${usuari}"/>
+            <c:set target="${loginB}" property="nombre" value="${name.nombre}"/>
+            <c:set target="${loginB}" property="id_cargo" value="${name.id_cargo}"/>
+            <c:set target="${loginB}" property="cargo" value="${name.nombre_cargo}"/> 
+            <c:set target="${loginB}" property="id_departamento" value="${name.id_depto}"/>
+            <c:set target="${loginB}" property="departamento" value="${name.nombre_depto}"/>
+            <c:set target="${loginB}" property="correo" value="${name.correo}"/>
+            <c:set target="${loginB}" property="contraP" value="${name.contraPublic}"/>
+            
+        </c:forEach>
+        <c:set scope="session"
+        var="loginUser"
+        value="${usuari}"/>
+        
+        <c:redirect url="../index.jsp"/>
+    <%}%>

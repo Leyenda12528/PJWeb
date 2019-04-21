@@ -1,6 +1,7 @@
 
     
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <!-- Custom fonts for this template -->
     <!-- Custom fonts for this template -->
@@ -27,33 +28,27 @@
 </head>
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">        
+        <img src="Imas/java.ico" height="45" width="45">
         <div class="sidebar-brand-text mx-3"><fmt:message key="label.titulomenu"/><sup>2</sup></div>
     </a>
-
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
             <i class="fas fa-sitemap"></i>
             <span><fmt:message key="label.distribucion"/></span></a>
     </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
-
     <!-- Heading -->
     <div class="sidebar-heading">
         <fmt:message key="label.admin"/>
     </div>
     <!-- FILTRAR -->
+    
     <%
         String usuario = "jefe";
         if (usuario.equals("jefed")) {
@@ -74,8 +69,7 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-
+                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>                
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
@@ -156,12 +150,13 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   data-target="#drop">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nombre de usuario</span>
-                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                    <img class="img-profile rounded-circle" src="https://www.gestioncentercloud.com.ar/webexternas/e-commerce/Iconos/AppUser.png">
                 </a>
                 <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="drop">
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         <fmt:message key="label.perfil"/>

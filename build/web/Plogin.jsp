@@ -9,41 +9,38 @@
 
 <jsp:useBean id="pru" scope="session" class="Beans.pru"/>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="shortcut icon" href="Imas/java.ico" />
-        <title>PLogin</title>
-    </head>
-    <body>
-        <%String correo = request.getParameter("correo");%>
-        <c:set var="correo" value="${param.correo}"/>
-        <c:set var="contra" value="${param.contra}"/>        
-        
-        <sql:query var="q1" dataSource="jdbc/mysql">
-            SELECT id_empleado from empleados where correo = ? and password_emp = sha2(?,256)
-            <sql:param value="${correo}"/>
-            <sql:param value="${contra}"/>
-        </sql:query>
-       
-        <c:if test="${q1.rowCount < 1}">
-            <c:redirect url="Login.jsp">                                                
-                 <c:param name="error" value="Usuario/Contraseña Incorrecto"/>
-            </c:redirect>
-        </c:if>
-        <c:forEach var="name" items="${q1.rows}">
-            <c:set var="usuari" value="${name.id_empleado}"/>
-        </c:forEach>
-        <c:set scope="session"
-                   var="loginUser"
-                   value="${usuari}"/>
-        <c:set target="${pru}" property="nombre" value="${correo}"/>
-            <c:set target="${pru}" property="apellido" value="${contra}"/>
-        <c:redirect url="Menu.jsp"/>             
-    </body>
-</html>
+<%String correo = request.getParameter("correo");%>
+<c:set var="correo" value="${param.correo}"/>
+<c:set var="contra" value="${param.contra}"/>        
+
+
+<c:set var="e1" value="${param.hola}"/>
+<%
+    String f = request.getParameter("fecha");
+    String f3="";
+    if(f!=null){
+    String[] f2 = f.split("-");
+     f3 = f2[2]+"/"+f2[1]+"/"+f2[0];}
+%>
+
+<sql:query var="q1" dataSource="jdbc/mysql">
+    SELECT id_empleado from empleados where correo = ? and password_emp = sha2(?,256)
+    <sql:param value="${correo}"/>
+    <sql:param value="${contra}"/>
+</sql:query>
+
+<c:if test="${q1.rowCount < 1}">            
+    <c:redirect url="Login.jsp">                
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
+<c:forEach var="name" items="${q1.rows}">
+    <c:set var="usuari" value="${name.id_empleado}"/>
+</c:forEach>
+<c:set scope="session"
+       var="loginUser"
+       value="${usuari}"/>
+<c:set target="${pru}" property="nombre" value="<%=f3%>"/>
+<c:set target="${pru}" property="apellido" value="${e1}"/>
+<c:redirect url="Menu.jsp"/>             
+
