@@ -36,7 +36,7 @@
                                     <div  class="form-group">
                                         <label for="nombres" ><span class="fas fa-asterisk" ></span><fmt:message key="label.nombres"/></label>
                                         <div class="input-group">
-                                            <input  type="text" class="form-control" name="codigo" id="codigo" placeholder="" required>
+                                            <input  type="text" class="form-control" name="codigo" id="codigo" placeholder="" readonly="" value="${q6.rowCount}">
                                             <input  type="text" class="form-control" name="nombres" id="nombres" placeholder="<fmt:message key="label.camponombre"/>" required>
 
                                             <span  class="invalid-feedback" ></span>  

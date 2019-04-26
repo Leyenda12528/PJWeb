@@ -18,12 +18,12 @@
         <title>Probar Session</title>
     </head>
     <body>
-        <c:set var="usuario" value="${sessionScope['loginUser']}"/>
+        
         <c:set var="prueba" value="${param.id}"/>
         <%
             request.setAttribute("prueba", "dato de prueba");
         %>
-        
+        <c:set var="usuario" value="${sessionScope['loginUser']}"/>
         <c:if test="${empty usuario}">
             <c:redirect url="Login.jsp">
                 <c:param name="error" value="Session :C"/>

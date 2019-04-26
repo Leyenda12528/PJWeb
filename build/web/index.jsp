@@ -8,19 +8,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+        <c:if test="${empty usuario}">
+            <c:redirect url="Login.jsp">
+                <c:param name="error" value="2"/>
+            </c:redirect>
+        </c:if>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="shortcut icon" href="Imas/java.ico" />
+        <title>Inicio</title>
     </head>
     <body>
         <div id="wrapper">
 
             <jsp:include page="Menu_1_1.jsp" />
             <div class="container-fluid">
-
                 <div  id="menu2">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -30,8 +36,8 @@
                         </div>
                         <div class="card-body">
                             <p><fmt:message key="label.info"/></p>
-                            <p class="mb-0">Codigo: 1  Departamento: Logistico </p>
-                            <p class="mb-0">Cargo: Jefe Funcional </p>
+                            <p class="mb-0">Codigo: <c:out value="${loginB.id_departamento}"/>  Departamento: <c:out value="${loginB.departamento}"/> </p>
+                            <p class="mb-0">Cargo: <c:out value="${loginB.cargo}"/> </p>
                         </div>
                     </div>
                     <!-- Content Row -->

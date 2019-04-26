@@ -97,18 +97,18 @@
 <% }%>
 
 <%-- ELIMINAR--%>
-<%  if (request.getParameter("codigoe") != null) {%>
-<sql:update var="deshabilitar" dataSource="jdbc/mysql">
-    update  empleados set id_estado_emp=1 where id_empleado=?
-    <sql:param value="${codigo2}"/>
-</sql:update>
-<%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
-<c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
-    <c:param name="exito" value="Empleado deshabilitado con exito"/>
-</c:redirect>
+    <%  if (request.getParameter("codigoe") != null) {%>
+        <sql:update var="deshabilitar" dataSource="jdbc/mysql">
+            update  empleados set id_estado_emp=1 where id_empleado=?
+            <sql:param value="${codigo2}"/>
+        </sql:update>
+        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
+        <c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
+            <c:param name="exito" value="Empleado deshabilitado con exito"/>
+        </c:redirect>
     <% }%>
 
-   <%--LOGIN--%>
+<%--LOGIN--%>
     <%if (request.getParameter("btnlogin") != null) {%>
         <sql:query var="login" dataSource="jdbc/mysql">
             SELECT * from empleados where correo = ? and password_emp = sha2(?,256)
@@ -116,7 +116,7 @@
             <sql:param value="${param.contra}"/>
         </sql:query>
         <c:if test="${login.rowCount < 1}">            
-            <c:redirect url="Login.jsp">                
+            <c:redirect url="../Login.jsp">                
                 <c:param name="error" value="1"/>
             </c:redirect>
         </c:if>
@@ -144,7 +144,6 @@
             <c:set target="${loginB}" property="departamento" value="${name.nombre_depto}"/>
             <c:set target="${loginB}" property="correo" value="${name.correo}"/>
             <c:set target="${loginB}" property="contraP" value="${name.contraPublic}"/>
-            
         </c:forEach>
         <c:set scope="session"
         var="loginUser"

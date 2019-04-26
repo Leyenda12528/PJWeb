@@ -25,41 +25,30 @@
 
         <link href="${pageContext.request.contextPath}/assets/css/alertify.core.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/assets/css/alertify.default.css" rel="stylesheet" type="text/css"/>
-        
-        <style>
-            .dato input{
-                padding-left: 40px;
-            }
-            .dato i{
-                position: absolute;
-                padding: 10px;
-            }
-        </style>
-        
+        <link href="${pageContext.request.contextPath}/assets/prop/java.css" rel="stylesheet" type="text/css"/>
+         
         <link rel="shortcut icon" href="Imas/java.ico" />
         <title>Login</title>
     </head>
     <body id="page-top" >        
         <div class="container" >
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-4" style="width: 600px; margin: auto auto;">
+                <div class="col-sm-4 col-sm-offset-4 centrado" >
                     <br/><br/><br/><br/>
-                    <h2 style="text-align: center;"><fmt:message key="label.logintitle"/></h2>
-                    <%                        
-                        String d = "label.e" + request.getParameter("error");
-                    %>
+                    <h2 style="text-align: center;"><fmt:message key="label.logintitle"/></h2>                    
+                    <c:set var="d" value="label.e${param.error}"/>
                     <c:if test="${not empty param.error}">
                         <div class="alert alert-danger">
                             <strong>Error! </strong>
                             <%--<c:out value="${param.error}"/>--%>
-                            <fmt:message key="<%=d%>" />
+                            <fmt:message key="${d}"/>
                         </div>
                     </c:if>
                     <%--<form role="form" action="Plogin.jsp" method="post" >--%>                    
                     <form role="form" action="Controlador/empleadosDAO.jsp" method="post" >
                         <div class="form-group" >
                             <%--<label for="correo"><fmt:message key="label.correo"/></label>--%>
-                            <div class="dato">
+                            <div class="iconos">
                                 <i class="fas fa-at"></i>
                                 <input type="email"  class="form-control" id="correo" name="correo" placeholder="<fmt:message key="label.correo"/>" required=""
                                        pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
@@ -70,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <%--<label for="correo"><fmt:message key="label.password"/></label>--%>
-                            <div class="dato">
+                            <div class="iconos">
                                 <i class="fas fa-key"></i>
                                 <input type="password" class="form-control" id="contra" name="contra" placeholder="<fmt:message key="label.password"/>" required=""
                                        pattern="[A-Za-z0-9]+" title="Solo letras y numeros">                                                              

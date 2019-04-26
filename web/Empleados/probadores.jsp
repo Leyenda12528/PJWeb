@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Programadores</title>
+        <title>Probadores</title>
 
     </head>
     <body id="page-top"> 
@@ -33,7 +33,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-0 font-weight-bold text-primary">Programadores</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Probadores</h6>
                         <div class="col-sm-25">
 
                         </div>

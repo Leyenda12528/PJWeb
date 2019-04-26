@@ -16,9 +16,8 @@
 
     <link href="${pageContext.request.contextPath}/assets/css/alertify.core.css" rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/assets/css/alertify.default.css" rel="stylesheet" type="text/css"/>
-    
-    
-   
+    <link href="assets/prop/java.css" rel="stylesheet" type="text/css"/>
+      
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -29,7 +28,7 @@
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">        
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">        
         <img src="Imas/java.ico" height="45" width="45">
         <div class="sidebar-brand-text mx-3"><fmt:message key="label.titulomenu"/><sup>2</sup></div>
     </a>
@@ -37,7 +36,7 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.jsp">
             <i class="fas fa-sitemap"></i>
             <span><fmt:message key="label.distribucion"/></span></a>
     </li>
@@ -70,7 +69,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>                
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
 
@@ -87,7 +86,6 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.ver"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.mod"/></button>
 
@@ -152,7 +150,7 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                    data-target="#drop">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nombre de usuario</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><c:out value="${loginB.nombre}"/></span>
                     <img class="img-profile rounded-circle" src="https://www.gestioncentercloud.com.ar/webexternas/e-commerce/Iconos/AppUser.png">
                 </a>
                 <!-- Dropdown - User Information -->

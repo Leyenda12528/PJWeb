@@ -1,0 +1,58 @@
+/*Centrar*/
+.centrado{
+    width: 600px; margin: auto auto;
+}
+/*Para iconos*/
+.iconos input{
+    padding-left: 40px;
+}
+.iconos i{
+    position: absolute;
+    padding: 10px;
+}
+/**/
+
+/*----------------------------------------------------------------------*/
+/*para PDF*/
+#pdf {
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .5s;
+    border: 2px dashed rgb(110, 110, 110);
+}
+
+#pdf #lfile{
+    background-color: rgb(197, 245, 253);
+    display: block;
+    padding: 15px;
+    position: relative;
+    cursor: pointer;
+}
+#pdf #ifile{
+    display: none;
+}
+
+#pdf #lfile:after,
+#pdf #lfile:before{
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(197, 245, 253);
+    z-index: -2;
+}
+
+#pdf #lfile:before{
+    z-index: -1;
+    background-color: aqua;
+}
+#pdf.fileHover{
+    box-shadow: 0 0 16px rgb(1, 14, 131);
+}
+
+
+/*----------------------------------------------------------------------*/

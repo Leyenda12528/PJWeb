@@ -23,4 +23,12 @@
     
 <sql:query var="q5" dataSource="jdbc/mysql" scope="request">
    select id_caso,nombre_caso,descrip_req,descripcion_jefedes,porcentaje_avance,fecha_limite,fecha_produccion, nombre_estado from caso INNER JOIN estados ON estados.id_estado=caso.id_estado
-</sql:query> 
+</sql:query>
+
+<sql:query var="q6" dataSource="jdbc/mysql" scope="request">
+    select * from empleados
+</sql:query>
+<sql:query var="q7" dataSource="jdbc/mysql" scope="request">
+    select correo from empleados where id_cargo = 1 and id_depto = ?
+    <sql:param value="${loginB.id_departamento}"/>
+</sql:query>
