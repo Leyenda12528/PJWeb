@@ -28,16 +28,16 @@
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">        
-        <img src="Imas/java.ico" height="45" width="45">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="${pageContext.request.contextPath}/index.jsp">        
+        <img src="${pageContext.request.contextPath}/Imas/java.ico" height="45" width="45">
         <div class="sidebar-brand-text mx-3"><fmt:message key="label.titulomenu"/><sup>2</sup></div>
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.jsp">
-            <i class="fas fa-sitemap"></i>
+        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">
+            <i class="fas fa-sitemap"></i>            
             <span><fmt:message key="label.distribucion"/></span></a>
     </li>
     <!-- Divider -->
@@ -69,10 +69,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>                
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
-                <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
-
+                <br/><button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/ListarCasos.jsp'" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
             </div>
         </div>
     </li>
@@ -86,7 +85,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.ver"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Bitacora.jsp'" style="margin-left: 15px"><fmt:message key="label.ver"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.mod"/></button>
 
             </div>
@@ -110,8 +109,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar('Empleado.jsp')" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar('index.html')" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ListarEmpleados.jsp'" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.tester"/></button>
 
@@ -165,7 +164,10 @@
                     </a>
 
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <%--
+                    <a class="dropdown-item" href="Solicitud.jsp" data-toggle="modal" data-target="#logoutModal">
+                    --%>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/Logout.jsp">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         <fmt:message key="label.cerrarsesion"/>
                     </a>

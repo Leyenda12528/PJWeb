@@ -8,11 +8,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="usuario" value="${sessionScope['loginUser']}"/>
-        <c:if test="${empty usuario}">
-            <c:redirect url="Login.jsp">
-                <c:param name="error" value="2"/>
-            </c:redirect>
-        </c:if>
+<c:if test="${empty usuario}">
+    <c:redirect url="Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="Imas/java.ico" />
-        <title>Solicitud</title>
+        <title><fmt:message key="label.titlesoli" /></title>
     </head>
     <body id="page-top">         
         <div id="wrapper">
@@ -64,6 +64,6 @@
                     </form>
                 </div>
             </div>
-            <script type="text/javascript" src="assets/prop/java.js"></script>            
+            <script type="text/javascript" src="assets/prop/java.js"></script>
     </body>    
 </html>

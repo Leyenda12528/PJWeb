@@ -8,18 +8,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico" />
         <title>Listar Empleados</title>
-
     </head>
     <body id="page-top"> 
          <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
 
-            <jsp:include page="/Menu_1.jsp" />
+            <jsp:include page="/Menu_1_1.jsp" />
             
             <div class="container-fluid">
                 <div class="card shadow mb-2">
@@ -82,7 +88,7 @@
                 </div> 
             </div>
             <script>
-                function eliminar(id) {
+                function eliminar(id) {                    
                     alertify.confirm("¿Realmente deseas inhabilitar a este empleado?", function (e) {
                         if (e) {
                             location.href = "../Controlador/empleadosDAO.jsp?codigoe="+ id;

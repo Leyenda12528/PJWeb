@@ -3,18 +3,16 @@
     Created on : 04-16-2019, 10:50:23 AM
     Author     : less_
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="usuario" value="${sessionScope['loginUser']}"/>
-        <c:if test="${empty usuario}">
-            <c:redirect url="Login.jsp">
-                <c:param name="error" value="2"/>
-            </c:redirect>
-        </c:if>
-
+<c:if test="${empty usuario}">
+    <c:redirect url="Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,9 +20,8 @@
         <link rel="shortcut icon" href="Imas/java.ico" />
         <title>Inicio</title>
     </head>
-    <body>
-        <div id="wrapper">
-
+    <body id="page-top">
+        <div id="wrapper">            
             <jsp:include page="Menu_1_1.jsp" />
             <div class="container-fluid">
                 <div  id="menu2">
@@ -50,7 +47,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><fmt:message key="label.espera"/></div>
+                                            <div class="h5 mb-0 font-weight-bold"><a href="#" class="text-gray-800"><fmt:message key="label.espera"/></a></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -66,7 +63,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Casos</div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rechazados</div>
                                         </div>
                                         <div class="col-auto">
@@ -101,7 +98,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a href="index.html"><fmt:message key="label.solp"/></a></div>
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a href="${pageContext.request.contextPath}/Casos/SolicitudP.jsp"><fmt:message key="label.solp"/></a></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">

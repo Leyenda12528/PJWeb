@@ -7,76 +7,47 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="css/bootstrap.min.css">
-          <title>Bitacora</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="Imas/java.ico" />
+        <title><fmt:message key="label.bitacora"/></title>
     </head>
-    <body>
-                       
-        <div class="container">
-            <h3>Bitacora</h3>
-            <p>
-            <h5></h5>
-       
-        
-    </div> 
-    <div class="container">
-        <div class="row">
-            <h3></h3>
-        </div>
-        <div class="row col-md-5">
-            <form role="form" action=""  method="POST" id="needs-validation" > <%--cambiar pagina JSP  --%>
-                <div class="col-md-10">
-                    <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Campos requeridos</strong></div>
-                    <div  class="form-group">
-                        <span class=""></span><strong><fmt:message key="label.idcaso"/> </strong><%-- colocar id junto a el label--%>
-                        <br/><span class=""></span><strong><fmt:message key="label.nombrecaso"/> </strong>  <%-- colocar id junto a el label--%>
-                        <div class="input-group">
-                            <input size="500" type="text" class="form-control" name="nombre_caso" id="nombre_caso" placeholder="" required>
-                            <span  class="help-block" ></span>  
-
-                        </div> 
-
-                    </div>
-                     <div class="form-group">
-                         <span class="glyphicon glyphicon-asterisk"></span><strong><fmt:message key="label.actividad"/></strong>
-                        <div class="input-group">
-                            <textarea class="form-control" rows="15" cols="50" name="descripcion_act" id="descripcion_act"></textarea>
-                             <span  class="help-block" ></span>  
+    <body id="page-top">
+        <div id="wrapper">
+            <jsp:include page="Menu_1_1.jsp" />
+            <div class="container-fluid">
+                <h3><fmt:message key="label.bitacora"/></h3>                
+                <div class="row col-md-10 centrado">
+                    <form role="form" action=""  method="POST" id="needs-validation">
+                        <div class="col-md-10">
+                            <div  class="form-group">
+                                <strong><fmt:message key="label.idcaso"/> </strong>
+                                <strong><fmt:message key="label.nombrecaso"/> </strong>                                
+                            </div>                            
+                            <div class="form-group">                                
+                                <strong><fmt:message key="label.actividad"/></strong>
+                                <textarea class="form-control" rows="8" cols="70" name="descripcion_act" id="descripcion_act" 
+                                         onkeypress="return val(event)" placeholder="<fmt:message key="label.actividad"/>"></textarea>
+                            </div>
+                            <div class="form-group">                                
+                                <textarea class="form-control" rows="8" cols="70" name="Observaciones" id="Observaciones"
+                                         onkeypress="return val(event)" placeholder="<fmt:message key="label.observaciones"/>"></textarea>
+                            </div>
+                            <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
+                            <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
                         </div>
-                        <span class="help-block" ></span>
-                    </div>
-                     <div class="form-group">
-                         <span class="glyphicon glyphicon-asterisk"></span><strong><fmt:message key="label.observaciones"/></strong>
-                        <div class="input-group">
-                            <textarea class="form-control" rows="15" cols="50" name="Observaciones" id="Observaciones"></textarea>
-                             <span  class="help-block" ></span>  
-                        </div>
-                        <span class="help-block" ></span>
-                    </div>
-                    
-                    <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
-                </div>
-            </form>
-
-            <%-- Verificando si la variable resultado esta vacia--%>
-            <%if (request.getParameter("resultado") != null) {
-            %>
-            <div class="alert alert-success col-md-10">
-                <b><%=request.getParameter("resultado")%></b>
+                    </form>
+                </div>   
             </div>
-            <%
-                }
-            %> 
-
-
-        </div>
-        <!--notese el uso de jsp:include -->
-     
-    </div>
+            <script type="text/javascript" src="assets/prop/java.js"></script>
     </body>
 </html>

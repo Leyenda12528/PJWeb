@@ -110,9 +110,10 @@
     <sql:param value=""/>
 </sql:update>
 <sql:update var="NewCasoq" dataSource="jdbc/mysql" scope="request">
-    insert into pdf_caso (id_caso, pdf) values (?, ?);
+    insert into pdf_caso values (?, ?, ?);
     <sql:param value="${id_caso}"/>
     <sql:param value="${pdfJF}"/>
+    <sql:param value=""/>
 </sql:update>
 <c:redirect url="../Solicitud.jsp">
     <c:param name="exito" value="1"/>

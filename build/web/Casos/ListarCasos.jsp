@@ -8,19 +8,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../Imas/java.ico" />
         <title>Listar casos</title>
-
     </head>
     <body id="page-top"> 
          <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
-
-            <jsp:include page="/Menu_1.jsp" />
-            
+            <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
@@ -40,12 +43,9 @@
                                         <th>Fecha Limite</th>
                                         <th>Fecha produccion</th>
                                         <th>Estado</th>
-                                      
-                                     
                                     </tr>
                                 </thead>
-                                <tbody>
-                                   
+                                <tbody>                                   
                                     <c:forEach var="c" items="${q5.rows}">
                                         <tr>
                                             <td>${c.id_caso}</td>
@@ -61,18 +61,8 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>                    
                 </div> 
             </div>
-            <script>
-                function eliminar(id) {
-                    alertify.confirm("¿Realmente deseas inhabilitar a este empleado?", function (e) {
-                        if (e) {
-                            location.href = "../Controlador/empleadosDAO.jsp?codigoe="+ id;
-                        }
-                    });
-                }
-            </script>
     </body>
 </html>
