@@ -19,7 +19,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="Imas/java.ico" />
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico" />
         <title><fmt:message key="label.titlesoli" /></title>
     </head>
     <body id="page-top">         
@@ -64,6 +64,6 @@
                     </form>
                 </div>
             </div>
-            <script type="text/javascript" src="assets/prop/java.js"></script>
+            <script type="text/javascript" src="${pageContext.request.contextPath}/assets/prop/java.js"></script>
     </body>    
 </html>

@@ -18,14 +18,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico" />
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
         <title><fmt:message key="label.solip"/></title>
     </head>
-    <body id="page-top">         
+    <body id="page-top">
         <div id="wrapper">
             <jsp:include page="../Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp"/>
-            <div class="container-fluid">                
+            <div class="container-fluid">
+                <c:if test="${not empty param.exito}">
+                    <div class="alert alert-info">
+                        <strong><fmt:message key="label.respuestaCasosend"/>!</strong>
+                        <br>
+                    </div>
+                </c:if>
                 <c:forEach var="solipFor" items="${solipq.rows}" varStatus="status">
                     <div class="card mb-4">
                         <div class="card-header py-3">
@@ -38,13 +44,14 @@
                                 <a class="btn btn-danger" href="${pageContext.request.contextPath}/#?"><fmt:message key="label.verpdfjf"/></a>
                             </c:if>                            
                                 <%--${pageContext.request.contextPath}/Controlador/Casos.jsp?aceptarC=${solipFor.id_caso}--%>
-                            <a title="Aceptar" class="btn btn-success" onclick="" href="#"><fmt:message key="label.aceptarC"/></a>
-                            <a title="Rechazar" class="btn btn-secondary" onclick="" href="#"><fmt:message key="label.rechazarC"/></a>
+                            <a title="Aceptar" class="btn btn-success" onclick="" href="${pageContext.request.contextPath}/Casos/RespuestaP.jsp?C=${solipFor.id_caso}&d=1"><fmt:message key="label.aceptarC"/></a>
+                            <a title="Rechazar" class="btn btn-secondary" onclick="" href="${pageContext.request.contextPath}/Casos/RespuestaP.jsp?C=${solipFor.id_caso}&d=2"><fmt:message key="label.rechazarC"/></a>
                             <%--p2('${solipFor.id_caso}')--%>
                         </div>
                     </div>
                 </c:forEach>
-            </div>            
+            </div>
+            <%--
             <script type="text/javascript">                
                 function p2(dato)
                 {
@@ -52,6 +59,6 @@
                         if (e) window.window.location.href="ListarCasos.jsp"; 
                     });
                 }                
-            </script>
+            </script>--%>
     </body>
 </html>

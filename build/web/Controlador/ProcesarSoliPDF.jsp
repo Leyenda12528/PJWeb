@@ -34,14 +34,8 @@
 <%
     String correo = "" + pageContext.getAttribute("correo");
     String contraP = "" + pageContext.getAttribute("contraP");
-    String cDestino = "" + pageContext.getAttribute("cDestino");
-    String cargo = "" + pageContext.getAttribute("id_cargo");
+    String cDestino = "" + pageContext.getAttribute("cDestino");    
     String asunto = "", mjs = "";
-
-    if (cargo.equals("2")) {
-        asunto = "Solicitud de Caso";
-        mjs = "Saludos se manda la solicitud de un nuevo caso";
-    }
 
     String id = "", nombre = "", descrip = "", pdfJF = "";
 
@@ -74,6 +68,8 @@
                 }
             }
         }
+        asunto = "Solicitud de Caso " + id;
+        mjs = "Saludos\n Envio una solicitud de un nuevo caso, con los siguiente detalles:\n\n\t" + descrip;
         Controlador control = new Controlador();
         Correo c = new Correo();
         c.setCorreoUser(correo);
@@ -81,8 +77,11 @@
         c.setCorreoDestino(cDestino);
         c.setAsunto(asunto);
         c.setMensaje(mjs);
-        c.setNombreArchivo(pdfJF);
-        c.setRutaArchivo("C:/Users/jorge/Desktop/pdf/" + pdfJF);
+        if (pdfJF.length() >0)
+        {
+            c.setNombreArchivo(pdfJF);
+            c.setRutaArchivo("C:/Users/jorge/Desktop/pdf/" + pdfJF);
+        }
         control.enviar(c);
 
         pageContext.setAttribute("id_caso", id);
@@ -94,10 +93,6 @@
         out.print("" + e.getMessage());
     }
 %>
-<h4><c:out value="${id_caso}"/></h4>
-<h4><c:out value="${nombre_caso}"/></h4>
-<h4><c:out value="${descrip_caso}"/></h4>
-<h4><c:out value="${pdfJF}"/></h4>
 
 <sql:update var="NewCasoq" dataSource="jdbc/mysql" scope="request">
     insert into caso values (?, ?, ?, ?, ?, 1, 0, ?, ?);

@@ -1,9 +1,8 @@
 <%-- 
-    Document   : ProcesarSoliPDF
-    Created on : 21-abr-2019, 15:19:56
+    Document   : RespPDF
+    Created on : 27-abr-2019, 22:17:14
     Author     : jorge
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 
@@ -15,29 +14,24 @@
 <%@page import="Beans.Correo"%>
 <%@page import="Beans.Controlador"%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <jsp:include page="Consultas.jsp"/>
-<c:forEach var="cDestinofor" items="${q7.rows}">
+<c:forEach var="cDestinofor" items="${q8.rows}">
     <c:set var="cDestino"  value="${cDestinofor.correo}"/>
 </c:forEach>
 
 <c:set var="id_caso" value=""/>
-<c:set var="nombre_caso" value=""/>
-<c:set var="descrip_caso" value=""/>
-<c:set var="pdfJF" value=""/>
+<c:set var="descripcion" value=""/>
+<c:set var="tipo" value=""/>
+
 <c:set var="correo" value="${loginB.correo}"/>
 <c:set var="contraP" value="${loginB.contraP}"/>
-<c:set var="id_cargo" value="${loginB.id_cargo}"/>
-
+<c:set var="pdfJD" value=""/>
 
 <%
     String correo = "" + pageContext.getAttribute("correo");
     String contraP = "" + pageContext.getAttribute("contraP");
-    String cDestino = "" + pageContext.getAttribute("cDestino");    
-    String asunto = "", mjs = "";
-
-    String id = "", nombre = "", descrip = "", pdfJF = "";
+    String cDestino = "" + pageContext.getAttribute("cDestino");
+    String asunto = "", mjs = "", descripcion = "", id = "", pdfJD = "", tipo = "";
 
     String ruta = "C:\\Users\\jorge\\Desktop\\pdf";
     FileItemFactory fileFactory = new DiskFileItemFactory();
@@ -50,11 +44,11 @@
                 if (uploaded.getFieldName().equals("id_caso")) {
                     id = uploaded.getString();
                 }
-                if (uploaded.getFieldName().equals("nombre_caso")) {
-                    nombre = uploaded.getString();
+                if (uploaded.getFieldName().equals("descripcion")) {
+                    descripcion = uploaded.getString();
                 }
-                if (uploaded.getFieldName().equals("descripcion_caso")) {
-                    descrip = uploaded.getString();
+                if (uploaded.getFieldName().equals("tipo")) {
+                    tipo = uploaded.getString();
                 }
             } else {
                 if (uploaded.getName().length() > 0) {
@@ -62,14 +56,15 @@
                     String nombreFile = String.valueOf(numero) + uploaded.getName();
                     File fichero = new File(ruta, nombreFile);
                     uploaded.write(fichero);
-                    pdfJF = nombreFile;
+                    pdfJD = nombreFile;
                 } else {
-                    pdfJF = "";
+                    pdfJD = "";
                 }
             }
         }
-        asunto = "Solicitud de Caso " + id;
-        mjs = "Saludos\n Envio una solicitud de un nuevo caso, con los siguiente detalles:\n\n\t" + descrip;
+        asunto = "Respuesta a Solicitud Caso " + id;
+        if(tipo.equals("1")) mjs ="Saludos.\nFelicidades su caso ha sido aceptado.\n Con las siguientes observaciones:\n\n\t " + descripcion;
+        else mjs = "Saludos.\n Lastimosamente su caso no ha sido aceptado por las siguientes razones:\n\n\t " + descripcion;
         Controlador control = new Controlador();
         Correo c = new Correo();
         c.setCorreoUser(correo);
@@ -77,46 +72,44 @@
         c.setCorreoDestino(cDestino);
         c.setAsunto(asunto);
         c.setMensaje(mjs);
-        if (pdfJF.length() >0)
-        {
-            c.setNombreArchivo(pdfJF);
-            c.setRutaArchivo("C:/Users/jorge/Desktop/pdf/" + pdfJF);
+        if (pdfJD.length() > 0) {
+            c.setNombreArchivo(pdfJD);
+            c.setRutaArchivo("C:/Users/jorge/Desktop/pdf/" + pdfJD);
         }
         control.enviar(c);
 
         pageContext.setAttribute("id_caso", id);
-        pageContext.setAttribute("nombre_caso", nombre);
-        pageContext.setAttribute("descrip_caso", descrip);
-        pageContext.setAttribute("pdfJF", pdfJF);
+        pageContext.setAttribute("tipo", tipo);
+        pageContext.setAttribute("descripcion", descripcion);
+        pageContext.setAttribute("pdfJD", pdfJD);
 
     } catch (Exception e) {
         out.print("" + e.getMessage());
     }
 %>
 
-<sql:update var="NewCasoq" dataSource="jdbc/mysql" scope="request">
-    insert into caso values (?, ?, ?, ?, ?, 1, 0, ?, ?);
-    <sql:param value="${id_caso}"/>
-    <sql:param value="${nombre_caso}"/>
-    <sql:param value="${descrip_caso}"/>
-    <sql:param value=""/>
-    <sql:param value=""/>
-    <sql:param value=""/>
-    <sql:param value=""/>
-</sql:update>
-<sql:update var="NewCasoq" dataSource="jdbc/mysql" scope="request">
-    insert into pdf_caso values (?, ?, ?);
-    <sql:param value="${id_caso}"/>
-    <sql:param value="${pdfJF}"/>
-    <sql:param value=""/>
-</sql:update>
-<c:redirect url="../Solicitud.jsp">
+<%-- Aceptando caso--%>
+<c:if test="${tipo == 1}">
+    <sql:update var="ac" dataSource="jdbc/mysql" scope="request">
+        update caso set id_estado = 3, descripcion_jefedes = ? where id_caso = ?
+        <sql:param value="${descripcion}"/>
+        <sql:param value="${id_caso}"/>
+    </sql:update>
+    <sql:update var="ac2" dataSource="jdbc/mysql" scope="request">
+        update pdf_caso set pdf_jefe = ? where id_caso = ?
+        <sql:param value="${pdfJD}"/>
+        <sql:param value="${id_caso}"/>
+    </sql:update>
+</c:if>
+
+<%-- Rechazando caso--%>
+<c:if test="${tipo == 2}">
+    <sql:update var="rc" dataSource="jdbc/mysql" scope="request">
+        update caso set id_estado = 2, descrip_rechazo = ? where id_caso = ?
+        <sql:param value="${descripcion}"/>
+        <sql:param value="${id_caso}"/>
+    </sql:update>
+</c:if>
+<c:redirect url="../Casos/SolicitudP.jsp">
     <c:param name="exito" value="1"/>
 </c:redirect>
-<%--    
-<form action="${pageContext.request.contextPath}/prueba2/VERPDF.jsp" method="post" target="_blank">
-<input type="submit" value="VER">
-</form>
---%>
-
-

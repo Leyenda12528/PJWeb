@@ -28,7 +28,13 @@
 <sql:query var="q6" dataSource="jdbc/mysql" scope="request">
     select * from empleados
 </sql:query>
+    <%--obtener el Correo del JD--%>
 <sql:query var="q7" dataSource="jdbc/mysql" scope="request">
     select correo from empleados where id_cargo = 1 and id_depto = ?
+    <sql:param value="${loginB.id_departamento}"/>
+</sql:query>
+        <%--obtener el Correo del JF--%>
+<sql:query var="q8" dataSource="jdbc/mysql" scope="request">
+    select correo from empleados where id_cargo = 2 and id_depto = ?
     <sql:param value="${loginB.id_departamento}"/>
 </sql:query>
