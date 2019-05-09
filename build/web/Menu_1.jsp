@@ -21,6 +21,7 @@
 
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 </head>
+  <div id="wrapper">
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -138,6 +139,11 @@
 
 <!-- Topbar -->
 <div id="content-wrapper" class="d-flex flex-column">
+   
+      <!-- Main Content -->
+      <div id="content">
+
+
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
         <!-- Sidebar Toggle (Topbar) -->
@@ -175,6 +181,7 @@
             </li>
         </ul>
     </nav>
+
 
     <!-- End of Topbar -->
     <!-- Bootstrap core JavaScript-->

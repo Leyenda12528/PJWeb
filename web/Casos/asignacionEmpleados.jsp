@@ -27,14 +27,14 @@
 
         <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
-            <jsp:include page="/Menu_1.jsp" />
+            <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
                 <form role="form" action="../Controlador/asignacionDAO.jsp"  method="POST" >
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Accordion -->
-                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                <a href="#collapseCardExample" class="d-block card-header py-3"  aria-expanded="true" aria-controls="collapseCardExample">
                                     <h6 class="m-0 font-weight-bold text-primary">Información general</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
@@ -42,15 +42,16 @@
                                     <div class="card-body">
                                         <strong>Caso: </strong> id <c:out value="Log19001"/> NOMBRE DEL CASO
                                         <br/>
-                                        <strong>Departamento: </strong> Código-           Nombre- 
+                                        <strong>Departamento: </strong><c:out value="${loginB.id_departamento}"/>  <c:out value="${loginB.departamento}"/>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-primary btn-icon-split btn-lg" id="pro" href="../Empleados/programadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>"> 
+                                    <a class="btn btn-primary btn-lg" id="pro" href="../Empleados/programadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>"> 
                                         Asignar Programador
                                     </a>
                                     <div class="text-white-50 small"></div>
@@ -62,12 +63,18 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-warning text-white shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-warning btn-icon-split btn-lg" href="../Empleados/probadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>" >
+                                    <a class="btn btn-warning btn-lg" href="../Empleados/probadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>" >
                                         Asignar Probador
                                     </a>
                                     <div class="text-white-50 small"></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <c:set value="Log19001" var="idcaso"/> <!-- tomar de paramatros enviados de pagina principal -->
+                            <a class="btn btn-secondary" href="javascript:mostrar()" >
+                                Verificar asignaciones
+                            </a>
                         </div>
 
 
@@ -91,26 +98,88 @@
                                         </div> 
                                     </div>
                                 </div>
-
-                                <input type="submit" class="btn btn-success" value="<fmt:message key="label.asig"/>" id="btnAsignarp" name="btnAsignarp" >          
-
-
+                                <input type="submit" class="btn btn-success"  value="<fmt:message key="label.asig"/>" id="btnAsignarp" name="btnAsignarp" >
                             </div>
-                        
-                            <c:if test="${not empty param.exito}">
-                                <div class="alert alert-danger">
-                                    <strong>Error!</strong><c:out value="${param.exito}"/>
-                                    <br>
-                                </div>
-                            </c:if>
                         </div>
 
                     </div>
-
+          
                 </form>
+                <sql:query var="q6" dataSource="jdbc/mysql" scope="request">
+                    select ec.id_empleado, CONCAT( nombre_emp,' ',apellidos) Nombre,nombre_cargo from empleados e INNER JOIN empleados_caso ec ON ec.id_empleado=e.id_empleado INNER JOIN cargo ca on ca.id_cargo=e.id_cargo where id_caso=?
+                    <sql:param value="${idcaso}"/>
+                </sql:query>
+
+                <div class="modal" id="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color: blue">Empleados asignados</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <c:forEach var="emp" items="${q6.rows}">
+                                        <tr>
+                                            <td>${emp.id_empleado}</td>
+                                            <td>${emp.Nombre}</td>
+                                            <td>${emp.nombre_cargo}</td>
+                                        </c:forEach>     
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
             </div>
 
+          <!--SECCIÓN PARA MOSTRAR MENSAJES DE ERROR O CONFIRMACIÓN DE ALGÚN PROCESO-->
+                    <c:if test="${not empty param.exito}">
+                        <script>
+                            alertify.success('${param.exito}');
+                        </script>
+                    </c:if>
+                    <c:if test="${not empty param.error}">
+                        <script>
+                            alertify.error('${param.error}')
+                        </script>
+                    </c:if>
+                    <!--SE CAPTURA UN PARAMETRO ESPECIAL PARA VERIFICAR SI DESEA MODIFICAR EL EMPLEADO-->
+                    <c:if test="${not empty param.errorm}">
+                          <c:set value="${param.idc}" var="casoid"/>
+                        <script>
+                            alertify.confirm("¿Desea sustituir por el nuevo empleado seleccionado?", function (e) {
+                                if (e) {
+                                  
+                                    location.href = "../Controlador/asignacionDAO.jsp?modi="+${param.ide}+"&cargo="+${param.c}+"&casoid=<c:out value="${param.idc}"/>";
+                                }
+                            });
+                            alertify.error('${param.errorm}');
+                           
+                        </script>
+                    </c:if>
+            <script>
+                function verificar(id) {
 
+                    alertify.confirm("¿Realmente deseas inhabilitar a este empleado?", function (e) {
+                        if (e) {
+                            location.href = "asignacionEmpleados.jsp?idcaso=" + id;
+
+                        }
+                    });
+                }
+
+                function mostrar() {
+                    $('#modal').modal('show');
+                }
+            </script>
             <script src="js/bootstrap.min.js"></script>
             <script src="assets/jquery-3.3.1.min.js"></script>
             <script src="../assets/validaciones/validacion.js"></script>

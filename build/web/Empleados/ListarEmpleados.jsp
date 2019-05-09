@@ -28,17 +28,16 @@
             <jsp:include page="/Menu_1_1.jsp" />
             
             <div class="container-fluid">
+                   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Listado de Empleados</h1>
+            <a href="ingresarEmpleado.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-user fa-sm text-white-50">
+                    </i> Nuevo Empleado</a>
+          </div>
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-0 font-weight-bold text-primary">Lista de Empleados</h6>
-                        <div class="col-sm-25">
-                            <a href="nuevoEmpleado.jsp" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Nuevo Empleado</span>
-                            </a>             
-                        </div>
+                        <h6 class="m-0 font-weight-bold text-primary"> Empleados</h6>
+                  
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

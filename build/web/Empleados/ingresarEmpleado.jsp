@@ -13,12 +13,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="../Imas/java.ico" />
-        <title>Ingresar Empleado</title>
+        <title><fmt:message key="label.TituloIe"/></title>
     </head>
     <body id="page-top">  
         <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
-            <jsp:include page="/Menu_1.jsp" />
+            <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
                 <form role="form" action="../Controlador/empleadosDAO.jsp"  method="POST" >
                     <div class="row">
@@ -34,9 +34,13 @@
                                     <div class="form-group"><strong><span class="fas fa-asterisk" style="height: 15px"></span><fmt:message key="label.requeridos"/></strong></div>
                                     <div></div>
                                     <div  class="form-group">
+                                        <label for="codogo" ><fmt:message key="label.codigoe"/></label>
+                                        <div class="input-group">
+                                            <input  type="text" class="form-control" name="codigo" width="12 px" id="codigo" placeholder="" readonly="" value="${q6.rowCount}">
+                                        </div>
                                         <label for="nombres" ><span class="fas fa-asterisk" ></span><fmt:message key="label.nombres"/></label>
                                         <div class="input-group">
-                                            <input  type="text" class="form-control" name="codigo" id="codigo" placeholder="" readonly="" value="${q6.rowCount}">
+                                           
                                             <input  type="text" class="form-control" name="nombres" id="nombres" placeholder="<fmt:message key="label.camponombre"/>" required>
 
                                             <span  class="invalid-feedback" ></span>  

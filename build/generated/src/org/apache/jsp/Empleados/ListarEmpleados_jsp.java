@@ -1,10 +1,10 @@
-package org.apache.jsp.Casos;
+package org.apache.jsp.Empleados;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ListarEmpleados_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -13,6 +13,7 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_redirect_url;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_param_value_name_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
@@ -26,6 +27,7 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_redirect_url = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_param_value_name_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -34,6 +36,7 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_set_var_value_nobody.release();
+    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_c_redirect_url.release();
     _jspx_tagPool_c_param_value_name_nobody.release();
     _jspx_tagPool_c_if_test.release();
@@ -80,22 +83,30 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <link rel=\"shortcut icon\" href=\"../Imas/java.ico\" />\r\n");
-      out.write("        <title>Listar casos</title>\r\n");
+      out.write("        <link rel=\"shortcut icon\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Imas/java.ico\" />\r\n");
+      out.write("        <title>Listar Empleados</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body id=\"page-top\"> \r\n");
       out.write("         ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../Controlador/Consultas.jsp", out, false);
       out.write("\r\n");
       out.write("        <div id=\"wrapper\">\r\n");
+      out.write("\r\n");
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/Menu_1_1.jsp", out, false);
       out.write("\r\n");
+      out.write("            \r\n");
       out.write("            <div class=\"container-fluid\">\r\n");
+      out.write("                   <div class=\"d-sm-flex align-items-center justify-content-between mb-4\">\r\n");
+      out.write("            <h1 class=\"h3 mb-0 text-gray-800\">Listado de Empleados</h1>\r\n");
+      out.write("            <a href=\"ingresarEmpleado.jsp\" class=\"d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm\"><i class=\"fas fa-download fa-sm text-white-50\"></i> Generate Report</a>\r\n");
+      out.write("          </div>\r\n");
       out.write("                <div class=\"card shadow mb-2\">\r\n");
       out.write("                    <div class=\"card-header py-2\">\r\n");
-      out.write("                        <h6 class=\"m-0 font-weight-bold text-primary\">Información de casos creados</h6>\r\n");
-      out.write("\r\n");
+      out.write("                        <h6 class=\"m-0 font-weight-bold text-primary\">Lista de Empleados</h6>\r\n");
+      out.write("                  \r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <div class=\"table-responsive\">\r\n");
@@ -103,16 +114,20 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <thead>\r\n");
       out.write("                                    <tr>\r\n");
       out.write("                                        <th>Codigo</th>\r\n");
-      out.write("                                        <th class=\"col-md-1\">Nombre</th>\r\n");
-      out.write("                                        <th>Requerimiento</th>\r\n");
-      out.write("                                        <th>Descrpción</th>\r\n");
-      out.write("                                        <th>Porcentaje Avance</th>\r\n");
-      out.write("                                        <th>Fecha Limite</th>\r\n");
-      out.write("                                        <th>Fecha produccion</th>\r\n");
+      out.write("                                        <th class=\"col-md-1\">Nombres</th>\r\n");
+      out.write("                                        <th>Apellidos</th>\r\n");
+      out.write("                                        <th>Edad</th>\r\n");
+      out.write("                                        <th>Direccion</th>\r\n");
+      out.write("                                        <th>Telefono</th>\r\n");
+      out.write("                                        <th>Correo</th>\r\n");
+      out.write("                                        <th>Cargo</th>\r\n");
+      out.write("                                        <th>Deparrtamento</th>\r\n");
       out.write("                                        <th>Estado</th>\r\n");
+      out.write("                                        <th>Operaciones</th>\r\n");
       out.write("                                    </tr>\r\n");
       out.write("                                </thead>\r\n");
-      out.write("                                <tbody>                                   \r\n");
+      out.write("                                <tbody>\r\n");
+      out.write("                                   \r\n");
       out.write("                                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
@@ -120,9 +135,19 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </tbody>\r\n");
       out.write("                            </table>\r\n");
       out.write("                        </div>\r\n");
+      out.write("\r\n");
       out.write("                    </div>                    \r\n");
       out.write("                </div> \r\n");
       out.write("            </div>\r\n");
+      out.write("            <script>\r\n");
+      out.write("                function eliminar(id) {                    \r\n");
+      out.write("                    alertify.confirm(\"¿Realmente deseas inhabilitar a este empleado?\", function (e) {\r\n");
+      out.write("                        if (e) {\r\n");
+      out.write("                            location.href = \"../Controlador/empleadosDAO.jsp?codigoe=\"+ id;\r\n");
+      out.write("                        }\r\n");
+      out.write("                    });\r\n");
+      out.write("                }\r\n");
+      out.write("            </script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
@@ -253,8 +278,8 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setVar("c");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q5.rows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("emp");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q1.rows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
@@ -263,29 +288,47 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("                                        <tr>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.id_caso}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.id_empleado}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.nombre_caso}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.nombre_emp}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.descrip_req}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.apellidos}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.descripcion_jefedes}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.edad}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.porcentaje_avance}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.direccion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.fecha_limite}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.telefono}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.fecha_produccion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.correo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.nombre_estado}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>              \r\n");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.nombre_cargo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                            <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.nombre_depto}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                            <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.estado}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                            \r\n");
+          out.write("                                            <td>\r\n");
+          out.write("                                                <a title=\"modificar\" class=\"btn btn-primary  btn-circle\" href=\"modificarEmpleado.jsp?id=");
+          if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\"><i class=\"fa fa-edit\"></i></a>\r\n");
+          out.write("                                                <a title=\"eliminar\" class=\"btn btn-danger btn-circle\" href=\"javascript:eliminar(");
+          if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write(")\"><i class=\"fas fa-trash\"></i></a>\r\n");
+          out.write("\r\n");
+          out.write("                                            </td>\r\n");
           out.write("                                        </tr>\r\n");
           out.write("                                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
@@ -304,6 +347,42 @@ public final class ListarCasos_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.id_empleado}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
+    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.id_empleado}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
+    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
     return false;
   }
 }
