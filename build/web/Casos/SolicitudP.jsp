@@ -31,6 +31,12 @@
                         <strong><fmt:message key="label.respuestaCasosend"/>!</strong>
                         <br>
                     </div>
+                </c:if>                
+                <c:if test="${solipq.rowCount < 1}">
+                    <div class="alert alert-primary">
+                        <strong><fmt:message key="label.sinSoli"/>!</strong>
+                        <br>
+                    </div>
                 </c:if>
                 <c:forEach var="solipFor" items="${solipq.rows}" varStatus="status">
                     <div class="card mb-4">

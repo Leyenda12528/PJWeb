@@ -46,20 +46,7 @@
     <div class="sidebar-heading">
         <fmt:message key="label.admin"/>
     </div>
-    <!-- FILTRAR -->
     
-    <%
-        String usuario = "jefe";
-        if (usuario.equals("jefed")) {
-
-    %>
-    <style>
-        #solicitar
-        {
-            display: none
-        }
-    </style>
-    <%}%>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" id="solicitar" name="solicitar" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -68,9 +55,12 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>                
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
-                <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
+                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
+                <c:if test="${loginB.id_cargo == 2}">
+                    <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
+                    <br/>
+                </c:if>                                
+                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/ListarCasos.jsp'" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
             </div>
         </div>
@@ -109,7 +99,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ingresarEmpleado.jsp'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ListarEmpleados.jsp'" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.tester"/></button>

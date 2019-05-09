@@ -26,7 +26,10 @@
             <jsp:include page="../Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp"/>
             <div class="container-fluid">                
-                <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.respuestap"/></h2>
+                <div class="row  d-flex justify-content-between align-items-center">
+                    <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.respuestap"/></h2>
+                    <a href="${pageContext.request.contextPath}/Casos/SolicitudP.jsp" class="btn btn-primary"><fmt:message key="label.volver"/></a>
+                </div>
                 <div class="row col-md-5 centrado">                    
                     <c:choose>
                         <c:when test="${param.d == 1}">
@@ -35,7 +38,7 @@
                         <c:when test="${param.d == 2}">
                             <h6 class="media-heading font-weight-bold text-danger"><fmt:message key="label.rechazando"/></h6>
                         </c:when>
-                    </c:choose>                    
+                    </c:choose>
                     <form action="${pageContext.request.contextPath}/Controlador/RespPDF.jsp" method="post" enctype="multipart/form-data">
                         <input type="text" class="form-group form-control text-center" id="id_caso" 
                                name="id_caso" value="<c:out value="${param.C}"/>" readonly="">

@@ -36,8 +36,8 @@
                 </c:if>
                 <div class="row col-md-5 centrado">
                     <form role="form" action="Controlador/ProcesarSoliPDF.jsp"  method="POST" enctype="multipart/form-data">
-                        <div class="form-group input-group col-6">
-                            <fmt:message key="label.idcaso"/>&nbsp;<input type="text" class="form-control" name="id_caso" id="id_caso" readonly="" value="${NewIdCaso}">
+                        <div class="form-group input-group">
+                            <input type="text" class="form-control text-center" name="id_caso" id="id_caso" readonly="" value="${NewIdCaso}">
                         </div>
                         <div  class="form-group">                            
                             <input type="text" class="form-control" name="nombre_caso" id="nombre_caso" placeholder="<fmt:message key="label.namesoli"/>" required 
