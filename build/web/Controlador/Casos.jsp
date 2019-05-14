@@ -40,7 +40,17 @@
         <sql:param value="${area}%"/>
     </sql:query>
         
-<%--Aceptando caso--%>
+<%-- VER casos Asignados--%>        
+    <sql:query var="casosAsigq" dataSource="jdbc/mysql" scope="request">
+        SELECT  bitacoras.id_caso, caso.nombre_caso
+        FROM            bitacoras INNER JOIN
+        caso ON bitacoras.id_caso = caso.id_caso INNER JOIN
+        empleados_caso ON caso.id_caso = empleados_caso.id_caso
+        WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6))
+        <sql:param value="${loginB.id}"/>
+    </sql:query>
+    <%--        
+<%--Aceptando caso
         <c:if test="${not empty param.aceptarC}">
             <sql:update var="aceptarcq" dataSource="jdbc/mysql" scope="request">
                 update caso set id_estado = 3 where id_caso = ?
@@ -48,10 +58,11 @@
             </sql:update>
         </c:if>
                 
-<%--Rechazando caso--%>
+<%--Rechazando caso
         <c:if test="${not empty param.aceptarC}">
             <sql:update var="aceptarcq" dataSource="jdbc/mysql" scope="request">
                 update caso set id_estado = 3 where id_caso = ?
                 <sql:param value="${param.aceptarC}"/>
             </sql:update>
-        </c:if>                
+        </c:if>
+    --%>

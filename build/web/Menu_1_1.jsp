@@ -77,10 +77,9 @@
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
                 <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Bitacora.jsp'" style="margin-left: 15px"><fmt:message key="label.ver"/></button>
                 <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.mod"/></button>
-
             </div>
         </div>
-    </li>
+    </li>    
 
     <!-- Divider -->
     <hr class="sidebar-divider">

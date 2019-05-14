@@ -109,6 +109,7 @@
     <% }%>
 
 <%--LOGIN--%>
+
     <%if (request.getParameter("btnlogin") != null) {%>
         <sql:query var="login" dataSource="jdbc/mysql">
             SELECT * from empleados where correo = ? and password_emp = sha2(?,256)

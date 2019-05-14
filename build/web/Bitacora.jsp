@@ -25,28 +25,37 @@
         <div id="wrapper">
             <jsp:include page="Menu_1_1.jsp" />
             <div class="container-fluid">
-                <h3><fmt:message key="label.bitacora"/></h3>                
-                <div class="row col-md-10 centrado">
-                    <form role="form" action=""  method="POST" id="needs-validation">
-                        <div class="col-md-10">
-                            <div  class="form-group">
-                                <strong><fmt:message key="label.idcaso"/> </strong>
-                                <strong><fmt:message key="label.nombrecaso"/> </strong>                                
+                <div class="row  d-flex justify-content-between align-items-center">
+                    <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.bitacora"/> <c:out value="${param.ca}"/></h2>
+                    <a href="${pageContext.request.contextPath}/Casos/CasosAsignados.jsp" class="btn btn-primary"><fmt:message key="label.casosAsignados"/></a>
+                </div>
+                <hr class="sidebar-divider d-none d-md-block">
+                <form role="form" action=""  method="POST" id="needs-validation">
+                    <input type="hidden" id="id_caso" name="id_caso" value="<c:out value="${param.ca}"/>">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <strong><fmt:message key="label.observaciones"/></strong>
+                                </div>
+                                <textarea class="card-body form-group form-control" rows="8" cols="70" name="Observaciones" id="Observaciones"
+                                          onkeypress="return val(event)" placeholder="<fmt:message key="label.observaciones"/>"></textarea>
                             </div>                            
-                            <div class="form-group">                                
-                                <strong><fmt:message key="label.actividad"/></strong>
-                                <textarea class="form-control" rows="8" cols="70" name="descripcion_act" id="descripcion_act" 
-                                         onkeypress="return val(event)" placeholder="<fmt:message key="label.actividad"/>"></textarea>
-                            </div>
-                            <div class="form-group">                                
-                                <textarea class="form-control" rows="8" cols="70" name="Observaciones" id="Observaciones"
-                                         onkeypress="return val(event)" placeholder="<fmt:message key="label.observaciones"/>"></textarea>
-                            </div>
-                            <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
-                            <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
                         </div>
-                    </form>
-                </div>   
+                        <div class="col-lg-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <strong><fmt:message key="label.actividad"/></strong>
+                                </div>
+                                <textarea class="card-body form-group form-control" rows="8" cols="70" name="descripcion_act" id="descripcion_act" 
+                                          onkeypress="return val(event)" placeholder="<fmt:message key="label.actividad"/>"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar">
+                    <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar">
+                    <input type="submit" class="btn btn-info" value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar">
+                </form>
             </div>
             <script type="text/javascript" src="assets/prop/java.js"></script>
     </body>
