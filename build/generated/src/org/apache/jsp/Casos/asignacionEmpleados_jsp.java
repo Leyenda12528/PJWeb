@@ -98,7 +98,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Asignaciones</title>\r\n");
+      out.write("        <title>");
+      if (_jspx_meth_fmt_message_0(_jspx_page_context))
+        return;
+      out.write("</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body id=\"page-top\">  \r\n");
       out.write("\r\n");
@@ -116,7 +119,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <div class=\"card shadow mb-4\">\r\n");
       out.write("                                <!-- Card Header - Accordion -->\r\n");
       out.write("                                <a href=\"#collapseCardExample\" class=\"d-block card-header py-3\"  aria-expanded=\"true\" aria-controls=\"collapseCardExample\">\r\n");
-      out.write("                                    <h6 class=\"m-0 font-weight-bold text-primary\">Información general</h6>\r\n");
+      out.write("                                    <h6 class=\"m-0 font-weight-bold text-primary\">");
+      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+        return;
+      out.write("</h6>\r\n");
       out.write("                                </a>\r\n");
       out.write("                                <!-- Card Content - Collapse -->\r\n");
       out.write("                                <div class=\"collapse show\" id=\"collapseCardExample\">\r\n");
@@ -125,12 +131,18 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       if (_jspx_meth_c_set_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                                        <strong>Caso: </strong> id ");
+      out.write("                                        <strong>");
+      if (_jspx_meth_fmt_message_2(_jspx_page_context))
+        return;
+      out.write("</strong>");
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
-      out.write(" NOMBRE DEL CASO\r\n");
+      out.write(" \r\n");
       out.write("                                        <br/>\r\n");
-      out.write("                                        <strong>Departamento: </strong>");
+      out.write("                                        <strong>");
+      if (_jspx_meth_fmt_message_3(_jspx_page_context))
+        return;
+      out.write(" </strong>");
       if (_jspx_meth_c_out_1(_jspx_page_context))
         return;
       out.write(' ');
@@ -153,7 +165,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       if (_jspx_meth_c_out_4(_jspx_page_context))
         return;
       out.write("\"> \r\n");
-      out.write("                                        Asignar Programador\r\n");
+      out.write("                                       ");
+      if (_jspx_meth_fmt_message_4(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                                    </a>\r\n");
       out.write("                                    <div class=\"text-white-50 small\"></div>\r\n");
       out.write("                                    <div class=\"col-auto\">\r\n");
@@ -171,7 +186,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       if (_jspx_meth_c_out_6(_jspx_page_context))
         return;
       out.write("\" >\r\n");
-      out.write("                                        Asignar Probador\r\n");
+      out.write("                                        ");
+      if (_jspx_meth_fmt_message_5(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                                    </a>\r\n");
       out.write("                                    <div class=\"text-white-50 small\"></div>\r\n");
       out.write("                                </div>\r\n");
@@ -183,7 +201,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
         return;
       out.write(" <!-- tomar de paramatros enviados de pagina principal -->\r\n");
       out.write("                            <a class=\"btn btn-secondary\" href=\"javascript:mostrar()\" >\r\n");
-      out.write("                                Verificar asignaciones\r\n");
+      out.write("                               ");
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                            </a>\r\n");
       out.write("                        </div>\r\n");
       out.write("\r\n");
@@ -196,7 +217,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("                                <div class=\"card-header py-3\">\r\n");
       out.write("                                    <h6 class=\"m-0 font-weight-bold text-primary\">");
-      if (_jspx_meth_fmt_message_0(_jspx_page_context))
+      if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
       out.write("</h6>\r\n");
       out.write("                                </div>\r\n");
@@ -204,7 +225,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                                    <div  class=\"form-group\">\r\n");
       out.write("\r\n");
       out.write("                                        <label for=\"\" ><span class=\"fas fa-asterisk\" ></span>");
-      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+      if (_jspx_meth_fmt_message_8(_jspx_page_context))
         return;
       out.write("</label>\r\n");
       out.write("                                        <div class=\"input-group\">\r\n");
@@ -221,7 +242,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <input type=\"submit\" class=\"btn btn-success\"  value=\"");
-      if (_jspx_meth_fmt_message_2(_jspx_page_context))
+      if (_jspx_meth_fmt_message_9(_jspx_page_context))
         return;
       out.write("\" id=\"btnAsignarp\" name=\"btnAsignarp\" >\r\n");
       out.write("                            </div>\r\n");
@@ -239,7 +260,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                    <div class=\"modal-dialog \" role=\"document\">\r\n");
       out.write("                        <div class=\"modal-content\">\r\n");
       out.write("                            <div class=\"modal-header\">\r\n");
-      out.write("                                <h5 class=\"modal-title\" style=\"color: blue\">Empleados asignados</h5>\r\n");
+      out.write("                                <h5 class=\"modal-title\" style=\"color: blue\">");
+      if (_jspx_meth_fmt_message_10(_jspx_page_context))
+        return;
+      out.write("</h5>\r\n");
       out.write("                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n");
       out.write("                                    <span aria-hidden=\"true\">&times;</span>\r\n");
       out.write("                                </button>\r\n");
@@ -256,7 +280,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            </div>\r\n");
       out.write("\r\n");
       out.write("                            <div class=\"modal-footer\">\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button>\r\n");
+      out.write("                                <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">");
+      if (_jspx_meth_fmt_message_11(_jspx_page_context))
+        return;
+      out.write("</button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
@@ -449,6 +476,42 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_0.setParent(null);
+    _jspx_th_fmt_message_0.setKey("label.titleA");
+    int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
+    if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_1.setParent(null);
+    _jspx_th_fmt_message_1.setKey("label.infoA");
+    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
+    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    return false;
+  }
+
   private boolean _jspx_meth_c_set_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -468,6 +531,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_2.setParent(null);
+    _jspx_th_fmt_message_2.setKey("label.nomC");
+    int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
+    if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    return false;
+  }
+
   private boolean _jspx_meth_c_out_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -483,6 +564,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_3.setParent(null);
+    _jspx_th_fmt_message_3.setKey("label.deptoA");
+    int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
+    if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
     return false;
   }
 
@@ -558,6 +657,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_4.setParent(null);
+    _jspx_th_fmt_message_4.setKey("label.asigProgramador");
+    int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
+    if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+    return false;
+  }
+
   private boolean _jspx_meth_c_out_5(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -594,6 +711,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_5.setParent(null);
+    _jspx_th_fmt_message_5.setKey("label.asigProbador");
+    int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
+    if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+    return false;
+  }
+
   private boolean _jspx_meth_c_set_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -613,39 +748,57 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_0(PageContext _jspx_page_context)
+  private boolean _jspx_meth_fmt_message_6(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_0 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_0.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_0.setParent(null);
-    _jspx_th_fmt_message_0.setKey("label.asignacionp");
-    int _jspx_eval_fmt_message_0 = _jspx_th_fmt_message_0.doStartTag();
-    if (_jspx_th_fmt_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_6.setParent(null);
+    _jspx_th_fmt_message_6.setKey("label.asigver");
+    int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
+    if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_0);
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
+  private boolean _jspx_meth_fmt_message_7(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("label.fechalimite");
-    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
-    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_7.setParent(null);
+    _jspx_th_fmt_message_7.setKey("label.asignacionp");
+    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
+    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_8(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_8 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_8.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_8.setParent(null);
+    _jspx_th_fmt_message_8.setKey("label.fechalimite");
+    int _jspx_eval_fmt_message_8 = _jspx_th_fmt_message_8.doStartTag();
+    if (_jspx_th_fmt_message_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
     return false;
   }
 
@@ -686,21 +839,21 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_2(PageContext _jspx_page_context)
+  private boolean _jspx_meth_fmt_message_9(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("label.asig");
-    int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
-    if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_9.setParent(null);
+    _jspx_th_fmt_message_9.setKey("label.asig");
+    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
+    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
     return false;
   }
 
@@ -773,6 +926,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_10(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_10 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_10.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_10.setParent(null);
+    _jspx_th_fmt_message_10.setKey("label.asigemp");
+    int _jspx_eval_fmt_message_10 = _jspx_th_fmt_message_10.doStartTag();
+    if (_jspx_th_fmt_message_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_10);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_10);
+    return false;
+  }
+
   private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -816,6 +987,24 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_11(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_11 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_11.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_11.setParent(null);
+    _jspx_th_fmt_message_11.setKey("label.asigcerrar");
+    int _jspx_eval_fmt_message_11 = _jspx_th_fmt_message_11.doStartTag();
+    if (_jspx_th_fmt_message_11.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_11);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_11);
     return false;
   }
 
