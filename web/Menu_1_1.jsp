@@ -100,8 +100,8 @@
                 <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
                 <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ingresarEmpleado.jsp'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
                 <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ListarEmpleados.jsp'" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.tester"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/programadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/probadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.tester"/></button>
 
             </div>
         </div>

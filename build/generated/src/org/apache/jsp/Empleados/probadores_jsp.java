@@ -77,6 +77,20 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_sql_query_1(_jspx_page_context))
         return;
       out.write("\r\n");
+      out.write("    ");
+ 
+        int op=1;
+        if(op==1){
+      out.write("\r\n");
+      out.write("        <style>\r\n");
+      out.write("           -asig\r\n");
+      out.write("           {\r\n");
+      out.write("               display: none;\r\n");
+      out.write("           }\r\n");
+      out.write("        </style>\r\n");
+      out.write("        ");
+}
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -98,7 +112,10 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container-fluid\">\r\n");
       out.write("                <div class=\"card shadow mb-2\">\r\n");
       out.write("                    <div class=\"card-header py-2\">\r\n");
-      out.write("                        <h6 class=\"m-0 font-weight-bold text-primary\">Probadores</h6>\r\n");
+      out.write("                        <h6 class=\"m-0 font-weight-bold text-primary\">");
+      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+        return;
+      out.write("</h6>\r\n");
       out.write("                        <div class=\"col-sm-25\">\r\n");
       out.write("\r\n");
       out.write("                        </div>\r\n");
@@ -108,12 +125,27 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">\r\n");
       out.write("                                <thead>\r\n");
       out.write("                                    <tr>\r\n");
-      out.write("                                        <th>Codigo</th>\r\n");
-      out.write("                                        <th class=\"col-md-1\">Nombres</th>\r\n");
+      out.write("                                        <th>");
+      if (_jspx_meth_fmt_message_2(_jspx_page_context))
+        return;
+      out.write("</th>\r\n");
+      out.write("                                        <th class=\"col-md-1\">");
+      if (_jspx_meth_fmt_message_3(_jspx_page_context))
+        return;
+      out.write("</th>\r\n");
       out.write("\r\n");
-      out.write("                                        <th>Cargo</th>\r\n");
-      out.write("                                        <th>Deparrtamento</th>\r\n");
-      out.write("                                        <th>Operaciones</th>\r\n");
+      out.write("                                        <th>");
+      if (_jspx_meth_fmt_message_4(_jspx_page_context))
+        return;
+      out.write("</th>\r\n");
+      out.write("                                        <th>");
+      if (_jspx_meth_fmt_message_5(_jspx_page_context))
+        return;
+      out.write("</th>\r\n");
+      out.write("                                        <th>");
+      if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
+      out.write("</th>\r\n");
       out.write("                                    </tr>\r\n");
       out.write("                                </thead>\r\n");
       out.write("                                <tbody>\r\n");
@@ -331,6 +363,114 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_1.setParent(null);
+    _jspx_th_fmt_message_1.setKey("label.testitle");
+    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
+    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_2.setParent(null);
+    _jspx_th_fmt_message_2.setKey("label.testcodigo");
+    int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
+    if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_3.setParent(null);
+    _jspx_th_fmt_message_3.setKey("label.testnombre");
+    int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
+    if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_4.setParent(null);
+    _jspx_th_fmt_message_4.setKey("label.testcargo");
+    int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
+    if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_5 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_5.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_5.setParent(null);
+    _jspx_th_fmt_message_5.setKey("label.testdepto");
+    int _jspx_eval_fmt_message_5 = _jspx_th_fmt_message_5.doStartTag();
+    if (_jspx_th_fmt_message_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_6(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_6.setParent(null);
+    _jspx_th_fmt_message_6.setKey("label.testop");
+    int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
+    if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+    return false;
+  }
+
   private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -374,7 +514,10 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                                    <span class=\"icon text-white-50\">\r\n");
           out.write("                                                        <i class=\"fas fa-check\"></i>\r\n");
           out.write("                                                    </span>\r\n");
-          out.write("                                                    <span class=\"text\">Asignar</span>\r\n");
+          out.write("                                                    <span class=\"text\">");
+          if (_jspx_meth_fmt_message_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("</span>\r\n");
           out.write("                                                </a>\r\n");
           out.write("                                                </div>\r\n");
           out.write("                                            </td>\r\n");
@@ -432,6 +575,24 @@ public final class probadores_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_7(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_fmt_message_7.setKey("label.testasignar");
+    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
+    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
     return false;
   }
 }

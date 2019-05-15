@@ -17,9 +17,19 @@
     SELECT id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre,c.id_cargo,nombre_cargo,nombre_depto FROM empleados emp 
     INNER JOIN departamentos dep ON dep.id_depto= ? and emp.id_depto=?
     INNER JOIN  cargo c ON c.id_cargo=4 and emp.id_cargo=4 where id_estado_emp=0
-    <sql:param value="${param.cdepto}"/>
-    <sql:param value="${param.cdepto}"/>
+    <sql:param value="${loginB.id_departamento}"/>
+    <sql:param value="${loginB.id_departamento}"/>
 </sql:query>
+    <c:set var="op" value="${param.op}"/>
+    <c:if test="${op!=1}">
+            <style>
+           #asig
+           {
+               display: none;
+           }
+        </style>
+    </c:if>
+  
 <!DOCTYPE html>
 <html>
     <head>
