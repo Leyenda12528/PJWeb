@@ -20,7 +20,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Programadores</title>
+        <title><fmt:message key="label.protitle"/></title>
 
     </head>
     <body id="page-top"> 
@@ -34,7 +34,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-0 font-weight-bold text-primary">Programadores</h6>
+                        <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.protitle"/></h6>
                         <div class="col-sm-25">
 
                         </div>
@@ -42,14 +42,14 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
+                                      <thead>
                                     <tr>
-                                        <th>Codigo</th>
-                                        <th class="col-md-1">Nombres</th>
+                                        <th><fmt:message key="label.testcodigo"/></th>
+                                        <th class="col-md-1"><fmt:message key="label.testnombre"/></th>
 
-                                        <th>Cargo</th>
-                                        <th>Deparrtamento</th>
-                                        <th>Operaciones</th>
+                                        <th><fmt:message key="label.testcargo"/></th>
+                                        <th><fmt:message key="label.testdepto"/></th>
+                                        <th><fmt:message key="label.testop"/></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,7 +65,7 @@
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-check"></i>
                                                     </span>
-                                                    <span class="text">Asignar</span>
+                                                    <span class="text"><fmt:message key="label.testasignar"/></span>
                                                 </a>
                                             </td>
                                         </tr>

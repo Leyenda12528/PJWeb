@@ -21,7 +21,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Asignaciones</title>
+        <title><fmt:message key="label.titleA"/></title>
     </head>
     <body id="page-top">  
 
@@ -35,14 +35,15 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Accordion -->
                                 <a href="#collapseCardExample" class="d-block card-header py-3"  aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Información general</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.infoA"/></h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
                                     <div class="card-body">
-                                        <strong>Caso: </strong> id <c:out value="Log19001"/> NOMBRE DEL CASO
+                                        <c:set var="idcasop" value="Log19005"/>
+                                        <strong><fmt:message key="label.nomC"/></strong><c:out value="Log19003"/> 
                                         <br/>
-                                        <strong>Departamento: </strong><c:out value="${loginB.id_departamento}"/>  <c:out value="${loginB.departamento}"/>
+                                        <strong><fmt:message key="label.deptoA"/> </strong><c:out value="${loginB.id_departamento}"/>  <c:out value="${loginB.departamento}"/>
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +52,8 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-primary btn-lg" id="pro" href="../Empleados/programadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>"> 
-                                        Asignar Programador
+                                    <a class="btn btn-primary btn-lg" id="pro" href="../Empleados/programadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19005"/>"> 
+                                       <fmt:message key="label.asigProgramador"/>
                                     </a>
                                     <div class="text-white-50 small"></div>
                                     <div class="col-auto">
@@ -63,8 +64,8 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-warning text-white shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-warning btn-lg" href="../Empleados/probadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19001"/>" >
-                                        Asignar Probador
+                                    <a class="btn btn-warning btn-lg" href="../Empleados/probadores.jsp?cdepto=<c:out value="1"/>&idcaso=<c:out value="Log19005"/>" >
+                                        <fmt:message key="label.asigProbador"/>
                                     </a>
                                     <div class="text-white-50 small"></div>
                                 </div>
@@ -73,7 +74,7 @@
                         <div class="col-lg-6 mb-4">
                             <c:set value="Log19001" var="idcaso"/> <!-- tomar de paramatros enviados de pagina principal -->
                             <a class="btn btn-secondary" href="javascript:mostrar()" >
-                                Verificar asignaciones
+                               <fmt:message key="label.asigver"/>
                             </a>
                         </div>
 
@@ -107,14 +108,14 @@
                 </form>
                 <sql:query var="q6" dataSource="jdbc/mysql" scope="request">
                     select ec.id_empleado, CONCAT( nombre_emp,' ',apellidos) Nombre,nombre_cargo from empleados e INNER JOIN empleados_caso ec ON ec.id_empleado=e.id_empleado INNER JOIN cargo ca on ca.id_cargo=e.id_cargo where id_caso=?
-                    <sql:param value="${idcaso}"/>
+                    <sql:param value="${idcasop}"/>
                 </sql:query>
 
                 <div class="modal" id="modal" tabindex="-1" role="dialog">
                     <div class="modal-dialog " role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" style="color: blue">Empleados asignados</h5>
+                                <h5 class="modal-title" style="color: blue"><fmt:message key="label.asigemp"/></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -133,7 +134,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"><fmt:message key="label.asigcerrar"/></button>
                             </div>
                         </div>
                     </div>

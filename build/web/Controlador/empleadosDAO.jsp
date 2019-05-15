@@ -78,7 +78,7 @@
 <sql:update var="modificar" dataSource="jdbc/mysql">
     UPDATE  empleados SET nombre_emp=?, apellidos=?, edad=?, direccion=?, telefono=?, correo=?, password_emp=?,
     id_cargo=?, id_depto=?, contraPublic=? WHERE id_empleado=?
-    
+     <sql:param value="${nombres}"/>
     <sql:param value="${apellidos}"/>
     <sql:param value="${edad}"/>
     <sql:param value="${direccion}"/>

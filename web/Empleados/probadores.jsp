@@ -24,7 +24,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Programadores</title>
+        <title><fmt:message key="label.testitle"/></title>
     </head>
     <body id="page-top"> 
         <jsp:include page="../Controlador/Consultas.jsp"/>
@@ -34,7 +34,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-0 font-weight-bold text-primary">Probadores</h6>
+                        <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.testitle"/></h6>
                         <div class="col-sm-25">
 
                         </div>
@@ -44,12 +44,12 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
-                                        <th class="col-md-1">Nombres</th>
+                                        <th><fmt:message key="label.testcodigo"/></th>
+                                        <th class="col-md-1"><fmt:message key="label.testnombre"/></th>
 
-                                        <th>Cargo</th>
-                                        <th>Deparrtamento</th>
-                                        <th>Operaciones</th>
+                                        <th><fmt:message key="label.testcargo"/></th>
+                                        <th><fmt:message key="label.testdepto"/></th>
+                                        <th><fmt:message key="label.testop"/></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,11 +62,11 @@
                                             <td>${emp.nombre_depto}</td>
                                             <td colspan="2">
                                                 <div id="asig">
-                                                <a  href="../Controlador/asignacionDAO.jsp?id=<c:out value="${emp.id_empleado}"/>&idcaso=<c:out value="${param.idcaso}"/>&cargo=${emp.id_cargo}" class="btn btn-success btn-icon-split">
+                                                <a  href="../Controlador/asignacionDAO.jsp?idp=<c:out value="${emp.id_empleado}"/>&idcaso=<c:out value="${param.idcaso}"/>&cargo=${emp.id_cargo}" class="btn btn-success btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-check"></i>
                                                     </span>
-                                                    <span class="text">Asignar</span>
+                                                    <span class="text"><fmt:message key="label.testasignar"/></span>
                                                 </a>
                                                 </div>
                                             </td>
