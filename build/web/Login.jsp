@@ -43,7 +43,7 @@
                             <%--<c:out value="${param.error}"/>--%>
                             <fmt:message key="${d}"/>
                         </div>
-                    </c:if>
+                    </c:if>                    
                     <%--<form role="form" action="Plogin.jsp" method="post" >--%>                    
                     <form role="form" action="Controlador/empleadosDAO.jsp" method="post" >
                         <div class="form-group" >
