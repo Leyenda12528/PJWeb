@@ -159,14 +159,11 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                        <div class=\"col-lg-6 mb-4\">\r\n");
       out.write("                            <div class=\"card bg-primary text-white shadow\">\r\n");
       out.write("                                <div class=\"card-body\">\r\n");
-      out.write("                                    <a class=\"btn btn-primary btn-lg\" id=\"pro\" href=\"../Empleados/programadores.jsp?cdepto=");
+      out.write("                                    <a class=\"btn btn-primary btn-lg\" id=\"pro\" href=\"../Empleados/programadores.jsp?op=1&idcaso=");
       if (_jspx_meth_c_out_3(_jspx_page_context))
         return;
-      out.write("&idcaso=");
-      if (_jspx_meth_c_out_4(_jspx_page_context))
-        return;
       out.write("\"> \r\n");
-      out.write("                                       ");
+      out.write("                                        ");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -180,11 +177,8 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                        <div class=\"col-lg-6 mb-4\">\r\n");
       out.write("                            <div class=\"card bg-warning text-white shadow\">\r\n");
       out.write("                                <div class=\"card-body\">\r\n");
-      out.write("                                    <a class=\"btn btn-warning btn-lg\" href=\"../Empleados/probadores.jsp?cdepto=");
-      if (_jspx_meth_c_out_5(_jspx_page_context))
-        return;
-      out.write("&idcaso=");
-      if (_jspx_meth_c_out_6(_jspx_page_context))
+      out.write("                                    <a class=\"btn btn-warning btn-lg\" href=\"../Empleados/probadores.jsp?op=1&idcaso=");
+      if (_jspx_meth_c_out_4(_jspx_page_context))
         return;
       out.write("\" >\r\n");
       out.write("                                        ");
@@ -202,7 +196,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
         return;
       out.write(" <!-- tomar de paramatros enviados de pagina principal -->\r\n");
       out.write("                            <a class=\"btn btn-secondary\" href=\"javascript:mostrar()\" >\r\n");
-      out.write("                               ");
+      out.write("                                ");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -231,7 +225,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("</label>\r\n");
       out.write("                                        <div class=\"input-group\">\r\n");
       out.write("                                            <input type=\"text\" size=\"\" class=\"form-control\"  id=\"idcaso\" name=\"idcaso\" value=\"");
-      if (_jspx_meth_c_out_7(_jspx_page_context))
+      if (_jspx_meth_c_out_5(_jspx_page_context))
         return;
       out.write("\">\r\n");
       out.write("                                            <input  type=\"date\" class=\"form-control\"  min=\"");
@@ -250,7 +244,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                        </div>\r\n");
       out.write("\r\n");
       out.write("                    </div>\r\n");
-      out.write("          \r\n");
+      out.write("\r\n");
       out.write("                </form>\r\n");
       out.write("                ");
       if (_jspx_meth_sql_query_2(_jspx_page_context))
@@ -258,10 +252,10 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("\r\n");
       out.write("                <div class=\"modal\" id=\"modal\" tabindex=\"-1\" role=\"dialog\">\r\n");
-      out.write("                    <div class=\"modal-dialog \" role=\"document\">\r\n");
+      out.write("                    <div class=\"modal-dialog\" role=\"document\">\r\n");
       out.write("                        <div class=\"modal-content\">\r\n");
       out.write("                            <div class=\"modal-header\">\r\n");
-      out.write("                                <h5 class=\"modal-title\" style=\"color: blue\">");
+      out.write("                                <h5 class=\"modal-title text-primary text-uppercase\" >");
       if (_jspx_meth_fmt_message_10(_jspx_page_context))
         return;
       out.write("</h5>\r\n");
@@ -276,6 +270,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
         return;
       out.write("     \r\n");
       out.write("                                    </tr>\r\n");
+      out.write("\r\n");
       out.write("                                </table>\r\n");
       out.write("\r\n");
       out.write("                            </div>\r\n");
@@ -291,17 +286,17 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                </div> \r\n");
       out.write("            </div>\r\n");
       out.write("\r\n");
-      out.write("          <!--SECCIÓN PARA MOSTRAR MENSAJES DE ERROR O CONFIRMACIÓN DE ALGÚN PROCESO-->\r\n");
-      out.write("                    ");
+      out.write("            <!--SECCIÓN PARA MOSTRAR MENSAJES DE ERROR O CONFIRMACIÓN DE ALGÚN PROCESO-->\r\n");
+      out.write("            ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                    ");
+      out.write("            ");
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                    <!--SE CAPTURA UN PARAMETRO ESPECIAL PARA VERIFICAR SI DESEA MODIFICAR EL EMPLEADO-->\r\n");
-      out.write("                    ");
+      out.write("            <!--SE CAPTURA UN PARAMETRO ESPECIAL PARA VERIFICAR SI DESEA MODIFICAR EL EMPLEADO-->\r\n");
+      out.write("            ");
       if (_jspx_meth_c_if_2(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -522,7 +517,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     _jspx_th_c_set_0.setPageContext(_jspx_page_context);
     _jspx_th_c_set_0.setParent(null);
     _jspx_th_c_set_0.setVar("idcasop");
-    _jspx_th_c_set_0.setValue(new String("Log19005"));
+    _jspx_th_c_set_0.setValue(new String("Log19001"));
     int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
     if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
@@ -558,7 +553,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_0.setPageContext(_jspx_page_context);
     _jspx_th_c_out_0.setParent(null);
-    _jspx_th_c_out_0.setValue(new String("Log19003"));
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${idcasop}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
     if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
@@ -630,31 +625,13 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_3 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_3.setPageContext(_jspx_page_context);
     _jspx_th_c_out_3.setParent(null);
-    _jspx_th_c_out_3.setValue(new String("1"));
+    _jspx_th_c_out_3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${idcasop}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_3 = _jspx_th_c_out_3.doStartTag();
     if (_jspx_th_c_out_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_3);
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_4(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_4 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_4.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_4.setParent(null);
-    _jspx_th_c_out_4.setValue(new String("Log19005"));
-    int _jspx_eval_c_out_4 = _jspx_th_c_out_4.doStartTag();
-    if (_jspx_th_c_out_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_4);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_4);
     return false;
   }
 
@@ -676,39 +653,21 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_out_5(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_out_4(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_5 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_5.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_5.setParent(null);
-    _jspx_th_c_out_5.setValue(new String("1"));
-    int _jspx_eval_c_out_5 = _jspx_th_c_out_5.doStartTag();
-    if (_jspx_th_c_out_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_4 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_4.setParent(null);
+    _jspx_th_c_out_4.setValue(new String("Log19001"));
+    int _jspx_eval_c_out_4 = _jspx_th_c_out_4.doStartTag();
+    if (_jspx_th_c_out_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_4);
       return true;
     }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_6(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_6 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_6.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_6.setParent(null);
-    _jspx_th_c_out_6.setValue(new String("Log19005"));
-    int _jspx_eval_c_out_6 = _jspx_th_c_out_6.doStartTag();
-    if (_jspx_th_c_out_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_6);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_6);
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_4);
     return false;
   }
 
@@ -803,21 +762,21 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_out_7(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_out_5(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_7 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_7.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_7.setParent(null);
-    _jspx_th_c_out_7.setValue(new String("Log19001"));
-    int _jspx_eval_c_out_7 = _jspx_th_c_out_7.doStartTag();
-    if (_jspx_th_c_out_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_7);
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_5 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_5.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_5.setParent(null);
+    _jspx_th_c_out_5.setValue(new String("Log19001"));
+    int _jspx_eval_c_out_5 = _jspx_th_c_out_5.doStartTag();
+    if (_jspx_th_c_out_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
       return true;
     }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_7);
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
     return false;
   }
 
@@ -962,15 +921,18 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
         do {
           out.write("\r\n");
           out.write("                                        <tr>\r\n");
-          out.write("                                            <td>");
+          out.write("                                            <td class=\"text-xs font-weight-bold text-success text-uppercase mb-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.nombre_cargo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td> \r\n");
+          out.write("                                        </tr>\r\n");
+          out.write("                                        <tr>\r\n");
+          out.write("                                            <td class=\"text-xs font-weight-light text-lg text-black-50 mb-1\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.id_empleado}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                            <td>");
+          out.write("                                            <td class=\"text-xs font-weight-light text-lg text-black-50 mb-1\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.Nombre}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${emp.nombre_cargo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
+          out.write("\r\n");
           out.write("                                        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -1022,12 +984,12 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                        <script>\r\n");
+        out.write("                <script>\r\n");
         out.write("                            alertify.success('");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.exito}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("');\r\n");
-        out.write("                        </script>\r\n");
-        out.write("                    ");
+        out.write("                </script>\r\n");
+        out.write("            ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1054,12 +1016,12 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                        <script>\r\n");
+        out.write("                <script>\r\n");
         out.write("                            alertify.error('");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("')\r\n");
-        out.write("                        </script>\r\n");
-        out.write("                    ");
+        out.write("                </script>\r\n");
+        out.write("            ");
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1086,30 +1048,30 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                          ");
+        out.write("                ");
         if (_jspx_meth_c_set_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("                        <script>\r\n");
-        out.write("                            alertify.confirm(\"¿Desea sustituir por el nuevo empleado seleccionado?\", function (e) {\r\n");
-        out.write("                                if (e) {\r\n");
-        out.write("                                  \r\n");
-        out.write("                                    location.href = \"../Controlador/asignacionDAO.jsp?modi=\"+");
+        out.write("                <script>\r\n");
+        out.write("                    alertify.confirm(\"¿Desea sustituir por el nuevo empleado seleccionado?\", function (e) {\r\n");
+        out.write("                        if (e) {\r\n");
+        out.write("\r\n");
+        out.write("                            location.href = \"../Controlador/asignacionDAO.jsp?modi=\" +");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.ide}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("+\"&cargo=\"+");
+        out.write(" + \"&cargo=\" +");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.c}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("+\"&casoid=");
-        if (_jspx_meth_c_out_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
+        out.write(" + \"&casoid=");
+        if (_jspx_meth_c_out_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
           return true;
         out.write("\";\r\n");
-        out.write("                                }\r\n");
-        out.write("                            });\r\n");
-        out.write("                            alertify.error('");
+        out.write("                        }\r\n");
+        out.write("                    });\r\n");
+        out.write("                    alertify.error('");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.errorm}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("');\r\n");
-        out.write("                           \r\n");
-        out.write("                        </script>\r\n");
-        out.write("                    ");
+        out.write("\r\n");
+        out.write("                </script>\r\n");
+        out.write("            ");
         int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1142,21 +1104,21 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_out_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_out_6(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_8 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_8.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
-    _jspx_th_c_out_8.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.idc}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_8 = _jspx_th_c_out_8.doStartTag();
-    if (_jspx_th_c_out_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_8);
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_6 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_6.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
+    _jspx_th_c_out_6.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.idc}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_6 = _jspx_th_c_out_6.doStartTag();
+    if (_jspx_th_c_out_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_6);
       return true;
     }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_8);
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_6);
     return false;
   }
 }

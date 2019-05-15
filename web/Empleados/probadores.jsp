@@ -8,28 +8,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
- <sql:query var="query2" dataSource="jdbc/mysql">
-            select * from empleados_caso where id_caso=?
-            <sql:param value="${idcaso}"/>
-        </sql:query>
-            
+<sql:query var="query2" dataSource="jdbc/mysql">
+    select * from empleados_caso where id_caso=?
+    <sql:param value="${idcaso}"/>
+</sql:query>
+
 <sql:query var="q5" dataSource="jdbc/mysql">
     SELECT id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre,c.id_cargo,nombre_cargo,nombre_depto FROM empleados emp 
     INNER JOIN departamentos dep ON dep.id_depto= ? and emp.id_depto=?
     INNER JOIN  cargo c ON c.id_cargo=4 and emp.id_cargo=4 where id_estado_emp=0
-    <sql:param value="${param.cdepto}"/>
-    <sql:param value="${param.cdepto}"/>
+    <sql:param value="${loginB.id_departamento}"/>
+    <sql:param value="${loginB.id_departamento}"/>
 </sql:query>
-    <c:set var="op" value="${param.op}"/>
-    <c:if test="${op!=1}">
-            <style>
-           #asig
-           {
-               display: none;
-           }
-        </style>
-    </c:if>
-  
+<c:set var="op" value="${param.op}"/>
+<c:if test="${op!=1}">
+    <style>
+        #asig
+        {
+            display: none;
+        }
+    </style>
+</c:if>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,12 +72,12 @@
                                             <td>${emp.nombre_depto}</td>
                                             <td colspan="2">
                                                 <div id="asig">
-                                                <a  href="../Controlador/asignacionDAO.jsp?idp=<c:out value="${emp.id_empleado}"/>&idcaso=<c:out value="${param.idcaso}"/>&cargo=${emp.id_cargo}" class="btn btn-success btn-icon-split">
-                                                    <span class="icon text-white-50">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                    <span class="text"><fmt:message key="label.testasignar"/></span>
-                                                </a>
+                                                    <a  href="../Controlador/asignacionDAO.jsp?idp=<c:out value="${emp.id_empleado}"/>&idcaso=<c:out value="${param.idcaso}"/>&cargo=${emp.id_cargo}" class="btn btn-success btn-icon-split">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                        <span class="text"><fmt:message key="label.testasignar"/></span>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
