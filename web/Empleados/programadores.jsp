@@ -11,11 +11,19 @@
     SELECT id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre,c.id_cargo,nombre_cargo,nombre_depto FROM empleados emp 
     INNER JOIN departamentos dep ON dep.id_depto= ? and emp.id_depto=?
     INNER JOIN  cargo c ON c.id_cargo=3 and emp.id_cargo=3 where id_estado_emp=0
-    <sql:param value="${param.cdepto}"/>
-    <sql:param value="${param.cdepto}"/>
+    <sql:param value="${loginB.id_departamento}"/>
+    <sql:param value="${loginB.id_departamento}"/>
 
 </sql:query>
-
+   <c:set var="op" value="${param.op}"/>
+    <c:if test="${op!=1}">
+            <style>
+           #asig
+           {
+               display: none;
+           }
+        </style>
+    </c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,16 +65,17 @@
                                         <tr>
                                             <td>${emp.id_empleado}</td>
                                             <td>${emp.nombre}</td>
-
                                             <td>${emp.nombre_cargo}</td>
                                             <td>${emp.nombre_depto}</td>
                                             <td>
+                                                 <div id="asig">
                                                 <a href="../Controlador/asignacionDAO.jsp?id=<c:out value="${emp.id_empleado}"/>&idcaso=<c:out value="${param.idcaso}"/>&cargo=${emp.id_cargo}" class="btn btn-success btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-check"></i>
                                                     </span>
                                                     <span class="text"><fmt:message key="label.testasignar"/></span>
                                                 </a>
+                                                 </div>
                                             </td>
                                         </tr>
                                     </c:forEach>

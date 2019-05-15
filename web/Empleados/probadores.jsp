@@ -20,6 +20,16 @@
     <sql:param value="${param.cdepto}"/>
     <sql:param value="${param.cdepto}"/>
 </sql:query>
+    <c:set var="op" value="${param.op}"/>
+    <c:if test="${op!=1}">
+            <style>
+           #asig
+           {
+               display: none;
+           }
+        </style>
+    </c:if>
+  
 <!DOCTYPE html>
 <html>
     <head>

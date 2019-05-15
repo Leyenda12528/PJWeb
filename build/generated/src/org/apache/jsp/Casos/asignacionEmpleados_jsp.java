@@ -87,6 +87,7 @@ public final class asignacionEmpleados_jsp extends org.apache.jasper.runtime.Htt
         }
       }
       out.write(" \r\n");
+      out.write("\r\n");
       if (_jspx_meth_sql_query_0(_jspx_page_context))
         return;
       out.write('\r');

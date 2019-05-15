@@ -12,6 +12,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_redirect_url;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_param_value_name_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
@@ -25,6 +26,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_redirect_url = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_param_value_name_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -33,6 +35,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspDestroy() {
     _jspx_tagPool_c_set_var_value_nobody.release();
+    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_c_redirect_url.release();
     _jspx_tagPool_c_param_value_name_nobody.release();
     _jspx_tagPool_c_if_test.release();
@@ -92,52 +95,72 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Menu_1_1.jsp", out, false);
       out.write("\r\n");
       out.write("            <div class=\"container-fluid\">\r\n");
-      out.write("                <h3>");
+      out.write("                <div class=\"row  d-flex justify-content-between align-items-center\">\r\n");
+      out.write("                    <h2 class=\"media-heading font-weight-bold text-black-50\">");
       if (_jspx_meth_fmt_message_1(_jspx_page_context))
         return;
-      out.write("</h3>                \r\n");
-      out.write("                <div class=\"row col-md-10 centrado\">\r\n");
-      out.write("                    <form role=\"form\" action=\"\"  method=\"POST\" id=\"needs-validation\">\r\n");
-      out.write("                        <div class=\"col-md-10\">\r\n");
-      out.write("                            <div  class=\"form-group\">\r\n");
-      out.write("                                <strong>");
+      out.write(' ');
+      if (_jspx_meth_c_out_0(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
+      out.write("                    <a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/Casos/CasosAsignados.jsp\" class=\"btn btn-primary\">");
       if (_jspx_meth_fmt_message_2(_jspx_page_context))
         return;
-      out.write(" </strong>\r\n");
-      out.write("                                <strong>");
+      out.write("</a>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                <hr class=\"sidebar-divider d-none d-md-block\">\r\n");
+      out.write("                <form role=\"form\" action=\"\"  method=\"POST\" id=\"needs-validation\">\r\n");
+      out.write("                    <input type=\"hidden\" id=\"id_caso\" name=\"id_caso\" value=\"");
+      if (_jspx_meth_c_out_1(_jspx_page_context))
+        return;
+      out.write("\">\r\n");
+      out.write("                    <div class=\"row\">\r\n");
+      out.write("                        <div class=\"col-lg-6\">\r\n");
+      out.write("                            <div class=\"card shadow mb-4\">\r\n");
+      out.write("                                <div class=\"card-header py-3\">\r\n");
+      out.write("                                    <strong>");
       if (_jspx_meth_fmt_message_3(_jspx_page_context))
         return;
-      out.write(" </strong>                                \r\n");
-      out.write("                            </div>                            \r\n");
-      out.write("                            <div class=\"form-group\">                                \r\n");
-      out.write("                                <strong>");
+      out.write("</strong>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                                <textarea class=\"card-body form-group form-control\" rows=\"8\" cols=\"70\" name=\"Observaciones\" id=\"Observaciones\"\r\n");
+      out.write("                                          onkeypress=\"return val(event)\" placeholder=\"");
       if (_jspx_meth_fmt_message_4(_jspx_page_context))
         return;
-      out.write("</strong>\r\n");
-      out.write("                                <textarea class=\"form-control\" rows=\"8\" cols=\"70\" name=\"descripcion_act\" id=\"descripcion_act\" \r\n");
-      out.write("                                         onkeypress=\"return val(event)\" placeholder=\"");
+      out.write("\"></textarea>\r\n");
+      out.write("                            </div>                            \r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"col-lg-6\">\r\n");
+      out.write("                            <div class=\"card shadow mb-4\">\r\n");
+      out.write("                                <div class=\"card-header py-3\">\r\n");
+      out.write("                                    <strong>");
       if (_jspx_meth_fmt_message_5(_jspx_page_context))
         return;
-      out.write("\"></textarea>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"form-group\">                                \r\n");
-      out.write("                                <textarea class=\"form-control\" rows=\"8\" cols=\"70\" name=\"Observaciones\" id=\"Observaciones\"\r\n");
-      out.write("                                         onkeypress=\"return val(event)\" placeholder=\"");
+      out.write("</strong>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                                <textarea class=\"card-body form-group form-control\" rows=\"8\" cols=\"70\" name=\"descripcion_act\" id=\"descripcion_act\" \r\n");
+      out.write("                                          onkeypress=\"return val(event)\" placeholder=\"");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
       out.write("\"></textarea>\r\n");
       out.write("                            </div>\r\n");
-      out.write("                            <input type=\"submit\" class=\"btn btn-info\" value=\"");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <input type=\"submit\" class=\"btn btn-info\" value=\"");
       if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
-      out.write("\" id=\"btnGuardar\" name=\"btnGuardar\" >\r\n");
-      out.write("                            <input type=\"submit\" class=\"btn btn-info\" value=\"");
+      out.write("\" id=\"btnGuardar\" name=\"btnGuardar\">\r\n");
+      out.write("                    <input type=\"submit\" class=\"btn btn-info\" value=\"");
       if (_jspx_meth_fmt_message_8(_jspx_page_context))
         return;
-      out.write("\" id=\"btnGuardar\" name=\"btnGuardar\" >\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </form>\r\n");
-      out.write("                </div>   \r\n");
+      out.write("\" id=\"btnGuardar\" name=\"btnGuardar\">\r\n");
+      out.write("                    <input type=\"submit\" class=\"btn btn-info\" value=\"");
+      if (_jspx_meth_fmt_message_9(_jspx_page_context))
+        return;
+      out.write("\" id=\"btnGuardar\" name=\"btnGuardar\">\r\n");
+      out.write("                </form>\r\n");
       out.write("            </div>\r\n");
       out.write("            <script type=\"text/javascript\" src=\"assets/prop/java.js\"></script>\r\n");
       out.write("    </body>\r\n");
@@ -298,6 +321,24 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_c_out_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_0.setParent(null);
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.ca}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
+    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
   private boolean _jspx_meth_fmt_message_2(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -306,13 +347,31 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_2 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_2.setParent(null);
-    _jspx_th_fmt_message_2.setKey("label.idcaso");
+    _jspx_th_fmt_message_2.setKey("label.casosAsignados");
     int _jspx_eval_fmt_message_2 = _jspx_th_fmt_message_2.doStartTag();
     if (_jspx_th_fmt_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_1.setParent(null);
+    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.ca}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
+    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
     return false;
   }
 
@@ -324,7 +383,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_3 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_3.setParent(null);
-    _jspx_th_fmt_message_3.setKey("label.nombrecaso");
+    _jspx_th_fmt_message_3.setKey("label.observaciones");
     int _jspx_eval_fmt_message_3 = _jspx_th_fmt_message_3.doStartTag();
     if (_jspx_th_fmt_message_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_3);
@@ -342,7 +401,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_4 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_4.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_4.setParent(null);
-    _jspx_th_fmt_message_4.setKey("label.actividad");
+    _jspx_th_fmt_message_4.setKey("label.observaciones");
     int _jspx_eval_fmt_message_4 = _jspx_th_fmt_message_4.doStartTag();
     if (_jspx_th_fmt_message_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_4);
@@ -378,7 +437,7 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("label.observaciones");
+    _jspx_th_fmt_message_6.setKey("label.actividad");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
@@ -421,6 +480,24 @@ public final class Bitacora_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_9(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_9.setParent(null);
+    _jspx_th_fmt_message_9.setKey("label.guardar");
+    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
+    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
     return false;
   }
 }
