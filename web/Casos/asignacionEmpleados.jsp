@@ -18,10 +18,26 @@
     select id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre from empleados where id_empleado=?
     <sql:param value="${param.idt}"/>
 </sql:query>
+     <c:set var="idcasop" value="Log19013"/>
+     <sql:query var="fecha" dataSource="jdbc/mysql" scope="request">
+    select fecha_limite from caso where id_caso=?
+   <sql:param value="${idcasop}"/>
+</sql:query>
+    
+      <c:forEach items="${fecha.rows}" var="ff">
+         <c:if test="${empty ff.fecha_limite}">
+             <style>
+                 #sf{
+                     display: none;
+                 }
+             </style>
+         </c:if>
+      </c:forEach>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <title><fmt:message key="label.titleA"/></title>
     </head>
     <body id="page-top">  
@@ -41,7 +57,7 @@
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
                                     <div class="card-body">
-                                        <c:set var="idcasop" value="Log19001"/>
+                                       
                                         <strong><fmt:message key="label.nomC"/></strong><c:out value="${idcasop}"/> 
                                         <br/>
                                         <strong><fmt:message key="label.deptoA"/> </strong><c:out value="${loginB.id_departamento}"/>  <c:out value="${loginB.departamento}"/>
@@ -65,7 +81,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-warning text-white shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-warning btn-lg" href="../Empleados/probadores.jsp?op=1&idcaso=<c:out value="Log19001"/>" >
+                                    <a class="btn btn-warning btn-lg" href="../Empleados/probadores.jsp?op=1&idcaso=<c:out value="${idcasop}"/>" >
                                         <fmt:message key="label.asigProbador"/>
                                     </a>
                                     <div class="text-white-50 small"></div>
@@ -94,8 +110,27 @@
 
                                         <label for="" ><span class="fas fa-asterisk" ></span><fmt:message key="label.fechalimite"/></label>
                                         <div class="input-group">
-                                            <input type="text" size="" class="form-control"  id="idcaso" name="idcaso" value="<c:out value="Log19001"/>">
-                                            <input  type="date" class="form-control"  min="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${now}"/>" name="fechalimite" id="fechalimite"  required>
+                                             <div class="input-group">
+                                             <input type="text" size="" class="form-control text-hide"  id="idcaso" name="idcaso" value="<c:out value="${idcasop}"/>">
+                                        </div>
+                                        <div class="input-group" id="sf">
+                                            <div class="input-group">
+                                                   <a href="#" data-toggle="popover" title="<fmt:message key="label.indicaciones"/>" data-content="<fmt:message key="label.fechainfo"/>"><fmt:message key="label.pop"/></a>
+                                            </div>
+                                        <label for="" ><span class="text-success " ></span><fmt:message key="label.fechae"/></label>
+                                        
+                                          
+                                         <c:forEach items="${fecha.rows}" var="fecha">
+                                                   <input type="text" size="" class="form-control"  id="fechal" name="fechal" value="${fecha.fecha_limite}">
+                       
+                                             </c:forEach>
+       
+                                        </div>
+                                            
+                                            <input  type="date" class="form-control"  min="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${now}"/>"
+                                                    name="fechalimite" id="fechalimite" 
+                                                    <c:forEach items="${fecha.rows}" var="f">
+                                                    <c:if test="${empty f.fecha_limite}"> required</c:if></c:forEach>>
                                             <span  class="invalid-feedback" ></span>  
                                         </div> 
                                     </div>
@@ -107,7 +142,7 @@
                     </div>
 
                 </form>
-                <sql:query var="q6" dataSource="jdbc/mysql" scope="request">
+                <sql:query var="modal" dataSource="jdbc/mysql" scope="request">
                     select ec.id_empleado, CONCAT( nombre_emp,' ',apellidos) Nombre,nombre_cargo from empleados e INNER JOIN empleados_caso ec ON ec.id_empleado=e.id_empleado INNER JOIN cargo ca on ca.id_cargo=e.id_cargo where id_caso=?
                     <sql:param value="${idcasop}"/>
                 </sql:query>
@@ -123,7 +158,7 @@
                             </div>
                             <div class="modal-body">
                                 <table>
-                                    <c:forEach var="emp" items="${q6.rows}">
+                                    <c:forEach var="emp" items="${modal.rows}">
                                         <tr>
                                             <td class="text-xs font-weight-bold text-success text-uppercase mb-1">${emp.nombre_cargo}</td> 
                                         </tr>
@@ -185,6 +220,12 @@
                 function mostrar() {
                     $('#modal').modal('show');
                 }
+                
+                                                            
+                $(document).ready(function(){
+                  $('[data-toggle="popover"]').popover();   
+                });
+</script> 
             </script>
             <script src="js/bootstrap.min.js"></script>
             <script src="assets/jquery-3.3.1.min.js"></script>
