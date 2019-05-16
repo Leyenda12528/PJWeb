@@ -115,7 +115,7 @@
 
                         </c:if>
                         <%--PROGRAMADOR--%>
-                        <c:if test="${loginB.id_cargo == 3}">
+                        <c:if test="${loginB.id_cargo == 3 || loginB.id_cargo == 4}">
 
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <div class="card border-left-warning shadow h-100 py-2">

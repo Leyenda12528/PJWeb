@@ -46,7 +46,12 @@
         FROM            bitacoras INNER JOIN
         caso ON bitacoras.id_caso = caso.id_caso INNER JOIN
         empleados_caso ON caso.id_caso = empleados_caso.id_caso
-        WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6))
+        <c:if test="${loginB.id_cargo == 3}">
+            WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6))
+        </c:if>
+        <c:if test="${loginB.id_cargo == 4}">
+            WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6) or (caso.id_estado = 4))
+        </c:if>
         <sql:param value="${loginB.id}"/>
     </sql:query>
     <%--        

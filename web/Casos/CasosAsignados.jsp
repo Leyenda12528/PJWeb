@@ -26,20 +26,49 @@
             <jsp:include page="../Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp"/>
             <div class="container-fluid">
+                <c:if test="${param.exito == 1}">
+                    <div class="alert alert-info">
+                        <strong><fmt:message key="label.bitacora-update"/></strong>
+                        <br>
+                    </div>
+                </c:if>
+                <c:if test="${param.exito == 2}">
+                    <div class="alert alert-info">
+                        <strong><fmt:message key="label.bitacora-final"/></strong>
+                        <br>
+                    </div>
+                </c:if>
+                <c:if test="${param.exito == 3}">
+                    <div class="alert alert-info">
+                        <strong><fmt:message key="label.caso-aceptado"/></strong>
+                        <br>
+                    </div>
+                </c:if>
                 <div class="row  d-flex justify-content-between align-items-center">
                     <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.casosAsignados"/></h2>
                     <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary"><fmt:message key="label.inicio"/></a>
                 </div>
                 <%--Casos Asignados.....--%>
                 <c:forEach var="casosAsigFor" items="${casosAsigq.rows}">
-                    <a class="btn btn-block" href="${pageContext.request.contextPath}/Bitacora.jsp?ca=${casosAsigFor.id_caso}">
-                            <div class="card mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><c:out value="${casosAsigFor.id_caso}"/>
-                                        <c:out value="${casosAsigFor.nombre_caso}"/></h6>
-                                </div>
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <div class="d-flex">
+                                <div class="p-2">
+                                    <div class="btn btn-block">
+                                        <a  href="${pageContext.request.contextPath}/Bitacora.jsp?ca=${casosAsigFor.id_caso}">
+                                            <h6 class="m-0 font-weight-bold text-gray-900"><c:out value="${casosAsigFor.id_caso}"/>
+                                                <c:out value="${casosAsigFor.nombre_caso}"/></h6>
+                                        </a>
+                                    </div>
+                                </div>                        
+                                <c:if test="${loginB.id_cargo == 3}">
+                                    <div class="ml-auto p-2">
+                                        <a href="${pageContext.request.contextPath}/Controlador/BitacoraDAO.jsp?f=1&id_caso=${casosAsigFor.id_caso}" class="btn btn-danger"><fmt:message key="label.finalizar-bita"/></a>
+                                    </div>
+                                </c:if>
                             </div>
-                        </a>
+                        </div>
+                    </div>                    
                 </c:forEach>
             </div>
     </body>
