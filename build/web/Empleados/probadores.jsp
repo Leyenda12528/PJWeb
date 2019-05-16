@@ -8,10 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<sql:query var="query2" dataSource="jdbc/mysql">
-    select * from empleados_caso where id_caso=?
-    <sql:param value="${idcaso}"/>
-</sql:query>
+
 
 <sql:query var="q5" dataSource="jdbc/mysql">
     SELECT id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre,c.id_cargo,nombre_cargo,nombre_depto FROM empleados emp 

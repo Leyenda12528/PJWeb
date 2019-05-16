@@ -28,6 +28,7 @@
          <c:set var="idp" value="${param.idp}"/>
         <c:set var="cargo" value="${param.cargo}"/>
         <c:set var="fechalimite" value="${param.fechalimite}"/>
+        <c:set var="fecham" value="${param.fechal}"/>
         <c:set var="ide" value="${param.modi}"/>
         <c:set var="cargo" value="${param.cargo}"/>
 
@@ -169,21 +170,59 @@
 
         <%}%>
         
+        <sql:query dataSource="jdbc/mysql" var="idbitacora">
+            select * from bitacoras
+        </sql:query>
+        <sql:query dataSource="jdbc/mysql" var="existeb">
+            select id_caso from bitacoras where id_caso=?
+            <sql:param value="${idcaso}"/>
+        </sql:query>
+        <c:set var="idb" value="${idbitacora.rowCount+20}"/>
         
         
         <%if (request.getParameter("btnAsignarp") != null) {%>
+        
         <c:choose>
             <c:when test="${query.rowCount<2}">
                 <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
-                    <c:param name="error" value="Verifique empleados asignados"/>
+                    <c:param name="error" value="Verifique empleados asignados ${query.rowCount} ${idcaso}"/>
                 </c:redirect>
             </c:when>
             <c:otherwise>
-                <sql:update var="fecha" dataSource="jdbc/mysql">
+                <c:choose>
+                <c:when test="${fecham!=''}">
+                     <sql:update var="fecham" dataSource="jdbc/mysql">
+                    update caso set fecha_limite=?,id_estado=3 where id_caso=?
+                    <sql:param value="${fecham}"/>
+                    <sql:param value="${idcaso}"/>
+                </sql:update>
+                </c:when>
+                <c:when test="${fecham==''}">
+                    <%
+            String d = "" + pageContext.getAttribute("fechalimite");
+            String[] f2 = d.split("-");
+            String f3="";
+            f3 = f2[2]+"-"+f2[1]+"-"+f2[0];
+            pageContext.setAttribute("fechalimite", f3);
+    
+        %>
+                     <sql:update var="fecha" dataSource="jdbc/mysql">
                     update caso set fecha_limite=?,id_estado=3 where id_caso=?
                     <sql:param value="${fechalimite}"/>
                     <sql:param value="${idcaso}"/>
                 </sql:update>
+                </c:when>
+               </c:choose>
+                    <c:if test="${existeb.rowCount==0}">
+                          <sql:update var="crearBitacira" dataSource="jdbc/mysql">
+                   insert into bitacoras values (?,?,?,?)
+                    <sql:param value="${idb}"/>
+                    <sql:param value="${idcaso}"/>
+                    <sql:param value=""/>
+                    <sql:param value=""/>
+                </sql:update> 
+                    </c:if>
+                  
                 <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
                     <c:param name="exito" value="Asignación correcta"/>
                 </c:redirect>

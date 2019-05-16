@@ -38,3 +38,4 @@
     select correo from empleados where id_cargo = 2 and id_depto = ?
     <sql:param value="${loginB.id_departamento}"/>
 </sql:query>
+    
