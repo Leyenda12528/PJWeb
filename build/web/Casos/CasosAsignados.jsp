@@ -13,6 +13,11 @@
         <c:param name="error" value="2"/>
     </c:redirect>
 </c:if>
+<c:if test="${loginB.id_cargo != 4 && loginB.id_cargo != 3}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +31,12 @@
             <jsp:include page="../Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp"/>
             <div class="container-fluid">
+                <c:if test="${casosAsigq.rowCount < 1}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.sin-Casos-Asignados"/>!</strong>
+                        <br>
+                    </div>
+                </c:if>
                 <c:if test="${param.exito == 1}">
                     <div class="alert alert-info">
                         <strong><fmt:message key="label.bitacora-update"/></strong>

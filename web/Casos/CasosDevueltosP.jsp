@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CasosAsignados
-    Created on : 09-may-2019, 20:16:20
+    Document   : CasosDevueltosP
+    Created on : 16-may-2019, 13:09:59
     Author     : jorge
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,7 +13,7 @@
         <c:param name="error" value="2"/>
     </c:redirect>
 </c:if>
-<c:if test="${loginB.id_cargo != 4 && loginB.id_cargo != 3}">
+<c:if test="${loginB.id_cargo != 3}">
     <c:redirect url="../index.jsp">
         <c:param name="error" value="1"/>
     </c:redirect>
@@ -24,43 +24,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
-        <title><fmt:message key="label.casosAsignados"/></title>
+        <title><fmt:message key="label.titulocasos"/> <fmt:message key="label.devuelto-observaciones"/></title>
     </head>
     <body id="page-top">
         <div id="wrapper">
             <jsp:include page="../Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp"/>
             <div class="container-fluid">
-                <c:if test="${casosAsigq.rowCount < 1}">
-                    <div class="alert alert-danger">
-                        <strong><fmt:message key="label.sin-Casos-Asignados"/>!</strong>
-                        <br>
-                    </div>
-                </c:if>
-                <c:if test="${param.exito == 1}">
-                    <div class="alert alert-info">
-                        <strong><fmt:message key="label.bitacora-update"/></strong>
-                        <br>
-                    </div>
-                </c:if>
-                <c:if test="${param.exito == 2}">
-                    <div class="alert alert-info">
-                        <strong><fmt:message key="label.bitacora-final"/></strong>
-                        <br>
-                    </div>
-                </c:if>
-                <c:if test="${param.exito == 3}">
-                    <div class="alert alert-info">
-                        <strong><fmt:message key="label.caso-aceptado"/></strong>
+                <c:if test="${casosAsigq2.rowCount < 1}">
+                    <div class="alert alert-success">
+                        <strong><fmt:message key="label.sin-Casos-Devueltos"/>!</strong>
                         <br>
                     </div>
                 </c:if>
                 <div class="row  d-flex justify-content-between align-items-center">
-                    <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.casosAsignados"/></h2>
+                    <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.titulocasos"/> <fmt:message key="label.devuelto-observaciones"/></h2>
                     <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary"><fmt:message key="label.inicio"/></a>
                 </div>
                 <%--Casos Asignados.....--%>
-                <c:forEach var="casosAsigFor" items="${casosAsigq.rows}">
+                <c:forEach var="casosAsigFor" items="${casosAsigq2.rows}">
                     <div class="card mb-4">
                         <div class="card-header py-3">
                             <div class="d-flex">

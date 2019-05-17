@@ -4,7 +4,7 @@
     Author     : less_
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <jsp:useBean id="empleado"   scope="page" class="Beans.Empleado"/>
@@ -24,8 +24,84 @@
 
 
 
+            <%-- INGRESAR o MODIFICAR--%>
+<c:if test="${param.btnGuardar != null || param.btnModificar != null}">
+    <sql:query var="cargo1" dataSource="jdbc/mysql" scope="request">
+        select * from empleados where id_cargo=1 and id_depto=? and id_estado_emp = 0
+        <c:if test="${not empty param.ti}"> and id_empleado <> ?</c:if>
+        <sql:param value="${depto}"/>
+        <c:if test="${not empty param.ti}">
+            <sql:param value="${codigo}"/>
+        </c:if>
+    </sql:query>
+    <sql:query var="cargo2" dataSource="jdbc/mysql" scope="request">
+        select * from empleados where id_cargo=2 and id_depto=? and id_estado_emp = 0
+        <c:if test="${not empty param.ti}"> and id_empleado <> ?</c:if>
+        <sql:param value="${depto}"/>
+        <c:if test="${not empty param.ti}">
+            <sql:param value="${codigo}"/>
+        </c:if>
+    </sql:query>
+    <c:choose>
+        <c:when test="${cargo1.rowCount >=1 && cargo==1}">
+            <c:redirect url="../Empleados/ingresarEmpleado.jsp">
+                <c:param name="error" value="1"/>
+            </c:redirect>
+        </c:when>
+        <c:when test="${cargo2.rowCount >=1 && cargo==2}">
+            <c:redirect url="../Empleados/ingresarEmpleado.jsp">
+                <c:param name="error" value="2"/>
+            </c:redirect>
+        </c:when>
+        
+                        <%-- INGRESAR--%>
+        <c:when test="${param.btnGuardar != null}">
+            <sql:update var="insertar" dataSource="jdbc/mysql">
+                insert into empleados  values (?,?,?,?,?,?,?,?,?,SHA2(?,256),0,SHA2(?,256))
+                <sql:param value="${codigo}"/>
+                <sql:param value="${nombres}"/>
+                <sql:param value="${apellidos}"/>
+                <sql:param value="${cargo}"/>
+                <sql:param value="${depto}"/>
+                <sql:param value="${edad}"/>
+                <sql:param value="${direccion}"/>
+                <sql:param value="${telefono}"/>
+                <sql:param value="${correo}"/>
+                <sql:param value="${password}"/>
+                <sql:param value="${password2}"/>
+            </sql:update>
+            
+            <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+                <c:param name="exito" value="1"/>
+            </c:redirect>
+        </c:when>
+                
+                <%-- MODIFICAR--%>
+        <c:when test="${param.btnModificar != null}">
+            <sql:update var="modificar" dataSource="jdbc/mysql">
+                UPDATE  empleados SET nombre_emp=?, apellidos=?, edad=?, direccion=?, telefono=?, correo=?, password_emp=SHA2(?,256),
+                id_cargo=?, id_depto=?, contraPublic=? WHERE id_empleado=?
+                <sql:param value="${nombres}"/>
+                <sql:param value="${apellidos}"/>
+                <sql:param value="${edad}"/>
+                <sql:param value="${direccion}"/>
+                <sql:param value="${telefono}"/>
+                <sql:param value="${correo}"/>
+                <sql:param value="${password}"/>
+                <sql:param value="${cargo}"/>
+                <sql:param value="${depto}"/>
+                <sql:param value="${password2}"/>
+                <sql:param value="${codigo}"/>
+            </sql:update>
+            
+            <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+                <c:param name="exito" value="2"/>
+            </c:redirect>
+        </c:when>
+    </c:choose>
+</c:if>
 
-
+<%--
 <sql:query var="cargo1" dataSource="jdbc/mysql" scope="request">
     select * from empleados where id_cargo=1 and id_depto=?
     <sql:param value="${depto}"/>
@@ -36,66 +112,61 @@
 </sql:query>
 <c:choose>
     <c:when test="${cargo1.rowCount >=1 && cargo==1}">
-         <c:redirect url="../Empleados/ingresarEmpleado.jsp">
-                 <c:param name="error" value="no puede existir más de un jefe de desarrollo"/>
-            </c:redirect>
+        <c:redirect url="../Empleados/ingresarEmpleado.jsp">
+            <c:param name="error" value="1"/>
+        </c:redirect>
     </c:when>
     <c:when test="${cargo2.rowCount >=1 && cargo==2}">
-         <c:redirect url="../Empleados/ingresarEmpleado.jsp">
-                 <c:param name="error" value="No puede existir más de un jefe funcional"/>
-            </c:redirect>
+        <c:redirect url="../Empleados/ingresarEmpleado.jsp">
+            <c:param name="error" value="2"/>
+        </c:redirect>
     </c:when>
-    <c:otherwise>
-  
-<%  if (request.getParameter("btnGuardar") != null) {%>
-<sql:update var="insertar" dataSource="jdbc/mysql">
-    insert into empleados  values (?,?,?,?,?,?,?,?,?,SHA2(?,256),0,SHA2(?,256))
-    <sql:param value="${codigo}"/>
-    <sql:param value="${nombres}"/>
-    <sql:param value="${apellidos}"/>
-    <sql:param value="${cargo}"/>
-    <sql:param value="${depto}"/>
-    <sql:param value="${edad}"/>
-    <sql:param value="${direccion}"/>
-    <sql:param value="${telefono}"/>
-    <sql:param value="${correo}"/>
-    <sql:param value="${password}"/>
-    <sql:param value="${password2}"/>
-</sql:update>
+     INGRESAR
+    <c:when test="${param.btnGuardar != null}">
+        <sql:update var="insertar" dataSource="jdbc/mysql">
+            insert into empleados  values (?,?,?,?,?,?,?,?,?,SHA2(?,256),0,SHA2(?,256))
+            <sql:param value="${codigo}"/>
+            <sql:param value="${nombres}"/>
+            <sql:param value="${apellidos}"/>
+            <sql:param value="${cargo}"/>
+            <sql:param value="${depto}"/>
+            <sql:param value="${edad}"/>
+            <sql:param value="${direccion}"/>
+            <sql:param value="${telefono}"/>
+            <sql:param value="${correo}"/>
+            <sql:param value="${password}"/>
+            <sql:param value="${password2}"/>
+        </sql:update>
 
-<%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
-<c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
-    <c:param name="exito" value="Empleado Ingresado con exito"/>
-</c:redirect>
-
-<% }%>
-      
-    </c:otherwise>
+        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp
+        <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+            <c:param name="exito" value="1"/>
+        </c:redirect>
+    </c:when>
+    <c:when test="${param.btnModificar != null}">
+        <%-- MODIFICAR
+        <sql:update var="modificar" dataSource="jdbc/mysql">
+            UPDATE  empleados SET nombre_emp=?, apellidos=?, edad=?, direccion=?, telefono=?, correo=SHA2(?,256), password_emp=?,
+            id_cargo=?, id_depto=?, contraPublic=? WHERE id_empleado=?
+            <sql:param value="${nombres}"/>
+            <sql:param value="${apellidos}"/>
+            <sql:param value="${edad}"/>
+            <sql:param value="${direccion}"/>
+            <sql:param value="${telefono}"/>
+            <sql:param value="${correo}"/>
+            <sql:param value="${password}"/>
+            <sql:param value="${cargo}"/>
+            <sql:param value="${depto}"/>
+            <sql:param value="${password2}"/>
+            <sql:param value="${codigo}"/>
+        </sql:update>
+        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp
+        <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
+            <c:param name="exito" value="EmE"/>
+        </c:redirect>
+    </c:when>
 </c:choose>
-    
-
-<%  if (request.getParameter("btnModificar") != null) {%>
-<sql:update var="modificar" dataSource="jdbc/mysql">
-    UPDATE  empleados SET nombre_emp=?, apellidos=?, edad=?, direccion=?, telefono=?, correo=?, password_emp=?,
-    id_cargo=?, id_depto=?, contraPublic=? WHERE id_empleado=?
-    <sql:param value="${nombres}"/>
-    <sql:param value="${apellidos}"/>
-    <sql:param value="${edad}"/>
-    <sql:param value="${direccion}"/>
-    <sql:param value="${telefono}"/>
-    <sql:param value="${correo}"/>
-    <sql:param value="${password}"/>
-    <sql:param value="${cargo}"/>
-    <sql:param value="${depto}"/>
-    <sql:param value="${password2}"/>
-    <sql:param value="${codigo}"/>
-</sql:update>
-<%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
-<c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
-    <c:param name="exito" value="Empleado Modificado con exito"/>
-</c:redirect>
-<% }%>
-
+    --%>
 <%-- ELIMINAR--%>
     <%  if (request.getParameter("codigoe") != null) {%>
         <sql:update var="deshabilitar" dataSource="jdbc/mysql">

@@ -10,6 +10,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="now" class="java.util.Date" /> 
 
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
+<c:if test="${loginB.id_cargo != 1}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
+
 <sql:query var="prog" dataSource="jdbc/mysql" scope="request">
     select id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre from empleados where id_empleado=?
     <sql:param value="${param.id}"/>
@@ -18,8 +30,8 @@
     select id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre from empleados where id_empleado=?
     <sql:param value="${param.idt}"/>
 </sql:query>
-     <c:set var="idcasop" value="Log19013"/>
-     <sql:query var="fecha" dataSource="jdbc/mysql" scope="request">
+     <c:set var="idcasop" value="${param.caR}"/>
+<sql:query var="fecha" dataSource="jdbc/mysql" scope="request">
     select fecha_limite from caso where id_caso=?
    <sql:param value="${idcasop}"/>
 </sql:query>
@@ -37,16 +49,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
         <title><fmt:message key="label.titleA"/></title>
     </head>
-    <body id="page-top">  
-
+    <body id="page-top">
         <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
             <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
-                <form role="form" action="../Controlador/asignacionDAO.jsp"  method="POST" >
+                <form role="form" action="${pageContext.request.contextPath}/Controlador/asignacionDAO.jsp"  method="POST" >
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
@@ -57,7 +69,7 @@
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
                                     <div class="card-body">
-                                       
+
                                         <strong><fmt:message key="label.nomC"/></strong><c:out value="${idcasop}"/> 
                                         <br/>
                                         <strong><fmt:message key="label.deptoA"/> </strong><c:out value="${loginB.id_departamento}"/>  <c:out value="${loginB.departamento}"/>
@@ -98,10 +110,7 @@
 
                         <div class="col-lg-12" >
                             <!-- Basic Card Example -->
-
                             <div class="card shadow mb-4">
-
-
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.asignacionp"/></h6>
                                 </div>
@@ -110,32 +119,32 @@
 
                                         <label for="" ><span class="fas fa-asterisk" ></span><fmt:message key="label.fechalimite"/></label>
                                         <div class="input-group">
-                                             <div class="input-group">
-                                             <input type="text" size="" class="form-control text-hide"  id="idcaso" name="idcaso" value="<c:out value="${idcasop}"/>">
-                                        </div>
-                                        <div class="input-group" id="sf">
                                             <div class="input-group">
-                                                   <a href="#" data-toggle="popover" title="<fmt:message key="label.indicaciones"/>" data-content="<fmt:message key="label.fechainfo"/>"><fmt:message key="label.pop"/></a>
+                                                <input type="text" size="" class="form-control text-hide"  id="idcaso" name="idcaso" value="<c:out value="${idcasop}"/>">
                                             </div>
-                                        <label for="" ><span class="text-success " ></span><fmt:message key="label.fechae"/></label>
-                                        
-                                          
-                                         <c:forEach items="${fecha.rows}" var="fecha">
-                                                   <input type="text" size="" class="form-control"  id="fechal" name="fechal" value="${fecha.fecha_limite}">
-                       
-                                             </c:forEach>
-       
-                                        </div>
-                                            
+                                            <div class="input-group" id="sf">
+                                                <div class="input-group">
+                                                    <a href="#" data-toggle="popover" title="<fmt:message key="label.indicaciones"/>" data-content="<fmt:message key="label.fechainfo"/>"><fmt:message key="label.pop"/></a>
+                                                </div>
+                                                <label for="" ><span class="text-success " ></span><fmt:message key="label.fechae"/></label>
+
+
+                                                <c:forEach items="${fecha.rows}" var="fecha">
+                                                    <input type="text" size="" class="form-control"  id="fechal" name="fechal" value="${fecha.fecha_limite}">
+
+                                                </c:forEach>
+
+                                            </div>
+
                                             <input  type="date" class="form-control"  min="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${now}"/>"
                                                     name="fechalimite" id="fechalimite" 
                                                     <c:forEach items="${fecha.rows}" var="f">
-                                                    <c:if test="${empty f.fecha_limite}"> required</c:if></c:forEach>>
-                                            <span  class="invalid-feedback" ></span>  
-                                        </div> 
-                                    </div>
-                                </div>
-                                <input type="submit" class="btn btn-success"  value="<fmt:message key="label.asig"/>" id="btnAsignarp" name="btnAsignarp" >
+                                                        <c:if test="${empty f.fecha_limite}"> required</c:if></c:forEach>>
+                                                        <span  class="invalid-feedback" ></span>  
+                                                    </div> 
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-success"  value="<fmt:message key="label.asig"/>" id="btnAsignarp" name="btnAsignarp" >
                             </div>
                         </div>
 
@@ -165,12 +174,9 @@
                                         <tr>
                                             <td class="text-xs font-weight-light text-lg text-black-50 mb-1">${emp.id_empleado}</td>
                                             <td class="text-xs font-weight-light text-lg text-black-50 mb-1">${emp.Nombre}</td>
-
                                         </c:forEach>     
                                     </tr>
-
                                 </table>
-
                             </div>
 
                             <div class="modal-footer">
@@ -178,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
 
             <!--SECCIÓN PARA MOSTRAR MENSAJES DE ERROR O CONFIRMACIÓN DE ALGÚN PROCESO-->
@@ -225,7 +231,7 @@
                 $(document).ready(function(){
                   $('[data-toggle="popover"]').popover();   
                 });
-</script> 
+            
             </script>
             <script src="js/bootstrap.min.js"></script>
             <script src="assets/jquery-3.3.1.min.js"></script>
