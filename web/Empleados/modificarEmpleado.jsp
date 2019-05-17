@@ -12,7 +12,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modificar Empleado</title>
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
+        <title><fmt:message key="label.modificar-empleado"/></title>
     </head>
     <body>
         <sql:query var="modificar" dataSource="jdbc/mysql" scope="request">
@@ -21,10 +22,10 @@
         </sql:query>
         <jsp:include page="../Controlador/Consultas.jsp"/>
         <div id="wrapper">
-            <jsp:include page="/Menu_1.jsp" />
+            <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
-
-                <form role="form" action="../Controlador/empleadosDAO.jsp"  method="POST" >
+                <h2><fmt:message key="label.modificar-empleado"/></h2>
+                <form role="form" action="../Controlador/empleadosDAO.jsp?ti=1"  method="POST" >
                     <c:forEach var="emp" items="${modificar.rows}">
                         <div class="row">
 
@@ -41,7 +42,7 @@
                                         <div  class="form-group">
                                             <label for="nombres" ><span class="fas fa-asterisk" ></span><fmt:message key="label.nombres"/></label>
                                             <div class="input-group">
-                                                <input  type="text" class="form-control" name="codigo" id="codigo" value="${emp.id_empleado}" required>
+                                                <input  type="text" class="form-control" name="codigo" id="codigo" value="${emp.id_empleado}" required readonly="">
                                                 <input  type="text" class="form-control" name="nombres" id="nombres" value="${emp.nombre_emp}" required>
 
                                                 <span  class="invalid-feedback" ></span>  
@@ -92,13 +93,13 @@
                                 <!-- Basic Card Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Información empleado</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.infoe"/></h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">                                
                                             <label for="cargo"><span class="fas fa-asterisk"></span><fmt:message key="label.selectcargo"/></label>
                                             <select  class="custom-select" id="cargo" name="cargo" required>
-                                                <option value="" >Seleccione una opcion</option>
+                                                <option value=""><fmt:message key="label.seleccione-opcion"/></option>
                                                 <c:forEach var="name1" items="${q2.rows}">
                                                     <option value="${name1.id_cargo}">${name1.nombre_cargo}</option>
                                                 </c:forEach>
@@ -108,7 +109,7 @@
                                         <div class="form-group">                                
                                             <label for="cargo"><span class="fas fa-asterisk"></span><fmt:message key="label.selectdepto"/></label>
                                             <select  class="custom-select" id="depto" name="depto" required>
-                                                <option value="" >Seleccione una opcion</option>
+                                                <option value=""><fmt:message key="label.seleccione-opcion"/></option>
                                                 <c:forEach var="name1" items="${q3.rows}">
                                                     <option value="${name1.id_depto}">${name1.nombre_depto}</option>
                                                 </c:forEach>

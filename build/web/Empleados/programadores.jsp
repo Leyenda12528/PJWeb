@@ -28,8 +28,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
         <title><fmt:message key="label.protitle"/></title>
-
     </head>
     <body id="page-top"> 
 

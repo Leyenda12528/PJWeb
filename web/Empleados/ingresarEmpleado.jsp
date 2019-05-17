@@ -8,11 +8,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" href="../Imas/java.ico" />
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/Imas/java.ico"/>
         <title><fmt:message key="label.TituloIe"/></title>
     </head>
     <body id="page-top">  
@@ -20,11 +21,30 @@
         <div id="wrapper">
             <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
+                <h2><fmt:message key="label.TituloIe"/></h2>
+                <c:if test="${param.error == 1}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.JD-ya-existe"/></strong><br>
+                    </div>
+                </c:if>
+                <c:if test="${param.error == 2}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.JF-ya-existe"/></strong><br>
+                    </div>
+                </c:if>
+                <c:if test="${param.exito == 1}">
+                    <div class="alert alert-success">
+                        <strong><fmt:message key="label.empleado-ingresado"/></strong><br>
+                    </div>
+                </c:if>
+                <c:if test="${param.exito == 2}">
+                    <div class="alert alert-success">
+                        <strong><fmt:message key="label.empleado-modificado"/></strong><br>
+                    </div>
+                </c:if>
                 <form role="form" action="../Controlador/empleadosDAO.jsp"  method="POST" >
                     <div class="row">
-
                         <div class="col-lg-6">
-
                             <!-- Basic Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -40,7 +60,7 @@
                                         </div>
                                         <label for="nombres" ><span class="fas fa-asterisk" ></span><fmt:message key="label.nombres"/></label>
                                         <div class="input-group">
-                                           
+
                                             <input  type="text" class="form-control" name="nombres" id="nombres" placeholder="<fmt:message key="label.camponombre"/>" required>
 
                                             <span  class="invalid-feedback" ></span>  
@@ -146,13 +166,7 @@
                                     <input type="submit" class="bbtn btn-lg btn-info " value="<fmt:message key="label.guardar"/>" id="btnGuardar" name="btnGuardar" >
                                 </div>
 
-                            </div>
-                            <c:if test="${not empty param.error}">
-                                <div class="alert alert-danger">
-                                    <strong>Error!</strong><c:out value="${param.error}"/>
-                                    <br>
-                                </div>
-                            </c:if>
+                            </div>                            
                         </div>
 
                     </div>

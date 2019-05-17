@@ -61,7 +61,7 @@
             </c:when>
 
             <c:otherwise>
-               
+
                 <sql:query var="datosm" dataSource="jdbc/mysql">
                     select nombre_emp,correo from empleados where id_empleado=?
                     <sql:param value="${id}"/>
@@ -73,7 +73,7 @@
 
                 <c:set var="correo" value="${loginB.correo}"/>
                 <c:set var="contraP" value="${loginB.contraP}"/>
-                
+
                 <%
                     try {
                         String correo = "" + pageContext.getAttribute("correo");
@@ -102,7 +102,8 @@
                     <sql:param value="${id}"/>
                     <sql:param value="${idcaso}"/>  
                 </sql:update>
-                <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
+                <c:redirect url="../Casos/asignacionEmpleados.jsp">
+                    <c:param name="caR" value="${idcaso}"/>
                     <c:param name="exito" value="Empleado asignado con exito"/>
                 </c:redirect>
             </c:otherwise>
@@ -111,62 +112,63 @@
         <%}%>
 
         
-             <% if (request.getParameter("idp") != null) {%>
-                   
-        <c:choose>
-            <c:when test="${query.rowCount >=2 || countTester.rowCount>0 }">
-                <c:redirect url="../Casos/asignacionEmpleados.jsp?ide=${idp}&c=${cargo}&idc=${idcaso}">                                                
-                    <c:param name="errorm"  value="El probador ya fue asignado"/>
-                </c:redirect>
-            </c:when>
+        <% if (request.getParameter("idp") != null) {%>
 
-            <c:otherwise>
-               
-                <sql:query var="datosm" dataSource="jdbc/mysql">
-                    select nombre_emp,correo from empleados where id_empleado=?
-                    <sql:param value="${idp}"/>
-                </sql:query>
+             <c:choose>
+                 <c:when test="${query.rowCount >=2 || countTester.rowCount>0 }">
+                     <c:redirect url="../Casos/asignacionEmpleados.jsp?ide=${idp}&c=${cargo}&idc=${idcaso}">                                                
+                         <c:param name="errorm"  value="El probador ya fue asignado"/>
+                     </c:redirect>
+                 </c:when>
 
-                <c:forEach var="Destinatariom" items="${datosm.rows}">
-                    <c:set var="correoD" value="${Destinatariom.correo}"/>
-                </c:forEach>
+                 <c:otherwise>
 
-                <c:set var="correo" value="${loginB.correo}"/>
-                <c:set var="contraP" value="${loginB.contraP}"/>
-                
-                <%
-                    try {
-                        String correo = "" + pageContext.getAttribute("correo");
-                        String contraP = "" + pageContext.getAttribute("contraP");
-                        String cDestino = "" + pageContext.getAttribute("correoD");
-                        String asunto = "", mjs = "", descripcion = "", id = "";
-                        asunto = "AVISO-ASIGNACIÓN DE NUEVO CASO";
-                        mjs = "Saludos\n Usted ha sido asignado a un nuevo caso\n\n\t";
-                        Controlador control = new Controlador();
-                        Correo c = new Correo();
-                        c.setCorreoUser(correo);
-                        c.setContra(contraP);
-                        c.setCorreoDestino(cDestino);
-                        c.setAsunto(asunto);
-                        c.setMensaje(mjs);
+                     <sql:query var="datosm" dataSource="jdbc/mysql">
+                         select nombre_emp,correo from empleados where id_empleado=?
+                         <sql:param value="${idp}"/>
+                     </sql:query>
 
-                        control.enviar(c);
+                     <c:forEach var="Destinatariom" items="${datosm.rows}">
+                         <c:set var="correoD" value="${Destinatariom.correo}"/>
+                     </c:forEach>
 
-                    } catch (Exception e) {
-                        out.print("" + e.getMessage());
-                    }
+                     <c:set var="correo" value="${loginB.correo}"/>
+                     <c:set var="contraP" value="${loginB.contraP}"/>
 
-                %>
-                <sql:update var="agregarp" dataSource="jdbc/mysql">
-                    insert into empleados_caso  values (?,?)
-                    <sql:param value="${idp}"/>
-                    <sql:param value="${idcaso}"/>  
-                </sql:update>
-                <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
-                    <c:param name="exito" value="Probador asignado con exito"/>
-                </c:redirect>
-            </c:otherwise>
-        </c:choose>
+                     <%
+                         try {
+                             String correo = "" + pageContext.getAttribute("correo");
+                             String contraP = "" + pageContext.getAttribute("contraP");
+                             String cDestino = "" + pageContext.getAttribute("correoD");
+                             String asunto = "", mjs = "", descripcion = "", id = "";
+                             asunto = "AVISO-ASIGNACIÓN DE NUEVO CASO";
+                             mjs = "Saludos\n Usted ha sido asignado a un nuevo caso\n\n\t";
+                             Controlador control = new Controlador();
+                             Correo c = new Correo();
+                             c.setCorreoUser(correo);
+                             c.setContra(contraP);
+                             c.setCorreoDestino(cDestino);
+                             c.setAsunto(asunto);
+                             c.setMensaje(mjs);
+
+                             control.enviar(c);
+
+                         } catch (Exception e) {
+                             out.print("" + e.getMessage());
+                         }
+
+                     %>
+                     <sql:update var="agregarp" dataSource="jdbc/mysql">
+                         insert into empleados_caso  values (?,?)
+                         <sql:param value="${idp}"/>
+                         <sql:param value="${idcaso}"/>  
+                     </sql:update>
+                     <c:redirect url="../Casos/asignacionEmpleados.jsp">
+                         <c:param name="caR" value="${idcaso}"/>
+                         <c:param name="exito" value="Probador asignado con exito"/>
+                     </c:redirect>
+                 </c:otherwise>
+             </c:choose>
 
         <%}%>
         
@@ -177,54 +179,58 @@
             select id_caso from bitacoras where id_caso=?
             <sql:param value="${idcaso}"/>
         </sql:query>
-        <c:set var="idb" value="${idbitacora.rowCount+20}"/>
+        <c:set var="idb" value="${idbitacora.rowCount+1}"/>
         
         
         <%if (request.getParameter("btnAsignarp") != null) {%>
         
         <c:choose>
             <c:when test="${query.rowCount<2}">
-                <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
+                <c:redirect url="../Casos/asignacionEmpleados.jsp">
+                    <c:param name="caR" value="${idcaso}"/>
                     <c:param name="error" value="Verifique empleados asignados ${query.rowCount} ${idcaso}"/>
                 </c:redirect>
             </c:when>
             <c:otherwise>
                 <c:choose>
-                <c:when test="${fecham!=''}">
-                     <sql:update var="fecham" dataSource="jdbc/mysql">
-                    update caso set fecha_limite=?,id_estado=3 where id_caso=?
-                    <sql:param value="${fecham}"/>
-                    <sql:param value="${idcaso}"/>
-                </sql:update>
-                </c:when>
-                <c:when test="${fecham==''}">
-                    <%
-            String d = "" + pageContext.getAttribute("fechalimite");
-            String[] f2 = d.split("-");
-            String f3="";
-            f3 = f2[2]+"-"+f2[1]+"-"+f2[0];
-            pageContext.setAttribute("fechalimite", f3);
-    
-        %>
-                     <sql:update var="fecha" dataSource="jdbc/mysql">
-                    update caso set fecha_limite=?,id_estado=3 where id_caso=?
-                    <sql:param value="${fechalimite}"/>
-                    <sql:param value="${idcaso}"/>
-                </sql:update>
-                </c:when>
-               </c:choose>
-                    <c:if test="${existeb.rowCount==0}">
-                          <sql:update var="crearBitacira" dataSource="jdbc/mysql">
-                   insert into bitacoras values (?,?,?,?)
-                    <sql:param value="${idb}"/>
-                    <sql:param value="${idcaso}"/>
-                    <sql:param value=""/>
-                    <sql:param value=""/>
-                </sql:update> 
-                    </c:if>
-                  
+                    <c:when test="${fecham!=''}">
+                        <sql:update var="fecham" dataSource="jdbc/mysql">
+                            update caso set fecha_limite=?,id_estado=3 where id_caso=?
+                            <sql:param value="${fecham}"/>
+                            <sql:param value="${idcaso}"/>
+                        </sql:update>
+                    </c:when>
+                    <c:when test="${fecham==''}">
+                        <%
+                            String d = "" + pageContext.getAttribute("fechalimite");
+                            String[] f2 = d.split("-");
+                            String f3 = "";
+                            f3 = f2[2] + "-" + f2[1] + "-" + f2[0];
+                            pageContext.setAttribute("fechalimite", f3);
+
+                        %>
+                        <sql:update var="fecha" dataSource="jdbc/mysql">
+                            update caso set fecha_limite=?,id_estado=3 where id_caso=?
+                            <sql:param value="${fechalimite}"/>
+                            <sql:param value="${idcaso}"/>
+                        </sql:update>
+                    </c:when>
+                </c:choose>
+                <c:if test="${existeb.rowCount==0}">
+                    <sql:update var="crearBitacira" dataSource="jdbc/mysql">
+                        insert into bitacoras values (?,?,?,?)
+                        <sql:param value="${idb}"/>
+                        <sql:param value="${idcaso}"/>
+                        <sql:param value=""/>
+                        <sql:param value=""/>
+                    </sql:update> 
+                </c:if>
+                <%--
                 <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
                     <c:param name="exito" value="Asignación correcta"/>
+                </c:redirect>--%>
+                <c:redirect url="../Casos/SolicitudP.jsp">
+                    <c:param name="exito" value="1"/>
                 </c:redirect>
             </c:otherwise>
         </c:choose>
@@ -236,7 +242,7 @@
         <%if (request.getParameter("modi") != null) {%>
         <!--cuando se modifica-->
         <sql:query var="datosm" dataSource="jdbc/mysql">
-             select nombre_emp,correo from empleados where id_empleado=?
+            select nombre_emp,correo from empleados where id_empleado=?
             <sql:param value="${ide}"/>
         </sql:query>
 
@@ -254,10 +260,10 @@
                 String correo = "" + pageContext.getAttribute("correo");
                 String contraP = "" + pageContext.getAttribute("contraP");
                 String cDestino = "" + pageContext.getAttribute("correoD");
-                String nombreD=""+pageContext.getAttribute("nombre");
+                String nombreD = "" + pageContext.getAttribute("nombre");
                 String asunto = "", mjs = "", descripcion = "", id = "";
                 asunto = "Solicitud de Caso ";
-                mjs = "Saludos "+nombreD+"\n Usted ha sido asignado a un nuevo caso\n\n\t";
+                mjs = "Saludos " + nombreD + "\n Usted ha sido asignado a un nuevo caso\n\n\t";
                 Controlador control = new Controlador();
                 Correo c = new Correo();
                 c.setCorreoUser(correo);
@@ -282,7 +288,8 @@
             <sql:param value="${cargo}"/>
             <sql:param value="${idcaso2}"/>
         </sql:update>
-        <c:redirect url="../Casos/asignacionEmpleados.jsp">                                                
+        <c:redirect url="../Casos/asignacionEmpleados.jsp">
+            <c:param name="caR" value="${idcaso2}"/>
             <c:param name="exito" value="Se modifico asignación"/>
         </c:redirect>
         <%}%>

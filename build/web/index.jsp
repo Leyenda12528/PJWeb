@@ -25,11 +25,17 @@
             <jsp:include page="Menu_1_1.jsp" />
             <jsp:include page="Controlador/Casos.jsp" />            
             <div class="container-fluid">
+                <c:if test="${param.error == 1}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.permisos1"/></strong>
+                        <br>
+                    </div>
+                </c:if>
                 <div  id="menu2">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.bienvenido"/>
-                                <c:out value="${loginB.departamento}"/>
+                                <c:out value="${loginB.nombre}"/>
                             </h6>
                         </div>
                         <div class="card-body">
@@ -41,56 +47,29 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
-                                            <div class="h5 mb-0 font-weight-bold"><a href="#" class="text-gray-800"><fmt:message key="label.espera"/></a></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rechazados</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-ban fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><fmt:message key="label.finalizados"/></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar-check fa-2x text-gray-300"></i>
+                        <!-- Earnings (Monthly) Card Example
+                        JEFE FUNCIONAL
+                        <fmt:message key="label.finalizados"/>
+                        -->
+                        <c:if test="${loginB.id_cargo == 2}">
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="${pageContext.request.contextPath}/Solicitud.jsp" class="text-gray-800"><fmt:message key="label.nuevasoli"/></a></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar-check fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </c:if>
 
                         <!-- Pending Requests Card Example 
                             JEFE DESARROLLO
@@ -114,7 +93,7 @@
                             </div>
 
                         </c:if>
-                        <%--PROGRAMADOR--%>
+                        <%--PROGRAMADOR o TESTER--%>
                         <c:if test="${loginB.id_cargo == 3 || loginB.id_cargo == 4}">
 
                             <div class="col-xl-3 col-md-6 mb-4">
@@ -132,6 +111,48 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Earnings (Monthly) Card Example 
+                           TESTER
+                            -->
+                            <c:if test="${loginB.id_cargo == 4}">
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
+                                                    <div class="h5 mb-0 font-weight-bold"><a href="${pageContext.request.contextPath}/Casos/CasosRespuestaT.jsp" class="text-gray-800"><fmt:message key="label.espera"/></a></div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+
+                            <!-- Earnings (Monthly) Card Example 
+                                PROGRAMADOR
+                            -->
+                            <c:if test="${loginB.id_cargo == 3}">
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><fmt:message key="label.titulocasos"/></div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="${pageContext.request.contextPath}/Casos/CasosDevueltosP.jsp" class="text-gray-800"><fmt:message key="label.devuelto-observaciones"/></a></div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-ban fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
 
                         </c:if>                        
                     </div>

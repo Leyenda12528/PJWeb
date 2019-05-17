@@ -71,7 +71,7 @@
                                               </c:if>
                                               <c:if test="${loginB.id_cargo == 3}">
                                                   required=""
-                                              </c:if>
+                                              </c:if>                                              
                                               >${bitafor.descripcion_actividad}
                                     </textarea>
                                 </div>

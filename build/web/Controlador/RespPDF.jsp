@@ -100,6 +100,9 @@
         <sql:param value="${pdfJD}"/>
         <sql:param value="${id_caso}"/>
     </sql:update>
+    <c:redirect url="../Casos/asignacionEmpleados.jsp">
+        <c:param name="caR" value="${id_caso}"/>
+    </c:redirect>
 </c:if>
 
 <%-- Rechazando caso--%>
@@ -109,7 +112,7 @@
         <sql:param value="${descripcion}"/>
         <sql:param value="${id_caso}"/>
     </sql:update>
+    <c:redirect url="../Casos/SolicitudP.jsp">
+        <c:param name="exito" value="1"/>
+    </c:redirect>
 </c:if>
-<c:redirect url="../Casos/SolicitudP.jsp">
-    <c:param name="exito" value="1"/>
-</c:redirect>
