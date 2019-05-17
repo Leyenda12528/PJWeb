@@ -39,3 +39,13 @@
     <sql:param value="${loginB.id_departamento}"/>
 </sql:query>
     
+<%-- Para reporte--%>
+   
+<sql:query var="r" dataSource="jdbc/mysql" scope="request">
+  select * from estados where id_estado=7 || id_estado=2 || id_estado=3
+</sql:query> 
+  
+  <sql:query var="c" dataSource="jdbc/mysql" scope="request">
+  select * from cargo where id_cargo=3 || id_cargo=4
+</sql:query> 
+    

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d874ca56-4827-457e-959f-47c51c0c67fd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="29"/>
+	<parameter name="fecha1" class="java.lang.String"/>
+	<parameter name="fecha2" class="java.lang.String"/>
+	<parameter name="idestado" class="java.lang.String"/>
+	<parameter name="depto" class="java.lang.String"/>
+	<parameter name="cargo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     caso.`id_caso` AS caso_id_caso,
+     caso.`nombre_caso` AS caso_nombre_caso,
+     caso.`porcentaje_avance` AS caso_porcentaje_avance,
+     caso.`fecha_limite` AS caso_fecha_limite,
+     caso.`fecha_produccion` AS caso_fecha_produccion,
+     caso.`fecha_creacion` AS caso_fecha_creacion,
+     estados.`nombre_estado` AS estados_nombre_estado,
+     empleados_caso.`id_empleado` AS empleados_caso_id_empleado,
+     empleados.`nombre_emp` AS empleados_nombre_emp,
+     empleados.`apellidos` AS empleados_apellidos,
+     empleados.`id_cargo` AS empleados_id_cargo,
+     cargo.`nombre_cargo` AS cargo_nombre_cargo
+FROM
+     `estados` estados INNER JOIN `caso` caso ON estados.`id_estado` = caso.`id_estado`
+     INNER JOIN `empleados_caso` empleados_caso ON caso.`id_caso` = empleados_caso.`id_caso`
+     INNER JOIN `empleados` empleados ON empleados_caso.`id_empleado` = empleados.`id_empleado`
+     INNER JOIN `cargo` cargo ON empleados.`id_cargo` = cargo.`id_cargo` WHERE caso.fecha_creacion>=$P{fecha1} AND caso.fecha_creacion<=$P{fecha2} AND caso.id_estado=$P{idestado} and caso.id_caso LIKE '$P!{depto}%'  and empleados.id_cargo=$P{cargo}
+]]>
+	</queryString>
+	<field name="caso_id_caso" class="java.lang.String"/>
+	<field name="caso_nombre_caso" class="java.lang.String"/>
+	<field name="caso_porcentaje_avance" class="java.lang.Integer"/>
+	<field name="caso_fecha_limite" class="java.lang.String"/>
+	<field name="caso_fecha_produccion" class="java.lang.String"/>
+	<field name="caso_fecha_creacion" class="java.sql.Date"/>
+	<field name="estados_nombre_estado" class="java.lang.String"/>
+	<field name="empleados_caso_id_empleado" class="java.lang.Integer"/>
+	<field name="empleados_nombre_emp" class="java.lang.String"/>
+	<field name="empleados_apellidos" class="java.lang.String"/>
+	<field name="empleados_id_cargo" class="java.lang.Integer"/>
+	<field name="cargo_nombre_cargo" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="cbbd5722-2318-4e32-96f3-a38da9d2db01"/>
+				<staticText>
+					<reportElement x="143" y="10" width="301" height="43" forecolor="#FFFFFF" uuid="5cce52b6-baa1-4143-a6a3-771386cf5666"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte casos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="04b7191b-c501-4e73-817d-35ad45cbb4d9"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Detalle de empleado]]></text>
+				</staticText>
+				<image>
+					<reportElement x="30" y="10" width="113" height="74" uuid="97ee51cc-0641-4023-95f8-9b44ba84f3b3"/>
+					<imageExpression><![CDATA["C:\\Users\\less_\\Desktop\\Proyecto\\PJWeb\\web\\Imas\\java.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="ac04b325-7c10-48ce-a7a2-aca188dc616f"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="338">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="37" width="555" height="1" uuid="3e03c79a-a650-45c8-b3a4-7ef91608cecd"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="97" y="58" width="109" height="20" uuid="af39d147-3010-49c1-82d3-c307fddc490a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_id_caso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="97" y="98" width="157" height="20" uuid="f64a3e7d-9359-42e9-bdd0-3644ee7d60ba"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_nombre_caso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="375" y="58" width="49" height="20" uuid="7725679e-ce25-4f3b-b5e9-e4c3d0257bb0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_porcentaje_avance}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="181" y="144" width="184" height="20" uuid="874e6bba-9fb2-4f4a-8bf1-a1616257eb93"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_fecha_limite}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="181" y="176" width="178" height="20" uuid="d94a78c7-79da-4c80-936f-0a096675484d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_fecha_produccion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="124" y="17" width="177" height="20" uuid="fb121df2-c7c6-46b1-8a29-833811b28175"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caso_fecha_creacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="339" y="98" width="186" height="20" uuid="ced56a24-4a89-4f63-9b61-5dde5f4d99fb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estados_nombre_estado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="183" y="249" width="75" height="20" uuid="f7bce7a4-8b75-47c0-bc3a-fcec02539294"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleados_caso_id_empleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="181" y="282" width="153" height="20" uuid="86bee166-51e9-4818-9ac1-91a8e7dd01d9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleados_nombre_emp}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="180" y="314" width="185" height="20" uuid="701e8af3-e11c-46c4-84fa-c47116dad30e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleados_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="365" y="249" width="167" height="20" uuid="a9cf5e0f-5422-4f64-8141-135819722aa3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo_nombre_cargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="58" width="77" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="3f78518d-014c-404f-acec-3dcf9a690cf8"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID caso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="98" width="87" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="3ae21b59-b0e4-4102-b117-4209def055b6"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="301" y="58" width="64" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="d472a275-60b7-4697-b6ac-a093237d8709"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="144" width="151" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="037b1967-45bb-4404-812c-e216fc2b3054"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Limite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="176" width="135" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="5c12e0e1-5ad5-47cc-96a4-ab158f4fdaba"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha producción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="17" width="118" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="c8e6e37e-65e1-4ed9-9c54-03554d756a2b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Creado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="269" y="98" width="70" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="e06c9627-c2fe-4a08-91f4-bab5146ae46c"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="249" width="170" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="45be6c0c-70b9-4191-ae80-dbffac9b55d3"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="282" width="116" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="1b80ecbb-8590-4c9b-9231-e557d1d18ea6"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="314" width="138" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="9227e369-7359-4d9a-ab82-c2e0b42c7039"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="310" y="249" width="46" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="dbe3d671-2a0d-4197-8b74-1956957714f6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="210" width="221" height="20" uuid="bad28c16-5b75-472c-9263-49df734fa3c1"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información empleado]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="16" width="555" height="1" uuid="d4b2ef33-e55f-40cf-a558-537d101991ef"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="894c6cf9-82e8-495a-ba87-6730f81054a9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="00e71572-ea1a-4fbc-b75e-6f61c980565e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e9e1813d-5cad-4a60-87d6-d1035654663f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
