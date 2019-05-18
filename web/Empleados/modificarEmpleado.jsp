@@ -8,6 +8,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
+<c:if test="${loginB.id_cargo != 0}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>

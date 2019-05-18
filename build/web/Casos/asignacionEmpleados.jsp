@@ -141,7 +141,7 @@
                                                     <c:forEach items="${fecha.rows}" var="f">
                                                         <c:if test="${empty f.fecha_limite}"> required</c:if></c:forEach>>
                                                         <span  class="invalid-feedback" ></span>  
-                                                    </div> 
+                                                    </div>
                                             </div>
                                         </div>
                                         <input type="submit" class="btn btn-success"  value="<fmt:message key="label.asig"/>" id="btnAsignarp" name="btnAsignarp" >

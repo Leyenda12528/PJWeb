@@ -101,72 +101,6 @@
     </c:choose>
 </c:if>
 
-<%--
-<sql:query var="cargo1" dataSource="jdbc/mysql" scope="request">
-    select * from empleados where id_cargo=1 and id_depto=?
-    <sql:param value="${depto}"/>
-</sql:query>
-    <sql:query var="cargo2" dataSource="jdbc/mysql" scope="request">
-    select * from empleados where id_cargo=2 and id_depto=?
-       <sql:param value="${depto}"/>
-</sql:query>
-<c:choose>
-    <c:when test="${cargo1.rowCount >=1 && cargo==1}">
-        <c:redirect url="../Empleados/ingresarEmpleado.jsp">
-            <c:param name="error" value="1"/>
-        </c:redirect>
-    </c:when>
-    <c:when test="${cargo2.rowCount >=1 && cargo==2}">
-        <c:redirect url="../Empleados/ingresarEmpleado.jsp">
-            <c:param name="error" value="2"/>
-        </c:redirect>
-    </c:when>
-     INGRESAR
-    <c:when test="${param.btnGuardar != null}">
-        <sql:update var="insertar" dataSource="jdbc/mysql">
-            insert into empleados  values (?,?,?,?,?,?,?,?,?,SHA2(?,256),0,SHA2(?,256))
-            <sql:param value="${codigo}"/>
-            <sql:param value="${nombres}"/>
-            <sql:param value="${apellidos}"/>
-            <sql:param value="${cargo}"/>
-            <sql:param value="${depto}"/>
-            <sql:param value="${edad}"/>
-            <sql:param value="${direccion}"/>
-            <sql:param value="${telefono}"/>
-            <sql:param value="${correo}"/>
-            <sql:param value="${password}"/>
-            <sql:param value="${password2}"/>
-        </sql:update>
-
-        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp
-        <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
-            <c:param name="exito" value="1"/>
-        </c:redirect>
-    </c:when>
-    <c:when test="${param.btnModificar != null}">
-        <%-- MODIFICAR
-        <sql:update var="modificar" dataSource="jdbc/mysql">
-            UPDATE  empleados SET nombre_emp=?, apellidos=?, edad=?, direccion=?, telefono=?, correo=SHA2(?,256), password_emp=?,
-            id_cargo=?, id_depto=?, contraPublic=? WHERE id_empleado=?
-            <sql:param value="${nombres}"/>
-            <sql:param value="${apellidos}"/>
-            <sql:param value="${edad}"/>
-            <sql:param value="${direccion}"/>
-            <sql:param value="${telefono}"/>
-            <sql:param value="${correo}"/>
-            <sql:param value="${password}"/>
-            <sql:param value="${cargo}"/>
-            <sql:param value="${depto}"/>
-            <sql:param value="${password2}"/>
-            <sql:param value="${codigo}"/>
-        </sql:update>
-        <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp
-        <c:redirect url="../Empleados/ingresarEmpleado.jsp">                                                
-            <c:param name="exito" value="EmE"/>
-        </c:redirect>
-    </c:when>
-</c:choose>
-    --%>
 <%-- ELIMINAR--%>
     <%  if (request.getParameter("codigoe") != null) {%>
         <sql:update var="deshabilitar" dataSource="jdbc/mysql">
@@ -175,14 +109,25 @@
         </sql:update>
         <%--Forward que se utiliza para redireccionar a la pagina de ingresaremp.jsp--%>
         <c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
-            <c:param name="exito" value="Empleado deshabilitado con exito"/>
+            <c:param name="exito" value="1"/>
+        </c:redirect>
+    <% }%>
+
+<%-- HABILITAR--%>    
+    <%  if (request.getParameter("activar") != null) {%>    
+        <sql:update var="habilitar" dataSource="jdbc/mysql">
+            update  empleados set id_estado_emp=0 where id_empleado=?
+            <sql:param value="${param.activar}"/>
+        </sql:update>
+        <c:redirect url="../Empleados/ListarEmpleados.jsp">                                                
+            <c:param name="exito" value="2"/>
         </c:redirect>
     <% }%>
 
 <%--LOGIN--%>
     <%if (request.getParameter("btnlogin") != null) {%>
         <sql:query var="login" dataSource="jdbc/mysql">
-            SELECT * from empleados where correo = ? and password_emp = sha2(?,256)
+            SELECT * from empleados where correo = ? and password_emp = sha2(?,256) and id_estado_emp = 0
             <sql:param value="${param.correo}"/>
             <sql:param value="${param.contra}"/>
         </sql:query>

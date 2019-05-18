@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d874ca56-4827-457e-959f-47c51c0c67fd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="29"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="fecha1" class="java.lang.String"/>
 	<parameter name="fecha2" class="java.lang.String"/>
 	<parameter name="idestado" class="java.lang.String"/>
@@ -26,8 +26,7 @@ FROM
      `estados` estados INNER JOIN `caso` caso ON estados.`id_estado` = caso.`id_estado`
      INNER JOIN `empleados_caso` empleados_caso ON caso.`id_caso` = empleados_caso.`id_caso`
      INNER JOIN `empleados` empleados ON empleados_caso.`id_empleado` = empleados.`id_empleado`
-     INNER JOIN `cargo` cargo ON empleados.`id_cargo` = cargo.`id_cargo` WHERE caso.fecha_creacion>=$P{fecha1} AND caso.fecha_creacion<=$P{fecha2} AND caso.id_estado=$P{idestado} and caso.id_caso LIKE '$P!{depto}%'  and empleados.id_cargo=$P{cargo}
-]]>
+     INNER JOIN `cargo` cargo ON empleados.`id_cargo` = cargo.`id_cargo` WHERE caso.fecha_creacion>=$P{fecha1} AND caso.fecha_creacion<=$P{fecha2} AND caso.id_estado=$P{idestado} and caso.id_caso LIKE '$P!{depto}%'  and empleados.id_cargo=$P{cargo}]]>
 	</queryString>
 	<field name="caso_id_caso" class="java.lang.String"/>
 	<field name="caso_nombre_caso" class="java.lang.String"/>
@@ -64,7 +63,7 @@ FROM
 				</staticText>
 				<image>
 					<reportElement x="30" y="10" width="113" height="74" uuid="97ee51cc-0641-4023-95f8-9b44ba84f3b3"/>
-					<imageExpression><![CDATA["C:\\Users\\less_\\Desktop\\Proyecto\\PJWeb\\web\\Imas\\java.png"]]></imageExpression>
+					<imageExpression><![CDATA["C:\\Users\\jorge\\Desktop\\PWeb\\web\\Imas\\java.png"]]></imageExpression>
 				</image>
 			</frame>
 		</band>

@@ -9,6 +9,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
+<c:if test="${loginB.id_cargo != 0}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +32,10 @@
         <div id="wrapper">
             <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
-                <h2><fmt:message key="label.TituloIe"/></h2>
+                <div class="row  d-flex justify-content-between align-items-center">
+                    <h2 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.TituloIe"/></h2>
+                    <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary"><fmt:message key="label.inicio"/></a>
+                </div>
                 <c:if test="${param.error == 1}">
                     <div class="alert alert-danger">
                         <strong><fmt:message key="label.JD-ya-existe"/></strong><br>
@@ -48,7 +62,7 @@
                             <!-- Basic Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.datospersonales"/></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.datospersonales"/></h6>                                    
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group"><strong><span class="fas fa-asterisk" style="height: 15px"></span><fmt:message key="label.requeridos"/></strong></div>

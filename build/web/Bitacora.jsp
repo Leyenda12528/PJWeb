@@ -16,6 +16,11 @@
         <c:param name="error" value="2"/>
     </c:redirect>
 </c:if>
+<c:if test="${loginB.id_cargo != 3 && loginB.id_cargo != 4}">
+    <c:redirect url="index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +33,7 @@
     <body id="page-top">
         <div id="wrapper">
             <jsp:include page="Menu_1_1.jsp" />
-            <div class="container-fluid">
+            <div class="container-fluid">                
                 <div class="row  d-flex justify-content-between align-items-center">
                     <h3 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.bitacora"/> <c:out value="${param.ca}"/></h3>
                     <a href="${pageContext.request.contextPath}/Casos/CasosAsignados.jsp" class="btn btn-primary"><fmt:message key="label.casosAsignados"/></a>
@@ -42,6 +47,7 @@
                     WHERE        caso.id_caso = ?
                     <sql:param value="${param.ca}"/>
                 </sql:query>
+                    
                 <c:forEach var="bitafor" items="${bitaq.rows}">
                     <h5>${bitafor.nombre_caso}</h5>
                     <form role="form" action="${pageContext.request.contextPath}/Controlador/BitacoraDAO.jsp"  method="POST">
@@ -72,8 +78,7 @@
                                               <c:if test="${loginB.id_cargo == 3}">
                                                   required=""
                                               </c:if>                                              
-                                              >${bitafor.descripcion_actividad}
-                                    </textarea>
+                                              >${bitafor.descripcion_actividad}</textarea>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -93,8 +98,7 @@
                                               <c:if test="${bitafor.id_estado != 4}">
                                                   readonly=""
                                               </c:if>
-                                              >${bitafor.observaciones}
-                                    </textarea>
+                                              >${bitafor.observaciones}</textarea>
                                 </div>
                                         <%--RECHAZAR--%>
                                 <c:if test="${loginB.id_cargo == 4 && bitafor.id_estado == 4}">
@@ -119,7 +123,7 @@
                             <div class="d-flex justify-content-end">
                                 <div class="pr-2"><strong><fmt:message key="label.fecha-produccion"/></strong></div>
                                 <div class="pr-2">                                    
-                                    <input  type="date" class="form-control"  min="<fmt:formatDate pattern = "dd-MM-yyyy" value = "${now}"/>" name="fechaprodc" id="fechaprodc" required>
+                                    <input  type="date" class="form-control"  min="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${now}"/>" name="fechaprodc" id="fechaprodc" required>
                                 </div>
                                 <div class="pr-2"><input type="submit" class="btn btn-primary" value="<fmt:message key="label.aceptar-bita"/>" id="btnAceptarBita" name="btnAceptarBita"></div>
                             </div><br/><br/>

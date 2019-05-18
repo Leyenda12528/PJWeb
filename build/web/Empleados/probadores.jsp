@@ -8,8 +8,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-
+<c:set var="usuario" value="${sessionScope['loginUser']}"/>
+<c:if test="${empty usuario}">
+    <c:redirect url="../Login.jsp">
+        <c:param name="error" value="2"/>
+    </c:redirect>
+</c:if>
+<c:if test="${loginB.id_cargo != 1 && loginB.id_cargo != 2}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <sql:query var="q5" dataSource="jdbc/mysql">
     SELECT id_empleado,CONCAT(nombre_emp,' ',apellidos) nombre,c.id_cargo,nombre_cargo,nombre_depto FROM empleados emp 
     INNER JOIN departamentos dep ON dep.id_depto= ? and emp.id_depto=?
@@ -21,6 +30,10 @@
 <c:if test="${op!=1}">
     <style>
         #asig
+        {
+            display: none;
+        }
+        #oper
         {
             display: none;
         }
@@ -42,7 +55,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-0 font-weight-bold text-primary"><fmt:message key="label.testitle"/></h6>
+                        <h3 class="m-0 font-weight-bold text-primary"><fmt:message key="label.testitle"/></h3>
                         <div class="col-sm-25">
 
                         </div>
@@ -53,11 +66,11 @@
                                 <thead>
                                     <tr>
                                         <th><fmt:message key="label.testcodigo"/></th>
-                                        <th class="col-md-1"><fmt:message key="label.testnombre"/></th>
+                                        <th class="col-md-auto"><fmt:message key="label.testnombre"/></th>
 
                                         <th><fmt:message key="label.testcargo"/></th>
                                         <th><fmt:message key="label.testdepto"/></th>
-                                        <th><fmt:message key="label.testop"/></th>
+                                        <th id="oper"><fmt:message key="label.testop"/></th>
                                     </tr>
                                 </thead>
                                 <tbody>

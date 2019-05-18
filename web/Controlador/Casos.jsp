@@ -51,6 +51,56 @@
         
 <%-- VER casos Asignados  solo para Prog Tester--%>
     <c:if test="${loginB.id_cargo == 3 || loginB.id_cargo == 4}">
+        <%-------------------------------------------------------------------------------------------------------------%>
+        <c:set var="bander" value="0" scope="request"/>
+        <sql:query var="casValor" dataSource="jdbc/mysql" scope="request">
+            SELECT  bitacoras.id_caso, caso.nombre_caso
+            FROM            bitacoras INNER JOIN
+            caso ON bitacoras.id_caso = caso.id_caso INNER JOIN
+            empleados_caso ON caso.id_caso = empleados_caso.id_caso
+            <c:if test="${loginB.id_cargo == 3}">
+                WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6))
+            </c:if>
+            <c:if test="${loginB.id_cargo == 4}">
+                WHERE        (empleados_caso.id_empleado = ?) AND ((caso.id_estado = 3) or (caso.id_estado = 6) or (caso.id_estado = 4))
+            </c:if>
+            <sql:param value="${loginB.id}"/>
+        </sql:query>
+        <c:set var="band" value="0"/> 
+        <c:forEach var="casValorFor" items="${casValor.rows}">
+            <c:set var="idcaso" value="${casValorFor.id_caso}"/>
+            <sql:query var="q2" dataSource="jdbc/mysql" scope="request">
+                select fecha_limite from caso where id_caso=?
+                <sql:param value="${idcaso}"/>
+            </sql:query>            
+            <c:forEach var="f" items="${q2.rows}">
+                <c:set value="${f.fecha_limite}" var="fecha" />
+                <%
+                    String fecha = "" + pageContext.getAttribute("fecha");
+                    String band = "" + pageContext.getAttribute("band");
+
+                    SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+                    Date now2 = new Date();
+                    String snow = formato.format(now2);
+                    Date Fnow = formato.parse(snow);
+                    Date fProd = formato.parse(String.valueOf(fecha));
+                    if (fProd.compareTo(Fnow) < 0) {
+                        pageContext.setAttribute("band", 1);
+                    } else {
+                        pageContext.setAttribute("band", 0);
+                    }
+                %>
+            </c:forEach>
+            <c:if test="${band == 1}">
+                <c:set var="bander" value="1" scope="request"/>
+                <sql:update var="fecham" dataSource="jdbc/mysql">
+                    update caso set id_estado=? where id_caso=?
+                    <sql:param value="5"/>
+                    <sql:param value="${idcaso}"/>
+                </sql:update>
+            </c:if>
+        </c:forEach>        
+        <%------------------------------------------------------------------------------------------------------------%>
         <sql:query var="casosAsigq" dataSource="jdbc/mysql" scope="request">
             SELECT  bitacoras.id_caso, caso.nombre_caso
             FROM            bitacoras INNER JOIN
@@ -64,7 +114,7 @@
             </c:if>
             <sql:param value="${loginB.id}"/>
         </sql:query>
-               <%--CASOS esperando respuesta del area ..... solo parta TESTER--%>
+        <%--CASOS esperando respuesta del area ..... solo parta TESTER--%>
         <c:if test="${loginB.id_cargo == 4}">
             <sql:query var="casosAsigq2" dataSource="jdbc/mysql" scope="request">
                 SELECT  bitacoras.id_caso, caso.nombre_caso

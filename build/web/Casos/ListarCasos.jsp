@@ -14,6 +14,11 @@
         <c:param name="error" value="2"/>
     </c:redirect>
 </c:if>
+<c:if test="${loginB.id_cargo != 0}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>

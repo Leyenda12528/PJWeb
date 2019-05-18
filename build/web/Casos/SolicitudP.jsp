@@ -57,7 +57,7 @@
                         <div class="card-body">
                             <c:if test="${fn:length(solipFor.pdf)>4}">
                                 <a class="btn btn-danger" href="${pageContext.request.contextPath}/#?"><fmt:message key="label.verpdfjf"/></a>
-                            </c:if>                            
+                            </c:if>
                                 <%--${pageContext.request.contextPath}/Controlador/Casos.jsp?aceptarC=${solipFor.id_caso}--%>
                             <a title="<fmt:message key="label.aceptarC"/>" class="btn btn-success" onclick="" href="${pageContext.request.contextPath}/Casos/RespuestaP.jsp?C=${solipFor.id_caso}&d=1"><fmt:message key="label.aceptarC"/></a>
                             <a title="<fmt:message key="label.rechazarC"/>" class="btn btn-secondary" onclick="" href="${pageContext.request.contextPath}/Casos/RespuestaP.jsp?C=${solipFor.id_caso}&d=2"><fmt:message key="label.rechazarC"/></a>

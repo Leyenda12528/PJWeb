@@ -14,6 +14,11 @@
         <c:param name="error" value="2"/>
     </c:redirect>
 </c:if>
+<c:if test="${loginB.id_cargo != 0}">
+    <c:redirect url="../index.jsp">
+        <c:param name="error" value="1"/>
+    </c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,6 +33,16 @@
             <jsp:include page="/Menu_1_1.jsp" />
 
             <div class="container-fluid">
+                <c:if test="${param.exito == 1}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.emp-desa"/></strong><br>
+                    </div>
+                </c:if>
+                <c:if test="${param.exito == 2}">
+                    <div class="alert alert-info">
+                        <strong><fmt:message key="label.emp-abi"/></strong><br>
+                    </div>
+                </c:if>
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800"><fmt:message key="label.lstemp2"/></h1>
                     <a href="ingresarEmpleado.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
@@ -71,11 +86,16 @@
                                             <td>${emp.nombre_cargo}</td>
                                             <td>${emp.nombre_depto}</td>
                                             <td>${emp.estado}</td>
-
+                                            <c:set var="dato" value="${emp.estado}"/>
                                             <td>
                                                 <a title="modificar" class="btn btn-primary  btn-circle" href="modificarEmpleado.jsp?id=<c:out value="${emp.id_empleado}"/>"><i class="fa fa-edit"></i></a>
+                                                <% String dato = "" + pageContext.getAttribute("dato");
+                                                    if(dato.equals("Activo")){
+                                                %>                                                
                                                 <a title="eliminar" class="btn btn-danger btn-circle" href="javascript:eliminar(<c:out value="${emp.id_empleado}"/>)"><i class="fas fa-trash"></i></a>
-
+                                                <% }else {%>
+                                                <a title="activar" class="btn btn-success btn-circle" href="javascript:activar(<c:out value="${emp.id_empleado}"/>)"><i class="far fa-check-circle"></i></a>
+                                                <%}%>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -91,6 +111,13 @@
                     alertify.confirm("¿Realmente deseas inhabilitar a este empleado?", function (e) {
                         if (e) {
                             location.href = "../Controlador/empleadosDAO.jsp?codigoe=" + id;
+                        }
+                    });
+                }
+                function activar(id) {
+                    alertify.confirm("¿Realmente deseas habilitar a este empleado?", function (e) {
+                        if (e) {
+                            location.href = "../Controlador/empleadosDAO.jsp?activar=" + id;
                         }
                     });
                 }

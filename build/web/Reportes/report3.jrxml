@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe1921ab-9bcf-4cb5-aa0c-f2e107d67a2b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="5"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -59,8 +59,7 @@
      caso.`descrip_req` AS caso_descrip_req,
      caso.`fecha_creacion` AS caso_fecha_creacion
 FROM
-     `estados` estados INNER JOIN `caso` caso ON estados.`id_estado` = caso.`id_estado`
-]]>
+     `estados` estados INNER JOIN `caso` caso ON estados.`id_estado` = caso.`id_estado`]]>
 		</queryString>
 		<field name="estados_nombre_estado" class="java.lang.String"/>
 		<field name="caso_id_caso" class="java.lang.String"/>
@@ -178,7 +177,7 @@ WHERE
 				</staticText>
 				<image>
 					<reportElement x="28" y="20" width="152" height="63" uuid="fefc0c3a-385b-4e83-9814-87dbf0cd41c6"/>
-					<imageExpression><![CDATA["C:\\Users\\less_\\Desktop\\Proyecto\\PJWeb\\web\\Imas\\java.png"]]></imageExpression>
+					<imageExpression><![CDATA["C:\\Users\\jorge\\Desktop\\Pweb\\web\\Imas\\java.png"]]></imageExpression>
 				</image>
 			</frame>
 		</band>

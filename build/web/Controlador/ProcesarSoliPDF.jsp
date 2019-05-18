@@ -95,7 +95,7 @@
 %>
 
 <sql:update var="NewCasoq" dataSource="jdbc/mysql" scope="request">
-    insert into caso values (?, ?, ?, ?, ?, 1, 0, ?, ?);
+    insert into caso values (?, ?, ?, ?, ?, 1, 0, ?, ?, CURRENT_DATE);
     <sql:param value="${id_caso}"/>
     <sql:param value="${nombre_caso}"/>
     <sql:param value="${descrip_caso}"/>

@@ -36,6 +36,12 @@
                         <strong><fmt:message key="label.sin-Casos-Asignados"/>!</strong>
                         <br>
                     </div>
+                </c:if>                
+                <c:if test="${bander != 0}">
+                    <div class="alert alert-danger">
+                        <strong><fmt:message key="label.casos-vencidos"/>!</strong>
+                        <br>
+                    </div>
                 </c:if>
                 <c:if test="${param.exito == 1}">
                     <div class="alert alert-info">

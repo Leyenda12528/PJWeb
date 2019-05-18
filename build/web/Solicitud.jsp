@@ -32,7 +32,10 @@
             <jsp:include page="/Controlador/Casos.jsp"/>
             <jsp:include page="/Menu_1_1.jsp" />
             <div class="container-fluid">
-                <h4><fmt:message key="label.titlesoli" /></h4>
+                <div class="row  d-flex justify-content-between align-items-center">
+                    <h3 class="media-heading font-weight-bold text-black-50"><fmt:message key="label.titlesoli" /></h3>
+                    <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary"><fmt:message key="label.inicio"/></a>
+                </div>                
                 <c:if test="${not empty param.exito}">
                     <div class="alert alert-info">
                         <strong><fmt:message key="label.solienvi"/>!</strong>

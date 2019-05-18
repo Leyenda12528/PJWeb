@@ -29,7 +29,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="${pageContext.request.contextPath}/index.jsp">        
-        <img src="${pageContext.request.contextPath}/Imas/java.ico" height="45" width="45">
+        <img src="${pageContext.request.contextPath}/Imas/java.ico" height="65" width="65">
         <div class="sidebar-brand-text mx-3"><fmt:message key="label.titulomenu"/><sup>2</sup></div>
     </a>
     <!-- Divider -->
@@ -59,55 +59,74 @@
                 <c:if test="${loginB.id_cargo == 2}">
                     <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Solicitud.jsp'" style="margin-left: 15px"><fmt:message key="label.nuevasoli"/></button>
                     <br/>
-                </c:if>                                
-                <button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.modsoli"/></button>
-                <br/><button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/ListarCasos.jsp'" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
+                </c:if>
+                <c:if test="${loginB.id_cargo == 1}">
+                    <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/SolicitudP.jsp'" style="margin-left: 15px"><fmt:message key="label.solp"/></button>
+                    <br/>
+                </c:if>
+                <c:if test="${loginB.id_cargo == 0}">
+                    <br/><button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/ListarCasos.jsp'" style="margin-left: 15px"><fmt:message key="label.listcasos"/></button>
+                </c:if>
+                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Modal/principal.jsp'" style="margin-left: 15px"><fmt:message key="label.detalles"/></button>
+                <c:if test="${loginB.id_cargo == 3 || loginB.id_cargo == 4}">                    
+                    <c:if test="${loginB.id_cargo == 3}">
+                        <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/CasosDevueltosP.jsp'" style="margin-left: 15px"><fmt:message key="label.devuelto-observaciones"/></button>
+                    </c:if>
+                    <c:if test="${loginB.id_cargo == 4}">
+                        <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/CasosRespuestaT.jsp'" style="margin-left: 15px"><fmt:message key="label.espera"/></button>
+                    </c:if>
+                </c:if>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="far fa-edit" style="font-size:24px" ></i>
-            <span><fmt:message key="label.bitacoras"/></span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Bitacora.jsp'" style="margin-left: 15px"><fmt:message key="label.ver"/></button>
-                <br/><button type="button" class="btn btn-default btn-xs" onclick="mostrar()" style="margin-left: 15px"><fmt:message key="label.mod"/></button>
+    <c:if test="${loginB.id_cargo == 3 || loginB.id_cargo == 4}">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="far fa-edit" style="font-size:24px" ></i>
+                <span><fmt:message key="label.bitacoras"/></span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
+                    <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Casos/CasosAsignados.jsp'" style="margin-left: 15px"><fmt:message key="label.ver"/></button>                    
+                </div>
             </div>
-        </div>
-    </li>    
+        </li>
+    </c:if>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- Divider -->    
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-            <i class="far fa-address-card" style="font-size:24px" ></i>
-            <span><fmt:message key="label.emp"/></span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ingresarEmpleado.jsp'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ListarEmpleados.jsp'" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/programadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
-                <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/probadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.tester"/></button>
-
+    <!-- Heading admin jd o jf -->
+    <c:if test="${loginB.id_cargo == 1 || loginB.id_cargo == 2 || loginB.id_cargo == 0}">
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            <fmt:message key="label.emp"/>
+        </div>    
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <i class="far fa-address-card" style="font-size:24px" ></i>
+                <span><fmt:message key="label.emp"/></span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header"><fmt:message key="label.op"/></h6>
+                    <c:if test="${loginB.id_cargo == 0}">
+                        <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ingresarEmpleado.jsp'" style="margin-left: 15px"><fmt:message key="label.mantenimiento"/></button>
+                        <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/ListarEmpleados.jsp'" style="margin-left: 15px"><fmt:message key="label.listemp"/></button>
+                    </c:if>
+                    <c:if test="${loginB.id_cargo == 1 || loginB.id_cargo == 2}">
+                        <c:if test="${loginB.id_cargo == 1}">
+                            <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/programadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.programadores"/></button>
+                        </c:if>
+                        <button type="button" class="btn btn-default btn-xs" onclick="location.href='${pageContext.request.contextPath}/Empleados/probadores.jsp?op=0'" style="margin-left: 15px"><fmt:message key="label.tester"/></button>
+                    </c:if>
+                </div>
             </div>
-        </div>
-    </li>
-
-
+        </li>
+    </c:if>
+    
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
@@ -144,17 +163,18 @@
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="drop">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil.jsp">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         <fmt:message key="label.perfil"/>
                     </a>
+                    
+
+                    <div class="dropdown-divider"></div>
+                    <%--
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                         <fmt:message key="label.conf"/>
                     </a>
-
-                    <div class="dropdown-divider"></div>
-                    <%--
                     <a class="dropdown-item" href="Solicitud.jsp" data-toggle="modal" data-target="#logoutModal">
                     --%>
                     <a class="dropdown-item" href="${pageContext.request.contextPath}/Logout.jsp">
